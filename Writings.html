@@ -2,55 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Writings Portfolio</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
     background: url("hydrothermal.png") no-repeat center center fixed;
     background-size: cover;
-    font-family: "Georgia", serif;
-    color: #ffdd55;
+    font-family: 'Poppins', sans-serif;
+    color: #a0e9d8;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px 80px; /* bottom padding for space */
+    padding: 40px 20px 80px;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 60, 50, 0.85);
+    z-index: -1;
   }
 
   .container {
-    background: rgba(50, 45, 15, 0.75);
-    backdrop-filter: blur(12px);
+    background: rgba(10, 146, 99, 0.5);
+    backdrop-filter: blur(14px);
     border-radius: 20px;
     max-width: 960px;
     width: 90%;
     padding: 50px 60px;
-    box-shadow: 0 0 30px rgba(255, 221, 85, 0.7);
+    box-shadow: 0 0 30px rgba(10, 146, 99, 0.7);
     user-select: none;
+    color: #a0e9d8;
   }
 
   h3 {
     font-size: 42px;
     font-weight: 700;
-    color: #ffdd55; /* warm yellow */
-    border: 5px solid #ffdd55;
+    color: #d4ce46;
+    border: 5px solid #d4ce46;
     padding: 20px;
     margin-bottom: 40px;
     letter-spacing: 1px;
     text-align: center;
-    text-shadow: 0 0 8px rgba(255, 221, 85, 0.9);
+    text-shadow: 0 0 10px #d4ce46aa;
   }
+
   .intro {
     max-width: 600px;
     margin: 0 auto 50px auto;
     padding: 20px 30px;
-    background: rgba(10, 30, 80, 0.75);
-    border: 2px solid #3a6fcf;
+    background: rgba(0, 80, 60, 0.75);
+    border: 2px solid #00ffd9;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(58, 111, 207, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 217, 0.6);
     text-align: center;
     font-size: 26px;
-    color: #a9caff;
-    text-shadow: 0 0 3px rgba(0,0,0,0.4);
+    color: #9ce6de;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     font-style: italic;
   }
 
@@ -66,9 +84,9 @@
   }
 
   .card {
-    background: rgba(50, 45, 15, 0.7);
+    background: rgba(10, 100, 70, 0.6);
     border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(255, 221, 85, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 255, 217, 0.3);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -80,14 +98,14 @@
 
   .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 221, 85, 0.7);
+    box-shadow: 0 20px 40px rgba(0, 255, 217, 0.7);
   }
 
   .card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-bottom: 2px solid #bfa843;
+    border-bottom: 2px solid #00ffd9;
   }
 
   /* Button style */
@@ -97,8 +115,8 @@
     padding: 12px 24px;
     font-size: 18px;
     font-weight: 600;
-    color: #3a6fcf; /* blue text */
-    border: 2.5px solid #3a6fcf; /* blue border */
+    color: #00ffd9;
+    border: 2.5px solid #00ffd9;
     border-radius: 12px;
     background: transparent;
     text-align: center;
@@ -106,26 +124,26 @@
   }
 
   .btn:hover {
-    background-color: #ffdd55;
-    color: #332d0b;
-    box-shadow: 0 0 20px #ffdd55;
+    background-color: #00ffd9;
+    color: #00332f;
+    box-shadow: 0 0 20px #00ffd9;
   }
 
-  /* New yellow box outside container */
+  /* New teal box outside container */
   .more-articles {
     max-width: 960px;
     width: 90%;
     margin: 40px auto 0 auto;
     padding: 20px 30px;
-    background: rgba(255, 221, 85, 0.25);
-    border: 2px solid #ffdd55;
+    background: rgba(0, 255, 217, 0.25);
+    border: 2px solid #00ffd9;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255, 221, 85, 0.4);
-    color: #ffdd55;
+    box-shadow: 0 0 15px rgba(0, 255, 217, 0.4);
+    color: #00ffd9;
     font-size: 22px;
     text-align: center;
     font-style: italic;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     user-select: none;
   }
 
@@ -246,7 +264,7 @@
     </div>
   </div>
 
-  <!-- Separate yellow box with message outside container -->
+  <!-- Separate teal box with message outside container -->
   <div class="more-articles">
     Plus many more articles online and in print!
   </div>

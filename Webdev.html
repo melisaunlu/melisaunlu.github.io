@@ -5,6 +5,12 @@
 <title>WebDev Projects | University of Houston</title>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
@@ -12,42 +18,60 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    font-family: "Georgia", serif;
-    color: beige;
+    font-family: 'Poppins', sans-serif;
+    color: #4aba91; /* light green text */
     display: flex;
     justify-content: center;
     padding: 40px 20px;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(14, 81, 53, 0.85); /* dark green overlay */
+    z-index: -1;
   }
 
   .container {
-    background: rgba(10, 20, 40, 0.75);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
+    background: rgba(13, 146, 99, 0.55);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
     padding: 50px 60px;
     max-width: 960px;
     width: 90%;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 30px rgba(14, 81, 53, 0.5);
+    color: #4aba91;
     user-select: none;
     text-align: center;
   }
 
   h3 {
-    font-size: 42px;
-    font-weight: 700;
-    color: rgb(255, 123, 0);
-    border: 5px solid rgb(0, 255, 213);
-    padding: 20px;
+    font-weight: 900;
+    font-size: 3.8rem;
+    color: #d4ce46; /* yellow titles */
     margin-bottom: 50px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(212, 206, 70, 0.85);
+  }
+
+  .text-content {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: left;
   }
 
   .text-content p {
-    font-size: 20px;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto 30px;
-    text-align: left;
-    color: beige;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #92e6e6; /* lighter cyan */
+    margin-bottom: 1.25em;
+    background: rgba(13, 146, 99, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 20px 28px;
+    box-shadow: 0 0 26px rgba(14, 81, 53, 0.4);
   }
 
   .content {
@@ -69,32 +93,22 @@
     display: inline-block;
     text-align: center;
     padding: 15px 30px;
-    font-size: 24px;
-    border-radius: 14px;
-    border: 3px solid rgb(0, 255, 247);
-    color: rgb(0, 255, 247);
+    font-size: 1.5rem;
+    border-radius: 16px;
+    border: 3px solid #4aba91;
+    color: #4aba91;
     text-decoration: none;
     transition: all 0.3s ease;
     user-select: none;
     cursor: pointer;
+    font-weight: 600;
   }
 
   .btn:hover {
-    background-color: rgb(0, 255, 247);
-    color: black;
-    box-shadow: 0 0 25px rgb(0, 255, 247);
+    background-color: #4aba91;
+    color: #494b4b; /* dark gray text on hover */
+    box-shadow: 0 0 40px #4aba91;
     transform: scale(1.05);
-  }
-
-  .advisor {
-    border-color: rgb(255, 174, 0);
-    color: rgb(255, 174, 0);
-  }
-
-  .advisor:hover {
-    background-color: rgb(255, 174, 0);
-    color: black;
-    box-shadow: 0 0 25px rgb(255, 174, 0);
   }
 
   .gallery {
@@ -106,44 +120,15 @@
 
   .gallery img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease;
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-  }
-
-  @media (max-width: 900px) {
-    .content {
-      flex-direction: column;
-      gap: 40px;
-    }
-    .buttons {
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
-      min-width: unset;
-    }
-    .btn {
-      font-size: 18px;
-      padding: 12px 25px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    h3 {
-      font-size: 32px;
-      padding: 15px 0;
-    }
-    .text-content p {
-      font-size: 18px;
-    }
-    .gallery {
-      grid-template-columns: 1fr;
-    }
+    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
   }
 
   /* TECHNOLOGIES / SKILLS */
@@ -163,7 +148,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 255, 213, 0.8),
+      rgba(212, 206, 70, 0.8),
       transparent
     );
   }
@@ -196,18 +181,18 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(0, 255, 213, 0.75));
+    filter: drop-shadow(0 0 14px rgba(74, 186, 145, 0.75));
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(0, 255, 213, 1));
+    filter: drop-shadow(0 0 22px rgba(74, 186, 145, 1));
   }
 
   .tech span {
     font-size: 0.95rem;
-    color: #cce7e3;
+    color: #b0e7e7;
     letter-spacing: 0.6px;
   }
 
@@ -219,6 +204,50 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .content {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .buttons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      min-width: unset;
+    }
+    .btn {
+      font-size: 1.2rem;
+      padding: 12px 25px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 25px 10px;
+    }
+    h3 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+    .text-content p {
+      font-size: 1rem;
+      padding: 14px 12px;
+    }
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .tech-icons {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 25px;
+    }
+    .tech img {
+      width: 50px;
+      height: 50px;
     }
   }
 </style>
@@ -238,7 +267,7 @@
 
     <div class="content">
       <div class="buttons">
-        <a href="https://github.com/williamngo3000/COSC4353_Project.git" class="btn">
+        <a href="https://github.com/williamngo3000/COSC4353_Project.git" class="btn" target="_blank" rel="noopener noreferrer">
           🔗 View GitHub Code
         </a>
       </div>

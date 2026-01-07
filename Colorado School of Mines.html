@@ -2,21 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>STA/LTA & Autoencoder Seismic Analysis</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
-    background-image: url("wp4047238-mercury-planet-wallpapers.jpg");
+    font-family: 'Poppins', sans-serif;
+    background: url("wp4047238-mercury-planet-wallpapers.jpg") no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: "Georgia", serif;
+    color: #494b4b;
     display: flex;
     justify-content: center;
-    color: #eee;
     padding: 40px 20px;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(14, 81, 53, 0.85);
+    z-index: -1;
   }
 
   .container {
@@ -24,23 +38,24 @@
     width: 95%;
     margin: 40px auto;
     padding: 40px 50px;
-    background: rgba(10, 20, 40, 0.95);
-    border-radius: 24px;
-    box-shadow: 0 0 40px rgba(0, 255, 247, 0.7);
-    backdrop-filter: blur(10px);
-    color: #eee;
+    background: rgba(13, 146, 99, 0.55);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    box-shadow: 0 0 30px rgba(14, 81, 53, 0.5);
+    color: #4aba91;
     user-select: none;
   }
 
   h3 {
     font-size: 3.6rem;
     font-weight: 900;
-    color: rgb(45, 223, 0);
-    border: 5px solid rgb(0, 255, 247);
+    color: #d4ce46;
+    border: 5px solid #d4ce46;
     padding: 20px 25px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-align: center;
+    text-shadow: 0 0 12px rgba(212, 206, 70, 0.85);
   }
 
   .content {
@@ -53,27 +68,26 @@
 
   .content img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 129, 161, 0.6);
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
     transition: transform 0.3s ease;
   }
 
   .content img:hover {
     transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
   }
 
   .text {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: #cde9f9;
+    color: #92e6e6;
     text-align: left;
-    background: rgba(5, 15, 30, 0.75);
-    border: 2px solid rgba(0, 255, 247, 0.6);
-    border-radius: 18px;
+    background: rgba(13, 146, 99, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
     padding: 28px 32px;
-    box-shadow:
-      0 0 18px rgba(0, 255, 247, 0.35),
-      inset 0 0 12px rgba(0, 255, 247, 0.15);
+    box-shadow: 0 0 26px rgba(14, 81, 53, 0.4);
   }
 
   .text p {
@@ -85,18 +99,19 @@
     margin-top: 30px;
     padding: 15px 35px;
     font-size: 1.25rem;
-    border: 3px solid rgb(0, 255, 247);
-    color: rgb(0, 255, 247);
+    border: 3px solid #4aba91;
+    color: #4aba91;
     text-decoration: none;
     border-radius: 16px;
-    transition: all 0.3s ease;
     font-weight: 600;
+    transition: all 0.3s ease;
+    user-select: none;
   }
 
   .github:hover {
-    background: rgb(0, 255, 247);
-    color: black;
-    box-shadow: 0 0 25px rgb(0, 255, 247);
+    background: #4aba91;
+    color: #494b4b;
+    box-shadow: 0 0 40px #4aba91;
     transform: scale(1.05);
   }
 
@@ -116,7 +131,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 255, 247, 0.8),
+      rgba(212, 206, 70, 0.8),
       transparent
     );
   }
@@ -142,18 +157,18 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(0, 255, 247, 0.75));
+    filter: drop-shadow(0 0 14px rgba(74, 186, 145, 0.75));
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(0, 255, 247, 1));
+    filter: drop-shadow(0 0 22px rgba(74, 186, 145, 1));
   }
 
   .tech span {
     font-size: 0.95rem;
-    color: #cde9f9;
+    color: #b0e7e7;
     letter-spacing: 0.6px;
   }
 
@@ -166,15 +181,15 @@
 
   .gallery img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
     transition: transform 0.3s ease;
     cursor: pointer;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 255, 247, 0.8);
+    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
   }
 
   @keyframes fadeUp {
@@ -217,11 +232,11 @@
 
     <div class="tech-stack">
       <div class="tech-icons">
-        <div class="tech"><img src="python.png"><span>Python</span></div>
-        <div class="tech"><img src="numpy-logo-png_seeklogo-398690.png"><span>NumPy</span></div>
-        <div class="tech"><img src="images (3).png"><span>PyTorch</span></div>
-        <div class="tech"><img src="ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png"><span>DASCore</span></div>
-        <div class="tech"><img src="Octicons-mark-github.svg.png"><span>GitHub</span></div>
+        <div class="tech"><img src="python.png" alt="Python"><span>Python</span></div>
+        <div class="tech"><img src="numpy-logo-png_seeklogo-398690.png" alt="NumPy"><span>NumPy</span></div>
+        <div class="tech"><img src="images (3).png" alt="PyTorch"><span>PyTorch</span></div>
+        <div class="tech"><img src="ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png" alt="DASCore"><span>DASCore</span></div>
+        <div class="tech"><img src="Octicons-mark-github.svg.png" alt="GitHub"><span>GitHub</span></div>
       </div>
     </div>
 
