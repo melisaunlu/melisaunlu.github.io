@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Magnetic Fields Modeling</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: url("wp9725843.webp") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: #eee;
+    padding: 50px 20px;
+  }
+
+  /* Main container */
+  .container {
+    max-width: 950px;
+    width: 95%;
+    padding: 50px 60px;
+    background: rgba(10, 20, 40, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    box-shadow: 0 0 45px rgba(255, 165, 0, 0.55);
+  }
+
+  /* Title */
+  h1 {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #053555;
+    text-shadow: 0 0 6px #39ff14, 0 0 22px #39ff14;
+    text-align: center;
+    margin-bottom: 55px;
+  }
+
+  /* Content grid */
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 45px;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .content img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 255, 247, 0.4);
+    transition: transform 0.35s ease;
+  }
+
+  .content img:hover {
+    transform: scale(1.06);
+  }
+
+  /* Text box */
+  .text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cde9f9;
+    background: rgba(10, 20, 40, 0.75);
+    border: 2px solid rgba(0, 255, 247, 0.55);
+    border-radius: 20px;
+    padding: 30px 34px;
+    box-shadow:
+      0 0 20px rgba(0, 255, 247, 0.35),
+      inset 0 0 12px rgba(0, 255, 247, 0.12);
+  }
+
+  .text p { margin-bottom: 1.3em; }
+
+  /* GitHub button */
+  .github {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 38px;
+    font-size: 1.25rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(255, 165, 0, 0.45);
+  }
+
+  .github:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    box-shadow: 0 0 18px #feb47b;
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  /* Tech stack */
+  .tech-stack {
+    margin: 70px 0 20px;
+    padding-top: 35px;
+    position: relative;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0,255,247,0.8), transparent);
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 0 14px rgba(0,255,247,0.8));
+    transition: transform 0.3s ease;
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.1);
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: #cde9f9;
+    letter-spacing: 0.6px;
+  }
+
+  /* Gallery */
+  .gallery {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    transition: transform 0.35s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px rgba(0, 255, 247, 0.8);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content { grid-template-columns: 1fr; }
+    h1 { font-size: 2.8rem; }
+    .container { padding: 35px 30px; }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 30px 10px; }
+    .text { font-size: 1rem; padding: 22px 18px; }
+    .github { font-size: 1.1rem; padding: 14px 28px; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Magnetic Fields Modeling</h1>
+
+    <div class="content">
+      <img src="image.png" alt="Magnetic field simulation" />
+
+      <div class="text">
+        <p>
+          Worked with <strong>Dr. Krista Soderlund</strong>, <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on numerical modeling of magnetic fields around early Earth, Venus, and the Moon.
+        </p>
+
+        <p>
+          Generated magnetic and kinetic energy fields, zonal flows, and entropy profiles using large-scale parallel simulations on high-performance computing systems.
+        </p>
+
+        <p>
+          Implemented and validated a radial electrical conductivity profile with a sharp gradient at the core–mantle boundary, bridging idealized dynamo models with realistic planetary interiors.
+        </p>
+
+        <p>
+          Conducted extensive test cases analyzing magnetic surfaces, field tilt, zonal flows, and energy behavior for scientific poster presentation.
+        </p>
+
+        <a href="https://github.com/dunyuliu/magic.bmo.git" class="github" target="_blank" rel="noopener noreferrer">
+          🔗 View GitHub Code
+        </a>
+      </div>
+    </div>
+
+    <!-- Technologies -->
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech"><img src="Fortran_logo.svg.png"><span>Fortran</span></div>
+        <div class="tech"><img src="images.png"><span>MPI</span></div>
+        <div class="tech"><img src="images (5).jpg"><span>Python</span></div>
+        <div class="tech"><img src="images (1).png"><span>Linux / HPC</span></div>
+        <div class="tech"><img src="images (2).png"><span>TACC</span></div>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <img src="Img2.png" alt="Simulation result 1" />
+      <img src="IMG3.png" alt="Simulation result 2" />
+    </div>
+  </div>
+</body>
+</html>

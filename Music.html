@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Last Minute Games</title>
+  <style>
+body {
+  background: url('tyr5mj819dp21.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fffacd; /* pale yellow */
+  margin: 0;
+  padding: 40px 20px 80px; /* extra bottom padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-shadow:
+    0 0 6px rgba(0, 0, 0, 0.7);
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  padding: 30px 25px 40px;
+  background: rgba(0, 20, 30, 0.75); /* dark transparent overlay */
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  user-select: none;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+h3.one, h3.two {
+  text-align: center;
+  font-size: 44px;
+  margin-bottom: 40px;
+  user-select: none;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 12px 0;
+  border-radius: 14px;
+  user-select: none;
+  text-shadow:
+    0 0 8px rgba(255, 255, 102, 0.9);
+  box-shadow:
+    0 0 20px rgba(255, 255, 102, 0.5);
+}
+
+h3.one {
+  border: 3px solid #ffff66;
+  color: #ffff66;
+  background: rgba(255, 255, 102, 0.1);
+  box-shadow: 0 0 25px #ffff66aa;
+}
+
+h3.two {
+  border: 3px solid #00c7d9;
+  color: #00ece1;
+  background: rgba(0, 236, 225, 0.1);
+  text-shadow:
+    0 0 12px #4c00ff,
+    0 0 30px #4c00ffcc;
+  box-shadow: 0 0 25px #1900ffbb;
+}
+
+a.link {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #00e0d6;
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  user-select: none;
+  text-shadow: 0 0 8px rgba(0, 224, 214, 0.7);
+}
+
+a.link:hover, a.link:focus {
+  color: #66fff7;
+  text-decoration: underline;
+  text-shadow:
+    0 0 12px #66fff7,
+    0 0 30px #66fff7cc;
+  outline: none;
+}
+
+.game-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px 30px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 18px 15px;
+  border-bottom: 2px solid rgba(255, 255, 102, 0.4);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  border-radius: 15px;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.game-item:hover, .game-item:focus-within {
+  border-color: #ffff66;
+  background: rgba(255, 255, 102, 0.1);
+  outline: none;
+}
+
+.game-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow:
+    0 0 15px 2px #00fff7aa;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-item:hover img {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 25px 4px #00fff7ee;
+}
+
+audio {
+  width: 100%;
+  outline: none;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 12px #00e0d6cc;
+  background: transparent;
+  border: 1.5px solid #00e0d6cc;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+audio:hover, audio:focus {
+  box-shadow: 0 0 25px #00e0d6ff;
+  border-color: #00fff7ff;
+  outline: none;
+}
+
+h4 {
+  color: #ffff66;
+  font-size: 30px;
+  margin-bottom: 30px;
+  user-select: none;
+  text-align: center;
+  text-shadow:
+    0 0 8px #ffff66cc;
+}
+
+/* Rhythm Bells images */
+#rhythm-bells-section img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  box-shadow:
+    0 0 20px #00fff7aa;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+#rhythm-bells-section img:hover, #rhythm-bells-section img:focus {
+  box-shadow:
+    0 0 30px #00fff7ff;
+  outline: none;
+}
+
+/* Audio track wrapper */
+.audio-track {
+  margin: 0 auto 30px;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.audio-track:hover, .audio-track:focus-within {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  outline: none;
+}
+
+.audio-track audio {
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  cursor: pointer;
+  outline: none;
+}
+
+.audio-track .track-name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffe066; /* soft yellow */
+  text-align: center;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+/* Bottom message */
+.bottom-message {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto 60px;
+  padding: 20px 30px;
+
+  background: rgba(245, 245, 220, 0.85); /* beige background */
+  border: 2.5px solid #e6d8ad;          /* darker beige border */
+  border-radius: 18px;
+
+  box-shadow: 0 0 25px rgba(245, 245, 220, 0.6);
+
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #4a4635; /* dark beige/brown text */
+
+  letter-spacing: 1px;
+  user-select: none;
+  text-shadow: none;
+}
+/* Responsive */
+@media (max-width: 700px) {
+  .game-item {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+    text-align: center;
+  }
+  .game-item img {
+    margin: 0 auto;
+  }
+  .audio-track {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  h3.one, h3.two {
+    font-size: 32px;
+  }
+  a.link {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container" id="rhythm-bells-section">
+    <h3 class="two" tabindex="0">RHYTHM BELLS</h3>
+    <img src="rhythmgamesart.png" alt="Rhythm Bells" tabindex="0" />
+    <img src="image.webp" alt="Rhythm Bells Image" tabindex="0" />
+
+    <h4>The music came 12th out of 93 submissions for the one week game jam we worked on</h4>
+    <a href="https://gamejolt.com/games/rhythm-bells/1040221" target="_blank" class="link" rel="noopener noreferrer" tabindex="0">
+      🎮 Rhythm Bells
+    </a>
+
+    <div class="audio-track" tabindex="0">
+      <audio controls>
+        <source src="untitled.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="track-name">Snow Days</div>
+    </div>
+
+    <div class="audio-track" tabindex="0">
+      <audio controls>
+        <source src="track2.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="track-name">Into The Bells</div>
+    </div>
+
+    <div class="audio-track" tabindex="0">
+      <audio controls>
+        <source src="track3.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="track-name">Clock Strikes 12</div>
+    </div>
+  </div>
+
+  <div class="container" id="last-minute-games-section">
+    <h3 class="one" tabindex="0">LAST MINUTE GAMES</h3>
+
+    <a href="https://playlastminutegames.itch.io/castle-of-time" target="_blank" class="link" rel="noopener noreferrer" tabindex="0">
+      🎮 Castle of Time
+    </a>
+
+    <div class="game-item" tabindex="0">
+      <img src="battle.png" alt="Battle Scene" />
+      <audio controls>
+        <source src="battletheme_enemy (1) (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="game-item" tabindex="0">
+      <img src="dreamsequence.png" alt="Dream Sequence Scene" />
+      <audio controls>
+        <source src="gamedev (1) (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="adriannemaid.png" alt="Adrianne Maid Character" />
+      <audio controls>
+        <source src="Adrianne (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="allistairsemifinal.png" alt="Alistair Character" />
+      <audio controls>
+        <source src="Alistair (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="avantsemifinal.png" alt="Avant Character" />
+      <audio controls>
+        <source src="Avant (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="charlessemifinal.png" alt="Charles Character" />
+      <audio controls>
+        <source src="Charles (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="eliassemifinal.png" alt="Elias Character" />
+      <audio controls>
+        <source src="Elias (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="jester2ndversion.png" alt="Jester Character" />
+      <audio controls>
+        <source src="Marco (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="nikolaussemifinal.png" alt="Nikolaus Character" />
+      <audio controls>
+        <source src="Nikolaus (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="game-item" tabindex="0">
+      <img src="sebastiansemifinal.png" alt="Sebastian Character" />
+      <audio controls>
+        <source src="Sebestian (mp3cut.net).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </div>
+
+  <p class="bottom-message" tabindex="0">Plus many more piano tracks for rooms and minigames!</p>
+</body>
+</html>

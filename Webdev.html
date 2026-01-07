@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>WebDev Projects | University of Houston</title>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('Churning_atmosphere_on_Saturn_pillars.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Georgia", serif;
+    color: beige;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .container {
+    background: rgba(10, 20, 40, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 50px 60px;
+    max-width: 960px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    user-select: none;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 42px;
+    font-weight: 700;
+    color: rgb(255, 123, 0);
+    border: 5px solid rgb(0, 255, 213);
+    padding: 20px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+  }
+
+  .text-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    text-align: left;
+    color: beige;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 250px;
+  }
+
+  .btn {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 24px;
+    border-radius: 14px;
+    border: 3px solid rgb(0, 255, 247);
+    color: rgb(0, 255, 247);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: rgb(0, 255, 247);
+    color: black;
+    box-shadow: 0 0 25px rgb(0, 255, 247);
+    transform: scale(1.05);
+  }
+
+  .advisor {
+    border-color: rgb(255, 174, 0);
+    color: rgb(255, 174, 0);
+  }
+
+  .advisor:hover {
+    background-color: rgb(255, 174, 0);
+    color: black;
+    box-shadow: 0 0 25px rgb(255, 174, 0);
+  }
+
+  .gallery {
+    flex: 1 1 600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .buttons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      min-width: unset;
+    }
+    .btn {
+      font-size: 18px;
+      padding: 12px 25px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h3 {
+      font-size: 32px;
+      padding: 15px 0;
+    }
+    .text-content p {
+      font-size: 18px;
+    }
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* TECHNOLOGIES / SKILLS */
+  .tech-stack {
+    margin: 70px 0 10px;
+    padding-top: 35px;
+    position: relative;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 213, 0.8),
+      transparent
+    );
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .tech:nth-child(1) { animation-delay: 0.1s; }
+  .tech:nth-child(2) { animation-delay: 0.2s; }
+  .tech:nth-child(3) { animation-delay: 0.3s; }
+  .tech:nth-child(4) { animation-delay: 0.4s; }
+  .tech:nth-child(5) { animation-delay: 0.5s; }
+  .tech:nth-child(6) { animation-delay: 0.6s; }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px rgba(0, 255, 213, 0.75));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 0 22px rgba(0, 255, 213, 1));
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: #cce7e3;
+    letter-spacing: 0.6px;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>WebDev</h3>
+
+    <div class="text-content">
+      <p>I have two Web Dev projects I worked on. These include this website that is currently in progress (both front end and backend) and a web application for my database class. Here, I'll show the web application we developed and some screenshots.</p>
+
+      <p>For this project, we worked as a team to build a web app. I mainly worked on the database and integrating it with the frontend along with unit tests and coverage reports.</p>
+
+      <p>The app runs on React and Vite, with three servers working in the background (Frontend, Backend, and Database). It uses SQLite (volunteer.db) with Flask-SQLAlchemy as the ORM. The database file is auto-created on startup, and models are defined and seeded accordingly.</p>
+    </div>
+
+    <div class="content">
+      <div class="buttons">
+        <a href="https://github.com/williamngo3000/COSC4353_Project.git" class="btn">
+          🔗 View GitHub Code
+        </a>
+      </div>
+
+      <div class="gallery">
+        <img src="database1.png" alt="Database schema screenshot" />
+        <img src="coverage report.png" alt="Unit test coverage report" />
+        <img src="Screenshot 2026-01-02 at 20.04.53.png" alt="Web application screenshot 1" />
+        <img src="Screenshot 2026-01-02 at 20.05.07.png" alt="Web application screenshot 2" />
+        <img src="Screenshot 2026-01-02 at 20.05.19.png" alt="Web application screenshot 3" />
+      </div>
+    </div>
+
+    <!-- TECHNOLOGIES / SKILLS -->
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech">
+          <img src="reactlogo.png" alt="React" />
+          <span>React</span>
+        </div>
+        <div class="tech">
+          <img src="Vitejs-logo.svg.png" alt="Vite" />
+          <span>Vite</span>
+        </div>
+        <div class="tech">
+          <img src="images (7).jpg" alt="Flask" />
+          <span>Flask</span>
+        </div>
+        <div class="tech">
+          <img src="images (8).jpg" alt="SQLite" />
+          <span>SQLite</span>
+        </div>
+        <div class="tech">
+          <img src="images (7).png" alt="SQLAlchemy" />
+          <span>SQLAlchemy</span>
+        </div>
+        <div class="tech">
+          <img src="pythonlogo.png" alt="Python" />
+          <span>Python</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

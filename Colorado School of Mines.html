@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>STA/LTA & Autoencoder Seismic Analysis</title>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("wp4047238-mercury-planet-wallpapers.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Georgia", serif;
+    display: flex;
+    justify-content: center;
+    color: #eee;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    width: 95%;
+    margin: 40px auto;
+    padding: 40px 50px;
+    background: rgba(10, 20, 40, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(0, 255, 247, 0.7);
+    backdrop-filter: blur(10px);
+    color: #eee;
+    user-select: none;
+  }
+
+  h3 {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: rgb(45, 223, 0);
+    border: 5px solid rgb(0, 255, 247);
+    padding: 20px 25px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 45px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .content img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 129, 161, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .content img:hover {
+    transform: scale(1.05);
+  }
+
+  .text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cde9f9;
+    text-align: left;
+    background: rgba(5, 15, 30, 0.75);
+    border: 2px solid rgba(0, 255, 247, 0.6);
+    border-radius: 18px;
+    padding: 28px 32px;
+    box-shadow:
+      0 0 18px rgba(0, 255, 247, 0.35),
+      inset 0 0 12px rgba(0, 255, 247, 0.15);
+  }
+
+  .text p {
+    margin-bottom: 1.25em;
+  }
+
+  .github {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
+    font-size: 1.25rem;
+    border: 3px solid rgb(0, 255, 247);
+    color: rgb(0, 255, 247);
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .github:hover {
+    background: rgb(0, 255, 247);
+    color: black;
+    box-shadow: 0 0 25px rgb(0, 255, 247);
+    transform: scale(1.05);
+  }
+
+  .tech-stack {
+    margin: 70px 0 10px;
+    padding-top: 35px;
+    position: relative;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 247, 0.8),
+      transparent
+    );
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px rgba(0, 255, 247, 0.75));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 0 22px rgba(0, 255, 247, 1));
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: #cde9f9;
+    letter-spacing: 0.6px;
+  }
+
+  .gallery {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 255, 247, 0.8);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 700px) {
+    .container { padding: 30px 25px; }
+    h3 { font-size: 3rem; }
+    .content { grid-template-columns: 1fr; }
+    .text { text-align: center; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Seismic STA/LTA & Autoencoder<br>Testing and Scalability</h3>
+
+    <div class="content">
+      <img src="img5.png" alt="STA/LTA analysis output" />
+
+      <div class="text">
+        <p>
+          Developed Python pipelines for seismic event detection using <strong>STA/LTA</strong>
+          with DASCore and applied a <strong>pre-trained autoencoder</strong> for anomaly detection.
+          Work focused on preprocessing, spectral reconstruction, unit testing, and serial
+          scalability benchmarking.
+        </p>
+
+        <a href="https://github.com/Unmel5/mines-geophysics.git"
+           class="github"
+           target="_blank"
+           rel="noopener noreferrer">
+          🔗 View GitHub Code
+        </a>
+      </div>
+    </div>
+
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech"><img src="python.png"><span>Python</span></div>
+        <div class="tech"><img src="numpy-logo-png_seeklogo-398690.png"><span>NumPy</span></div>
+        <div class="tech"><img src="images (3).png"><span>PyTorch</span></div>
+        <div class="tech"><img src="ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png"><span>DASCore</span></div>
+        <div class="tech"><img src="Octicons-mark-github.svg.png"><span>GitHub</span></div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <img src="img4.png" alt="Autoencoder reconstruction" />
+    </div>
+  </div>
+</body>
+</html>

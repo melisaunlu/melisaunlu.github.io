@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Rocketry | University of Houston AIAA</title>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Georgia", serif;
+    display: flex;
+    justify-content: center;
+    color: #eee;
+    padding: 40px 20px;
+  }
+
+  .container {
+    background: rgba(10, 20, 40, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 50px 60px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    user-select: none;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgb(0, 255, 213);
+    border: 5px solid rgb(0, 255, 213);
+    padding: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: beige;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    text-align: left;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .photo-block {
+    overflow: hidden;
+    border-radius: 16px;
+    background: rgba(10, 20, 40, 0.6);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .photo-block:hover {
+    box-shadow: 0 20px 40px rgba(0, 255, 213, 0.9);
+  }
+
+  .photo-block img {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    transition: transform 0.3s ease;
+  }
+
+  .photo-block:hover img {
+    transform: scale(1.05);
+  }
+
+  .caption {
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: #cce7e3;
+    text-align: left;
+    background: rgba(0,0,0,0.4);
+    border-radius: 0 0 16px 16px;
+    user-select: text;
+  }
+
+  /* Technologies / Skills section */
+  .tech-stack {
+    margin: 70px 0 10px;
+    padding-top: 35px;
+    position: relative;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 213, 0.8),
+      transparent
+    );
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  /* Staggered animation delays */
+  .tech:nth-child(1) { animation-delay: 0.1s; }
+  .tech:nth-child(2) { animation-delay: 0.2s; }
+  .tech:nth-child(3) { animation-delay: 0.3s; }
+  .tech:nth-child(4) { animation-delay: 0.4s; }
+  .tech:nth-child(5) { animation-delay: 0.5s; }
+  .tech:nth-child(6) { animation-delay: 0.6s; }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px rgba(0, 255, 213, 0.75));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 0 22px rgba(0, 255, 213, 1));
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: #cce7e3;
+    letter-spacing: 0.6px;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .container {
+      padding: 40px 30px;
+    }
+    h3 {
+      font-size: 2.8rem;
+      padding: 15px;
+      margin-bottom: 30px;
+    }
+    .intro {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Rocketry</h3>
+
+    <p class="intro">
+      During high school, including the Covid period and Freshman year at University of Houston,  
+      I was active in <strong>AIAA-UH</strong> (American Institute of Aeronautics and Astronautics).  
+      I worked on two rockets: <strong>Oberon</strong> and <strong>Zephyr</strong>.  
+      As part of avionics and an officer, I developed flight computers, worked on telemetry,  
+      and co-founded the hobby rocketry team. I also conducted workshops on soldering and 3D printing.
+    </p>
+
+    <div class="gallery">
+
+      <div class="photo-block">
+        <img src="rocketry2.png.jpeg" alt="Avionics work on rockets" />
+        <p class="caption">Avionics and flight computers development for Oberon and Zephyr.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="IMG_9244 (1).jpeg" alt="Rocketry team working on electronics" />
+        <p class="caption">Hands-on work on electronics and telemetry systems.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry1.png" alt="Rocket lab with Oberon rocket" />
+        <p class="caption">Our lab showcasing the Oberon rocket and the structure team's work.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry3.png.jpeg" alt="Launch prep at New Mexico" />
+        <p class="caption">Preparing electronics and systems during Oberon launch at New Mexico.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry4.png.jpeg" alt="Group photo at launch site" />
+        <p class="caption">Group photo with the rocketry team at the launch site.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry7.png.jpeg" alt="Telemetry system" />
+        <p class="caption">The original telemetry system used in the rockets.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry9.png.jpeg" alt="Flight controller board" />
+        <p class="caption">Flight controller hardware I helped design and assemble.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry10.png.jpeg" alt="Breadboard systems" />
+        <p class="caption">Breadboard electronics systems for avionics and telemetry.</p>
+      </div>
+
+    </div>
+
+    <!-- TECHNOLOGIES / SKILLS -->
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech">
+          <img src="Arduino_Logo.svg.png" alt="Arduino" />
+          <span>Arduino</span>
+        </div>
+        <div class="tech">
+          <img src="soldering-welding-iron-tool-logo-electric-heater-circuit-technology-symbol-electronic-symbol-85937725.webp" alt="Soldering" />
+          <span>Soldering</span>
+        </div>
+        <div class="tech">
+          <img src="images (4).png" alt="3D Printing" />
+          <span>3D Printing</span>
+        </div>
+        <div class="tech">
+          <img src="il_fullxfull.3616343745_2lhs.avif" alt="Ham Radio" />
+          <span>Ham Radio</span>
+        </div>
+        <div class="tech">
+          <img src="images (6).jpg" alt="Telemetry" />
+          <span>Telemetry</span>
+        </div>
+        <div class="tech">
+          <img src="sun-round-design-in-pcb-layout-style-with-rays-conceptual-illustration-for-you-logo-or-other-design-MPNC3D.jpg" alt="PCB Design" />
+          <span>PCB Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

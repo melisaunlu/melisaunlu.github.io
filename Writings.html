@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Writings Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: url("hydrothermal.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Georgia", serif;
+    color: #ffdd55;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 80px; /* bottom padding for space */
+  }
+
+  .container {
+    background: rgba(50, 45, 15, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    max-width: 960px;
+    width: 90%;
+    padding: 50px 60px;
+    box-shadow: 0 0 30px rgba(255, 221, 85, 0.7);
+    user-select: none;
+  }
+
+  h3 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffdd55; /* warm yellow */
+    border: 5px solid #ffdd55;
+    padding: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(255, 221, 85, 0.9);
+  }
+  .intro {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    padding: 20px 30px;
+    background: rgba(10, 30, 80, 0.75);
+    border: 2px solid #3a6fcf;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(58, 111, 207, 0.6);
+    text-align: center;
+    font-size: 26px;
+    color: #a9caff;
+    text-shadow: 0 0 3px rgba(0,0,0,0.4);
+    font-style: italic;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card {
+    background: rgba(50, 45, 15, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(255, 221, 85, 0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 221, 85, 0.7);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #bfa843;
+  }
+
+  /* Button style */
+  .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a6fcf; /* blue text */
+    border: 2.5px solid #3a6fcf; /* blue border */
+    border-radius: 12px;
+    background: transparent;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #ffdd55;
+    color: #332d0b;
+    box-shadow: 0 0 20px #ffdd55;
+  }
+
+  /* New yellow box outside container */
+  .more-articles {
+    max-width: 960px;
+    width: 90%;
+    margin: 40px auto 0 auto;
+    padding: 20px 30px;
+    background: rgba(255, 221, 85, 0.25);
+    border: 2px solid #ffdd55;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 221, 85, 0.4);
+    color: #ffdd55;
+    font-size: 22px;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    user-select: none;
+  }
+
+  @media (max-width: 900px) {
+    h3 {
+      font-size: 32px;
+      padding: 14px 0;
+    }
+    .intro {
+      font-size: 20px;
+      padding: 16px 20px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h3>Writings</h3>
+
+    <div class="intro">
+      Columnist at <em>The Cooglife</em> &amp; <em>The Daily Cougar</em>
+    </div>
+
+    <h3>Technology &amp; Anthropology</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="writing1.png" alt="We Need to Prioritize Solitude as Much as Socializing" />
+        <a href="https://thedailycougar.com/2024/10/07/we-need-to-prioritize-solitude-as-much-as-socializing/" class="btn" target="_blank" rel="noopener noreferrer">
+          We Need to Prioritize Solitude as Much as Socializing
+        </a>
+      </div>
+    </div>
+
+    <h3>Art</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="writing2.png" alt="Understanding the Classicism Art Movement" />
+        <a href="https://cooglife.com/2024/12/understanding-the-classicism-art-movement/" class="btn" target="_blank" rel="noopener noreferrer">
+          Understanding the Classicism Art Movement
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="backtothefuture.png" alt="Back to the Future and Campus" />
+        <a href="https://cooglife.com/2025/01/back-to-future-and-campus/" class="btn" target="_blank" rel="noopener noreferrer">
+          Back to the Future and Campus
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="christmas carol.png" alt="A Christmas Carol: A Message Before Christmas" />
+        <a href="https://cooglife.com/2024/12/a-christmas-carol-a-message-before-christmas/" class="btn" target="_blank" rel="noopener noreferrer">
+          A Christmas Carol: A Message Before Christmas
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="Alienromulus.png" alt="Alien: Romulus Still Has Us in Awe" />
+        <a href="https://cooglife.com/2024/12/alien-romulus-still-has-us-in-awe/" class="btn" target="_blank" rel="noopener noreferrer">
+          Alien: Romulus Still Has Us in Awe
+        </a>
+      </div>
+    </div>
+
+    <h3>Interviews</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="findinghertune.png" alt="Finding Her Tune: Music and a Doctoral Degree" />
+        <a href="https://cooglife.com/2024/09/finding-her-tune-the-perfect-melody-between-music-and-a-doctoral-degree/" class="btn" target="_blank" rel="noopener noreferrer">
+          Finding Her Tune: Music and a Doctoral Degree
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="astronomy.png" alt="UH Astronomy Club Brings Space Enthusiasts Together" />
+        <a href="https://cooglife.com/2024/05/uh-astronomy-club-brings-space-enthusiasts-together/" class="btn" target="_blank" rel="noopener noreferrer">
+          UH Astronomy Club Brings Space Enthusiasts Together
+        </a>
+      </div>
+    </div>
+
+    <h3>History</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="mayanculture.png" alt="Mayan Culture Vibrant in Houston" />
+        <a href="https://cooglife.com/2025/04/mayan-culture-vibrant-in-houston/" class="btn" target="_blank" rel="noopener noreferrer">
+          Mayan Culture Vibrant in Houston
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="patricksday.png" alt="St. Patrick’s Day: A Brief History" />
+        <a href="https://cooglife.com/2024/04/st-patricks-day-history/" class="btn" target="_blank" rel="noopener noreferrer">
+          St. Patrick’s Day: A Brief History
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="vampires.png" alt="Where Do Vampires Come From?" />
+        <a href="https://cooglife.com/2024/10/where-the-vampire-come-from/" class="btn" target="_blank" rel="noopener noreferrer">
+          Where Do Vampires Come From?
+        </a>
+      </div>
+
+      <div class="card">
+        <img src="history.png" alt="The History of Houston" />
+        <a href="https://cooglife.com/2024/09/the-history-of-houston/" class="btn" target="_blank" rel="noopener noreferrer">
+          The History of Houston
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Separate yellow box with message outside container -->
+  <div class="more-articles">
+    Plus many more articles online and in print!
+  </div>
+</body>
+</html>

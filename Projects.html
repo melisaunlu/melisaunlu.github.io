@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Projects</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background-image: url("stunning-view-earth-surface-mars-stars-visible-background-stunning-view-earth-397528525.webp");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: "Georgia", serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: beige;
+    }
+    .container {
+      background: rgba(0, 218, 116, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 50px 60px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+      user-select: none;
+    }
+    /* Neon glowing name */
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #053555;
+      text-shadow:
+        0 0 5px #ff6d19,
+        0 0 10px #39ff14,
+        0 0 20px #39ff14,
+        0 0 40px #39ff14;
+      margin-bottom: 20px;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.65);
+        padding: 60px 80px;
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        max-width: 1000px;
+        width: 90%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 48px;
+        color: rgb(15, 4, 53);
+        border: 5px solid rgb(224, 108, 0);
+        padding: 15px;
+        margin-bottom: 50px;
+        letter-spacing: 2px;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .project {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        border: 3px solid rgb(0, 255, 247);
+        border-radius: 18px;
+        padding: 22px;
+        font-size: 24px;
+        color: rgb(0, 255, 247);
+        text-decoration: none;
+        background: rgba(255,255,255,0.05);
+        transition: all 0.3s ease;
+    }
+
+    .project img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 8px rgba(0,255,247,0.6));
+    }
+
+    .project span {
+        display: block;
+        font-size: 22px;
+    }
+
+    .project:hover {
+        background: rgb(0, 255, 247);
+        color: black;
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 0 30px rgb(0, 255, 247);
+    }
+
+    .project:hover img {
+        filter: none;
+    }
+    .project {
+      display: block;
+      background: linear-gradient(135deg, #00ff9d, #ff0202);
+      color: #222;
+      font-weight: 600;
+      font-size: 1.3rem;
+      border-radius: 18px;
+      padding: 18px 0;
+      margin: 15px 0;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0, 47, 255, 0.4);
+      user-select: none;
+    }
+
+    .project:hover {
+      background: linear-gradient(135deg, #0084ff, #ff00dd);
+      box-shadow: 0 0 15px #0084ff;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .container {
+        padding: 30px 25px;
+      }
+      .project {
+        font-size: 1.1rem;
+        padding: 14px 0;
+      }
+    }
+
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <h2>🚀 Projects and Leadership</h2>
+
+    <div class="projects">
+
+        <a href="University of Texas at Austin.html" class="project">
+            <img src="ut-logo.png" alt="UT Austin logo">
+            <span>🎓 University of Texas at Austin</span>
+        </a>
+
+        <a href="Colorado School of Mines.html" class="project">
+            <img src="mines-logo.png" alt="Colorado School of Mines logo">
+            <span>⛏️ Colorado School of Mines</span>
+        </a>
+
+        <a href="Rocketry.html" class="project">
+            <img src="rocketry.png" alt="Rocketry">
+            <span>🚀 Rocketry</span>
+        </a>
+
+        <a href="University of Houston.html" class="project">
+            <img src="uh_red.png" alt="University of Houston logo">
+            <span>🌎 UH Geophysics & Machine Learning</span>
+        </a>
+
+        <a href="Webdev.html" class="project">
+            <img src="webdev.png" alt="Web Development">
+            <span>💻 Web Development</span>
+        </a>
+
+        <a href="StarCLassification.html" class="project">
+            <img src="spacelogo.png" alt="Star Classification">
+            <span>✨ Star Classification</span>
+        </a>
+        <a href="AstronomyClubOfficer.html" class="project">
+            <img src="telescope.png" alt="AstronomyClubOfficer">
+            <span> 👾 Astronomy Club Officer </span>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Melisa Unlu – Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+  background-size: cover;
+  color: #494b4b; /* dark gray for general text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(14, 81, 53, 0.85); /* dark green overlay */
+  z-index: -1;
+}
+
+.container {
+  background: rgba(13, 146, 99, 0.55); /* lighter green with more transparency */
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 50px 60px;
+  max-width: 650px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(14, 81, 53, 0.5); /* lighter shadow */
+  margin-bottom: 80px;
+  color: #4aba91;
+}
+h1 {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #c3dbe0;
+  margin-bottom: 20px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.flag {
+  width: 30px;
+  filter: drop-shadow(0 0 6px rgba(14, 81, 53, 0.8)); /* dark green */
+}
+
+.roles {
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #93e2c5; /* dark gray */
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #83e0be; /* dark gray */
+  line-height: 1.6;
+}
+
+.featured {
+  max-width: 1050px;
+  width: 90%;
+  margin-bottom: 90px;
+  text-align: center;
+}
+
+.featured h3 {
+  font-size: 2.3rem;
+  margin-bottom: 50px;
+  color: #d4ce46; /* yellow titles */
+  text-shadow: 0 0 12px rgba(212, 206, 70, 0.85);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(13, 146, 99, 0.4); /* lighter green, more transparent */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 30px;
+  text-align: left;
+  text-decoration: none;
+  color: #92e6e6;
+  box-shadow: 0 0 26px rgba(14, 81, 53, 0.4);
+  transition: all 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 40px rgba(74, 186, 145, 0.9); /* lighter green glow on hover */
+}
+
+.card h4 {
+  font-size: 1.4rem;
+  margin: 14px 0;
+  color: #d4ce46; /* yellow titles */
+}
+
+.card p {
+  font-size: 1rem;
+  color: #b0e7e7; /* dark gray text */
+  line-height: 1.5;
+}
+
+.tag {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  display: inline-block;
+  background: #4aba91; /* light green */
+  color: #494b4b; /* dark gray text */
+}
+
+.about {
+  background: rgba(13, 146, 99, 0.55); /* lighter green with more transparency */
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 45px 50px;
+  max-width: 650px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 28px rgba(14, 81, 53, 0.5);
+  margin-bottom: 90px;
+  color: #95ffca;
+}
+
+.about h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #b8dbd8; /* yellow titles */
+  text-shadow: 0 0 14px rgba(212, 206, 70, 0.9);
+}
+
+.about p {
+  font-size: 1.15rem;
+  color: #72c7c7; /* dark gray text */
+  line-height: 1.6;
+}
+
+.contact {
+  margin-top: 30px;
+  font-size: 1.05rem;
+  color: #494b4b; /* dark gray */
+}
+
+.contact a {
+  color: #d4ce46; /* yellow links */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .container {
+    padding: 30px 25px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="name">
+      <img src="Flag_of_Turkey.svg.webp" class="flag" />
+      Melisa Unlu
+      <img src="Flag_of_the_United_States.svg.png" class="flag" />
+    </h1>
+
+    <div class="roles">
+      Computer Science Student · Researcher · Writer · Musician
+    </div>
+
+    <h2>
+      University of Houston — Computer Science<br />
+      Minors in Geology & English
+    </h2>
+  </div>
+
+  <section class="featured">
+    <h3>Featured Work</h3>
+
+    <div class="featured-grid">
+      <a href="University of Texas at Austin.html" class="card">
+        <span class="tag">Research</span>
+        <h4>UT Austin Research</h4>
+        <p>Computational geoscience & scientific analysis</p>
+      </a>
+
+      <a href="Colorado School of Mines.html" class="card">
+        <span class="tag">Research</span>
+        <h4>Colorado School of Mines</h4>
+        <p>Geophysics and applied research</p>
+      </a>
+
+      <a href="Rocketry.html" class="card">
+        <span class="tag">Engineering</span>
+        <h4>Rocketry</h4>
+        <p>Flight systems, testing, and leadership</p>
+      </a>
+
+      <a href="StarCLassification.html" class="card">
+        <span class="tag">Machine Learning</span>
+        <h4>Star Classification</h4>
+        <p>ML models for astronomical datasets</p>
+      </a>
+
+      <a href="Writings.html" class="card">
+        <span class="tag">Writing</span>
+        <h4>Writing</h4>
+        <p>Creative and academic work</p>
+      </a>
+
+      <a href="Music.html" class="card">
+        <span class="tag">Music</span>
+        <h4>Music</h4>
+        <p>Composition & performance</p>
+      </a>
+
+      <a href="Webdev.html" class="card">
+        <span class="tag">Web</span>
+        <h4>Web Development</h4>
+        <p>Frontend design & interaction</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="about">
+    <h3>About Me</h3>
+    <p>
+      I’m a Computer Science student at the University of Houston with minors in
+      Geology and English. My work sits at the intersection of computation,
+      science, and creative expression.
+    </p>
+
+    <div class="contact">
+      <p><strong>Email:</strong> <a href="mailto:melissaunlu4@gmail.com">melissaunlu4@gmail.com</a></p>
+      <p><strong>Phone:</strong> +1 (281) 460-1534</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Unmel5" target="_blank">github.com/Unmel5</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank">linkedin.com/in/melisa-unlu</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
