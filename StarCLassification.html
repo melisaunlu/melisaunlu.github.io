@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Star Classification</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
 <style>
   :root {
-    --ivory: #A1BFFF;      /* pastel blue */
+    --ivory: #A1BFFF;
     --green: #92c582;
     --blue-muted: #86a5a9;
     --gray: #767676;
@@ -22,17 +22,25 @@
 
   body {
     margin: 0;
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background:
-      linear-gradient(rgba(161, 191, 255, 0.7), rgba(161, 191, 255, 0.7)),
-      url('saturn-above-the-thick-atmosphere-fahad-sulehria.jpg') center / cover fixed;
+    background: url('saturn-above-the-thick-atmosphere-fahad-sulehria.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--sage-dark);
-    padding: 80px 20px;
     display: flex;
     justify-content: center;
+    padding: 40px 20px;
+    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(13, 79, 61, 0.85); /* Keep overlay */
+    z-index: -1;
   }
 
   .container {
@@ -43,8 +51,8 @@
     padding: 50px 60px;
     box-shadow: 0 4px 20px rgba(83, 111, 80, 0.3);
     user-select: none;
-    color: var(--sage-dark);
     text-align: center;
+    color: var(--sage-dark);
   }
 
   h3 {
@@ -59,32 +67,32 @@
   .description p {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: var(--sage-dark);
     max-width: 900px;
     margin: 0 auto 30px;
     text-align: left;
+    color: var(--sage-dark);
   }
 
   .buttons {
-    max-width: 250px;
-    margin: 30px auto 40px;
     display: flex;
     justify-content: center;
+    max-width: 250px;
+    margin: 30px auto 40px;
   }
 
   .btn {
     display: inline-block;
     text-align: center;
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 1.25rem;
     border-radius: 16px;
     border: 3px solid var(--green);
     color: var(--green);
     text-decoration: none;
+    font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
     background: transparent;
-    font-weight: 600;
   }
 
   .btn:hover {
@@ -104,14 +112,14 @@
   .gallery img {
     width: 100%;
     border-radius: 22px;
-    box-shadow: 0 8px 18px rgba(83,111,80,0.3);
+    box-shadow: 0 8px 18px rgba(83, 111, 80, 0.3);
     transition: transform 0.3s ease;
     cursor: pointer;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(146,197,130,0.6);
+    box-shadow: 0 12px 30px rgba(146, 197, 130, 0.6);
   }
 
   /* TECHNOLOGIES / SKILLS */
@@ -165,13 +173,13 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(146,197,130,0.75));
+    filter: drop-shadow(0 0 14px rgba(146, 197, 130, 0.75));
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(146,197,130,1));
+    filter: drop-shadow(0 0 22px rgba(146, 197, 130, 1));
   }
 
   .tech span {
@@ -220,6 +228,7 @@
     }
   }
 </style>
+
 </head>
 
 <body>
