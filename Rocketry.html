@@ -1,398 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Last Minute Games</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rocketry | University of Houston AIAA</title>
 
-    * {
-      box-sizing: border-box;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ivory: #fdffe0;
+    --green: #92c582;
+    --blue-muted: #86a5a9;
+    --gray: #767676;
+    --sage-dark: #536f50;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background:
+      linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
+      url('10.jpg') center / cover fixed;
+    color: var(--sage-dark);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 950px;
+    width: 95%;
+    padding: 50px 60px;
+    background: rgba(253, 255, 224, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 3px 25px rgba(83,111,80,0.3);
+    user-select: none;
+    text-align: center;
+    color: var(--sage-dark);
+  }
+
+  h1, h3 {
+    font-weight: 800;
+    margin-bottom: 40px;
+    user-select: none;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 2.6rem;
+    color: var(--sage-dark);
+    letter-spacing: -0.02em;
+    margin-top: 0;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto 50px;
+    text-align: left;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+
+  .photo-block {
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--ivory);
+    box-shadow: 0 3px 15px rgba(83,111,80,0.25);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .photo-block:hover {
+    box-shadow: 0 8px 25px var(--green);
+  }
+
+  .photo-block img {
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+    transition: transform 0.35s ease;
+    object-fit: contain;
+    background: var(--ivory);
+    padding: 6px;
+  }
+
+  .photo-block:hover img {
+    transform: scale(1.06);
+  }
+
+  .caption {
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: var(--sage-dark);
+    text-align: left;
+    background: var(--ivory);
+    border-radius: 0 0 18px 18px;
+    user-select: text;
+  }
+
+  /* TECHNOLOGIES / SKILLS */
+  .tech-stack {
+    margin: 70px 0 20px;
+    padding-top: 35px;
+    position: relative;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background: var(--green);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px var(--green);
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 1px 5px rgba(83,111,80,0.6);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--ivory);
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 6px 14px var(--green);
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: var(--sage-dark);
+    letter-spacing: 0.6px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    h1, h3 {
+      font-size: 2.8rem;
     }
-
-    body {
-      background: url('tyr5mj819dp21.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Georgia', serif;
-      color: #d4ce46; /* yellow */
-      margin: 0;
-      padding: 40px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-shadow: 0 0 8px rgba(212, 206, 70, 0.85);
-      position: relative;
-      background-color: #494b4b; /* fallback */
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-color: rgba(14, 81, 53, 0.85); /* dark green overlay */
-      z-index: -1;
-    }
-
     .container {
-      max-width: 900px;
-      width: 100%;
-      margin-bottom: 60px;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-      padding: 30px 25px 40px;
-      background: rgba(73, 75, 75, 0.75); /* dark gray transparent */
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(212, 206, 70, 0.7); /* yellow glow */
-      user-select: none;
-      color: #d4ce46;
+      padding: 40px 30px;
     }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    h3.one, h3.two {
+    .intro {
+      font-size: 1rem;
       text-align: center;
-      font-size: 44px;
-      margin-bottom: 40px;
-      user-select: none;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 14px 0;
-      border-radius: 14px;
-      text-shadow: 0 0 12px rgba(212, 206, 70, 0.9);
-      box-shadow: 0 0 25px rgba(212, 206, 70, 0.5);
-      color: #d4ce46;
-      border: 4px solid #d4ce46;
-      background: rgba(212, 206, 70, 0.15);
+      max-width: 100%;
     }
+  }
 
-    h3.two {
-      box-shadow: 0 0 25px rgba(212, 206, 70, 0.7);
-      background: rgba(212, 206, 70, 0.1);
-      color: #d4ce46;
-      border-color: #d4ce46;
-      text-shadow: 0 0 12px #d4ce46;
+  @media (max-width: 480px) {
+    body {
+      padding: 30px 10px;
     }
-
-    a.link {
-      display: block;
-      text-align: center;
-      font-size: 28px;
-      font-weight: 600;
-      color: #d4ce46;
-      text-decoration: none;
-      margin-bottom: 40px;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-      user-select: none;
-      text-shadow: 0 0 10px rgba(212, 206, 70, 0.8);
-    }
-
-    a.link:hover, a.link:focus {
-      color: #f0f067;
-      text-decoration: underline;
-      text-shadow:
-        0 0 20px #f0f067,
-        0 0 40px #f0f067cc;
-      outline: none;
-    }
-
-    .game-item {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 20px 30px;
-      align-items: center;
-      margin-bottom: 40px;
-      padding: 18px 15px;
-      border-bottom: 2px solid rgba(212, 206, 70, 0.4);
-      cursor: pointer;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-      border-radius: 15px;
-      background: rgba(212, 206, 70, 0.05);
-      user-select: none;
-      color: #d4ce46;
-    }
-
-    .game-item:hover, .game-item:focus-within {
-      border-color: #d4ce46;
-      background: rgba(212, 206, 70, 0.12);
-      outline: none;
-    }
-
-    .game-item img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 18px;
-      box-shadow: 0 0 20px 3px #4aba91aa; /* light green glow */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      filter: drop-shadow(0 0 3px #0d9263);
-    }
-
-    .game-item:hover img {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px 6px #0d9263cc; /* medium green glow */
-      filter: drop-shadow(0 0 8px #4aba91);
-    }
-
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 12px;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: 0 0 15px #0d9263cc; /* medium green */
-      background: transparent;
-      border: 1.5px solid #0d9263cc;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      color: #d4ce46;
-    }
-
-    audio:hover, audio:focus {
-      box-shadow: 0 0 30px #4aba91ff; /* light green */
-      border-color: #4aba91ff;
-      outline: none;
-    }
-
-    h4 {
-      color: #d4ce46;
-      font-size: 30px;
-      margin-bottom: 30px;
-      user-select: none;
-      text-align: center;
-      text-shadow: 0 0 15px #d4ce46cc;
-    }
-
-    /* Rhythm Bells images */
-    #rhythm-bells-section img {
-      max-width: 500px;
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 25px #4aba91aa; /* light green */
-      user-select: none;
-      transition: box-shadow 0.3s ease;
-      filter: drop-shadow(0 0 4px #0d9263);
-    }
-
-    #rhythm-bells-section img:hover, #rhythm-bells-section img:focus {
-      box-shadow: 0 0 38px #0d9263cc; /* medium green */
-      outline: none;
-      filter: drop-shadow(0 0 8px #4aba91);
-    }
-
-    /* Audio track wrapper */
-    .audio-track {
-      margin: 0 auto 30px;
-      width: 100%;
-      max-width: 500px;
-      background: rgba(212, 206, 70, 0.15);
-      padding: 15px 20px;
-      border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(73, 75, 75, 0.8); /* dark gray shadow */
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      color: #d4ce46;
-    }
-
-    .audio-track:hover, .audio-track:focus-within {
-      background: rgba(212, 206, 70, 0.25);
-      box-shadow: 0 8px 24px rgba(73, 75, 75, 1);
-      outline: none;
-    }
-
-    .audio-track audio {
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(73, 75, 75, 0.8);
-      cursor: pointer;
-      outline: none;
-      color: #d4ce46;
-    }
-
-    .audio-track .track-name {
-      margin-top: 10px;
-      font-size: 20px;
-      font-weight: 700;
-      color: #0d9263; /* medium green */
-      text-align: center;
-      letter-spacing: 0.05em;
-      user-select: none;
-    }
-
-    /* Bottom message */
-    .bottom-message {
-      max-width: 900px;
-      width: 90%;
-      margin: 0 auto 60px;
-      padding: 20px 30px;
-      background: rgba(212, 206, 70, 0.25);
-      border: 2.5px solid #d4ce46;
-      border-radius: 18px;
-      box-shadow: 0 0 30px rgba(212, 206, 70, 0.5);
-      font-size: 24px;
-      font-weight: 700;
-      text-align: center;
-      color: #494b4b; /* dark gray text */
-      letter-spacing: 1px;
-      user-select: none;
-      text-shadow: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 700px) {
-      .game-item {
-        grid-template-columns: 1fr;
-        gap: 20px 0;
-        text-align: center;
-      }
-      .game-item img {
-        margin: 0 auto;
-      }
-      .audio-track {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      h3.one, h3.two {
-        font-size: 32px;
-      }
-      a.link {
-        font-size: 22px;
-        margin-bottom: 30px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
+
 <body>
-  <div class="container" id="rhythm-bells-section">
-    <h3 class="two" tabindex="0">RHYTHM BELLS</h3>
-    <img src="rhythmgamesart.png" alt="Rhythm Bells" tabindex="0" />
-    <img src="image.webp" alt="Rhythm Bells Image" tabindex="0" />
+  <div class="container">
+    <h3>Rocketry</h3>
 
-    <h4>The music came 12th out of 93 submissions for the one week game jam we worked on</h4>
-    <a href="https://gamejolt.com/games/rhythm-bells/1040221" target="_blank" class="link" rel="noopener noreferrer" tabindex="0">
-      🎮 Rhythm Bells
-    </a>
+    <p class="intro">
+      During high school, including the Covid period and Freshman year at University of Houston,  
+      I was active in <strong>AIAA-UH</strong> (American Institute of Aeronautics and Astronautics).  
+      I worked on two rockets: <strong>Oberon</strong> and <strong>Zephyr</strong>.  
+      As part of avionics and an officer, I developed flight computers, worked on telemetry,  
+      and co-founded the hobby rocketry team. I also conducted workshops on soldering and 3D printing.
+    </p>
 
-    <div class="audio-track" tabindex="0">
-      <audio controls>
-        <source src="untitled.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <div class="track-name">Snow Days</div>
+    <div class="gallery">
+
+      <div class="photo-block">
+        <img src="rocketry2.png.jpeg" alt="Avionics work on rockets" />
+        <p class="caption">Avionics and flight computers development for Oberon and Zephyr.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="IMG_9244 (1).jpeg" alt="Rocketry team working on electronics" />
+        <p class="caption">Hands-on work on electronics and telemetry systems.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry1.png" alt="Rocket lab with Oberon rocket" />
+        <p class="caption">Our lab showcasing the Oberon rocket and the structure team's work.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry3.png.jpeg" alt="Launch prep at New Mexico" />
+        <p class="caption">Preparing electronics and systems during Oberon launch at New Mexico.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry4.png.jpeg" alt="Group photo at launch site" />
+        <p class="caption">Group photo with the rocketry team at the launch site.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry7.png.jpeg" alt="Telemetry system" />
+        <p class="caption">The original telemetry system used in the rockets.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry9.png.jpeg" alt="Flight controller board" />
+        <p class="caption">Flight controller hardware I helped design and assemble.</p>
+      </div>
+
+      <div class="photo-block">
+        <img src="rocketry10.png.jpeg" alt="Breadboard systems" />
+        <p class="caption">Breadboard electronics systems for avionics and telemetry.</p>
+      </div>
+
     </div>
 
-    <div class="audio-track" tabindex="0">
-      <audio controls>
-        <source src="track2.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <div class="track-name">Into The Bells</div>
-    </div>
-
-    <div class="audio-track" tabindex="0">
-      <audio controls>
-        <source src="track3.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <div class="track-name">Clock Strikes 12</div>
-    </div>
-  </div>
-
-  <div class="container" id="last-minute-games-section">
-    <h3 class="one" tabindex="0">LAST MINUTE GAMES</h3>
-
-    <a href="https://playlastminutegames.itch.io/castle-of-time" target="_blank" class="link" rel="noopener noreferrer" tabindex="0">
-      🎮 Castle of Time
-    </a>
-
-    <div class="game-item" tabindex="0">
-      <img src="battle.png" alt="Battle Scene" />
-      <audio controls>
-        <source src="battletheme_enemy (1) (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-    <div class="game-item" tabindex="0">
-      <img src="dreamsequence.png" alt="Dream Sequence Scene" />
-      <audio controls>
-        <source src="gamedev (1) (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="adriannemaid.png" alt="Adrianne Maid Character" />
-      <audio controls>
-        <source src="Adrianne (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="allistairsemifinal.png" alt="Alistair Character" />
-      <audio controls>
-        <source src="Alistair (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="avantsemifinal.png" alt="Avant Character" />
-      <audio controls>
-        <source src="Avant (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="charlessemifinal.png" alt="Charles Character" />
-      <audio controls>
-        <source src="Charles (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="eliassemifinal.png" alt="Elias Character" />
-      <audio controls>
-        <source src="Elias (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="jester2ndversion.png" alt="Jester Character" />
-      <audio controls>
-        <source src="Marco (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="nikolaussemifinal.png" alt="Nikolaus Character" />
-      <audio controls>
-        <source src="Nikolaus (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <div class="game-item" tabindex="0">
-      <img src="sebastiansemifinal.png" alt="Sebastian Character" />
-      <audio controls>
-        <source src="Sebestian (mp3cut.net).mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech">
+          <img src="Arduino_Logo.svg.png" alt="Arduino" />
+          <span>Arduino</span>
+        </div>
+        <div class="tech">
+          <img src="soldering-welding-iron-tool-logo-electric-heater-circuit-technology-symbol-electronic-symbol-85937725.webp" alt="Soldering" />
+          <span>Soldering</span>
+        </div>
+        <div class="tech">
+          <img src="images (4).png" alt="3D Printing" />
+          <span>3D Printing</span>
+        </div>
+        <div class="tech">
+          <img src="il_fullxfull.3616343745_2lhs.avif" alt="Ham Radio" />
+          <span>Ham Radio</span>
+        </div>
+        <div class="tech">
+          <img src="images (6).jpg" alt="Telemetry" />
+          <span>Telemetry</span>
+        </div>
+        <div class="tech">
+          <img src="sun-round-design-in-pcb-layout-style-with-rays-conceptual-illustration-for-you-logo-or-other-design-MPNC3D.jpg" alt="PCB Design" />
+          <span>PCB Design</span>
+        </div>
+      </div>
     </div>
   </div>
-
-  <p class="bottom-message" tabindex="0">Plus many more piano tracks for rooms and minigames!</p>
 </body>
 </html>
+

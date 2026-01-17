@@ -4,8 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Writings Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  :root {
+    --ivory: #fdffe0;
+    --green: #92c582;
+    --blue-muted: #86a5a9;
+    --gray: #767676;
+    --sage-dark: #536f50;
+  }
 
   * {
     box-sizing: border-box;
@@ -13,62 +22,49 @@
 
   body {
     margin: 0;
-    min-height: 100vh;
-    background: url("hydrothermal.png") no-repeat center center fixed;
-    background-size: cover;
     font-family: 'Poppins', sans-serif;
-    color: #a0e9d8;
+    background:
+      linear-gradient(rgba(253,255,224,0.95), rgba(253,255,224,0.95)),
+      url('hydrothermal.png') center / cover fixed;
+    color: var(--sage-dark);
+    padding: 80px 20px 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px 80px;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(10, 60, 50, 0.85);
-    z-index: -1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .container {
-    background: rgba(10, 146, 99, 0.5);
-    backdrop-filter: blur(14px);
-    border-radius: 20px;
     max-width: 960px;
     width: 90%;
+    background: var(--ivory);
+    border-radius: 24px;
+    box-shadow: 0 3px 25px rgba(83,111,80,0.3);
     padding: 50px 60px;
-    box-shadow: 0 0 30px rgba(10, 146, 99, 0.7);
     user-select: none;
-    color: #a0e9d8;
+    color: var(--sage-dark);
+    text-align: center;
   }
 
   h3 {
-    font-size: 42px;
-    font-weight: 700;
-    color: #d4ce46;
-    border: 5px solid #d4ce46;
-    padding: 20px;
+    font-weight: 800;
+    font-size: 2.8rem;
+    color: var(--sage-dark);
+    letter-spacing: -0.02em;
     margin-bottom: 40px;
-    letter-spacing: 1px;
-    text-align: center;
-    text-shadow: 0 0 10px #d4ce46aa;
   }
 
   .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--gray);
     max-width: 600px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 50px;
     padding: 20px 30px;
-    background: rgba(0, 80, 60, 0.75);
-    border: 2px solid #00ffd9;
+    background: rgba(83, 111, 80, 0.12);
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 217, 0.6);
-    text-align: center;
-    font-size: 26px;
-    color: #9ce6de;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 12px rgba(83, 111, 80, 0.15);
     font-style: italic;
   }
 
@@ -80,13 +76,13 @@
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: var(--sage-dark);
   }
 
   .card {
-    background: rgba(10, 100, 70, 0.6);
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 255, 217, 0.3);
+    background: var(--ivory);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(83,111,80,0.15);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -97,15 +93,16 @@
   }
 
   .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 255, 217, 0.7);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 10px 35px var(--green);
   }
 
   .card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-bottom: 2px solid #00ffd9;
+    border-bottom: 2px solid var(--green);
+    background: var(--ivory);
   }
 
   /* Button style */
@@ -115,45 +112,43 @@
     padding: 12px 24px;
     font-size: 18px;
     font-weight: 600;
-    color: #00ffd9;
-    border: 2.5px solid #00ffd9;
+    color: var(--sage-dark);
+    border: 2.5px solid var(--green);
     border-radius: 12px;
     background: transparent;
     text-align: center;
     transition: all 0.3s ease;
+    user-select: none;
   }
 
   .btn:hover {
-    background-color: #00ffd9;
-    color: #00332f;
-    box-shadow: 0 0 20px #00ffd9;
+    background-color: var(--green);
+    color: var(--ivory);
+    box-shadow: 0 0 20px var(--green);
   }
 
-  /* New teal box outside container */
   .more-articles {
     max-width: 960px;
     width: 90%;
     margin: 40px auto 0 auto;
     padding: 20px 30px;
-    background: rgba(0, 255, 217, 0.25);
-    border: 2px solid #00ffd9;
+    background: rgba(146, 197, 130, 0.2);
+    border: 2px solid var(--green);
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 217, 0.4);
-    color: #00ffd9;
+    box-shadow: 0 0 15px rgba(146, 197, 130, 0.35);
+    color: var(--sage-dark);
     font-size: 22px;
     text-align: center;
     font-style: italic;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     user-select: none;
   }
 
   @media (max-width: 900px) {
     h3 {
-      font-size: 32px;
-      padding: 14px 0;
+      font-size: 2.4rem;
     }
     .intro {
-      font-size: 20px;
+      font-size: 1rem;
       padding: 16px 20px;
       max-width: 100%;
     }
@@ -264,9 +259,9 @@
     </div>
   </div>
 
-  <!-- Separate teal box with message outside container -->
   <div class="more-articles">
     Plus many more articles online and in print!
   </div>
 </body>
 </html>
+

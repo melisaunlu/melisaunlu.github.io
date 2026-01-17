@@ -8,6 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 
 <style>
+  :root {
+    --ivory: rgba(253,255,224,0.96);
+    --green: #92c582;
+    --blue-muted: #86a5a9;
+    --gray: #767676;
+    --sage-dark: #536f50;
+  }
+
   * {
     box-sizing: border-box;
   }
@@ -17,7 +25,7 @@
     font-family: 'Poppins', sans-serif;
     background: url("wp9725843.webp") no-repeat center center fixed;
     background-size: cover;
-    color: #494b4b;
+    color: var(--sage-dark);
     display: flex;
     justify-content: center;
     padding: 40px 20px;
@@ -28,30 +36,30 @@
     content: "";
     position: fixed;
     inset: 0;
-    background-color: rgba(14, 81, 53, 0.85); /* dark green overlay */
+    background-color: var(--ivory);
     z-index: -1;
   }
 
   .container {
     max-width: 900px;
     width: 95%;
-    background: rgba(13, 146, 99, 0.55);
+    background: rgba(146,197,130, 0.55); /* var(--green) with opacity */
     backdrop-filter: blur(14px);
     border-radius: 22px;
     padding: 40px 50px;
-    box-shadow: 0 0 30px rgba(14, 81, 53, 0.5);
-    color: #4aba91;
+    box-shadow: 0 0 30px rgba(83,111,80, 0.5); /* darker sage */
+    color: var(--blue-muted);
     user-select: none;
   }
 
   h3 {
     font-weight: 900;
     font-size: 3.8rem;
-    color: #d4ce46; /* yellow titles */
+    color: var(--green);
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-align: center;
-    text-shadow: 0 0 12px rgba(212, 206, 70, 0.85);
+    text-shadow: 0 0 12px rgba(146,197,130, 0.85);
   }
 
   .content {
@@ -66,26 +74,26 @@
   .content img {
     width: 100%;
     border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
+    box-shadow: 0 15px 30px rgba(83,111,80, 0.6); /* sage dark shadow */
     transition: transform 0.3s ease;
   }
 
   .content img:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
+    box-shadow: 0 20px 40px var(--green);
   }
 
   .text {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: #92e6e6;
+    color: var(--blue-muted);
     text-align: left;
 
-    background: rgba(13, 146, 99, 0.4);
+    background: rgba(146,197,130, 0.4);
     backdrop-filter: blur(12px);
     border-radius: 22px;
     padding: 28px 32px;
-    box-shadow: 0 0 26px rgba(14, 81, 53, 0.4);
+    box-shadow: 0 0 26px rgba(83,111,80, 0.4);
   }
 
   .text p {
@@ -97,8 +105,8 @@
     margin-top: 30px;
     padding: 15px 35px;
     font-size: 1.25rem;
-    border: 3px solid #4aba91;
-    color: #4aba91;
+    border: 3px solid var(--green);
+    color: var(--green);
     text-decoration: none;
     border-radius: 16px;
     font-weight: 600;
@@ -107,9 +115,9 @@
   }
 
   .github:hover {
-    background: #4aba91;
-    color: #494b4b;
-    box-shadow: 0 0 40px #4aba91;
+    background: var(--green);
+    color: var(--sage-dark);
+    box-shadow: 0 0 40px var(--green);
     transform: scale(1.05);
   }
 
@@ -130,7 +138,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(212, 206, 70, 0.8),
+      var(--green),
       transparent
     );
   }
@@ -163,18 +171,18 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(74, 186, 145, 0.75));
+    filter: drop-shadow(0 0 14px var(--green));
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(74, 186, 145, 1));
+    filter: drop-shadow(0 0 22px var(--green));
   }
 
   .tech span {
     font-size: 0.95rem;
-    color: #b0e7e7;
+    color: var(--blue-muted);
     letter-spacing: 0.6px;
   }
 
@@ -200,14 +208,14 @@
   .gallery img {
     width: 100%;
     border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
+    box-shadow: 0 15px 30px rgba(83,111,80, 0.6);
     transition: transform 0.3s ease;
     cursor: pointer;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
+    box-shadow: 0 20px 40px var(--green);
   }
 
   /* Responsive */
@@ -230,7 +238,7 @@
       text-align: center;
       padding: 24px 20px;
       border-radius: 18px;
-      box-shadow: 0 0 26px rgba(14, 81, 53, 0.3);
+      box-shadow: 0 0 26px rgba(83,111,80, 0.3);
     }
     .github {
       font-size: 1.1rem;
@@ -356,3 +364,4 @@
   </div>
 </body>
 </html>
+
