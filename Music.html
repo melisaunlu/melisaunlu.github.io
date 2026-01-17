@@ -5,32 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Last Minute Games</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root {
+      --ivory: #fdffe0;
+      --green: #92c582;
+      --sage-dark: #536f50;
+      --blue-muted: #86a5a9;
+      --gray-dark: #494b4b;
+    }
 
     * {
       box-sizing: border-box;
     }
 
     body {
-      background: url('tyr5mj819dp21.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Georgia', serif;
-      color: #b8d8d8;
       margin: 0;
       padding: 40px 20px 80px;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background:
+        linear-gradient(rgba(253,255,224,0.9), rgba(253,255,224,0.9)),
+        url('tyr5mj819dp21.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--sage-dark);
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      text-shadow: 0 0 8px rgba(255, 221, 85, 0.85);
+      text-shadow: none;
       position: relative;
+      user-select: none;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background-color: rgba(13, 79, 61, 0.85);
+      background-color: rgba(83,111,80,0.85); /* sage dark overlay */
       z-index: -1;
     }
 
@@ -41,11 +52,10 @@
       opacity: 0;
       animation: fadeIn 1s ease forwards;
       padding: 30px 25px 40px;
-      background: rgba(10, 146, 99, 0.5);
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(13, 79, 61, 0.5);
-      user-select: none;
-      color: #b8d8d8;
+      background: var(--ivory);
+      border-radius: 22px;
+      box-shadow: 0 0 30px rgba(146,197,130,0.6);
+      color: var(--sage-dark);
     }
 
     @keyframes fadeIn {
@@ -55,48 +65,45 @@
     }
 
     h3.one, h3.two {
-      text-align: center;
-      font-size: 44px;
-      margin-bottom: 40px;
-      user-select: none;
       font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 40px;
+      text-align: center;
       letter-spacing: 2px;
       padding: 14px 0;
       border-radius: 14px;
-      text-shadow: 0 0 12px rgba(255, 221, 85, 0.9);
-      box-shadow: 0 0 25px rgba(255, 221, 85, 0.5);
-      color: #ffdd55;
-      border: 4px solid #ffdd55;
-      background: rgba(255, 221, 85, 0.15);
+      background: var(--green);
+      color: var(--ivory);
+      box-shadow: 0 0 25px var(--green);
+      user-select: none;
+      border: 4px solid var(--green);
     }
 
     h3.two {
-      box-shadow: 0 0 25px rgba(255, 221, 85, 0.7);
-      background: rgba(255, 221, 85, 0.1);
-      color: #ffdd55;
-      border-color: #ffdd55;
-      text-shadow: 0 0 12px #ffdd55;
+      background: var(--blue-muted);
+      border-color: var(--blue-muted);
+      box-shadow: 0 0 25px var(--blue-muted);
     }
 
     a.link {
       display: block;
       text-align: center;
-      font-size: 28px;
+      font-size: 1.75rem;
       font-weight: 600;
-      color: #ffdd55;
+      color: var(--sage-dark);
       text-decoration: none;
       margin-bottom: 40px;
       transition: color 0.3s ease, text-shadow 0.3s ease;
       user-select: none;
-      text-shadow: 0 0 10px rgba(255, 221, 85, 0.8);
     }
 
-    a.link:hover, a.link:focus {
-      color: #fff08a;
+    a.link:hover,
+    a.link:focus {
+      color: var(--green);
       text-decoration: underline;
       text-shadow:
-        0 0 20px #fff08a,
-        0 0 40px #fff08acc;
+        0 0 20px var(--green),
+        0 0 40px var(--green);
       outline: none;
     }
 
@@ -107,19 +114,22 @@
       align-items: center;
       margin-bottom: 40px;
       padding: 18px 15px;
-      border-bottom: 2px solid rgba(255, 221, 85, 0.4);
+      border-bottom: 2px solid var(--blue-muted);
       cursor: pointer;
       transition: border-color 0.3s ease, background-color 0.3s ease;
       border-radius: 15px;
-      background: rgba(255, 221, 85, 0.05);
+      background: #e7ebd9;
       user-select: none;
-      color: #ffdd55;
+      color: var(--sage-dark);
+      box-shadow: 0 3px 10px rgba(83,111,80,0.1);
     }
 
-    .game-item:hover, .game-item:focus-within {
-      border-color: #ffdd55;
-      background: rgba(255, 221, 85, 0.12);
+    .game-item:hover,
+    .game-item:focus-within {
+      border-color: var(--green);
+      background: #d2e1c9;
       outline: none;
+      box-shadow: 0 6px 18px rgba(83,111,80,0.3);
     }
 
     .game-item img {
@@ -127,14 +137,18 @@
       height: 200px;
       object-fit: contain;
       border-radius: 18px;
-      box-shadow: 0 0 20px 3px #bfa843aa;
+      box-shadow: 0 0 20px 3px rgba(146,197,130,0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
+      background: white;
+      padding: 8px;
+      filter: drop-shadow(0 0 4px var(--green));
     }
 
     .game-item:hover img {
       transform: scale(1.05);
-      box-shadow: 0 0 35px 6px #ffdd55cc;
+      box-shadow: 0 0 35px 6px var(--green);
+      filter: drop-shadow(0 0 8px var(--green));
     }
 
     audio {
@@ -143,26 +157,27 @@
       border-radius: 12px;
       cursor: pointer;
       user-select: none;
-      box-shadow: 0 0 15px #bfa843cc;
+      box-shadow: 0 0 15px var(--green);
       background: transparent;
-      border: 1.5px solid #bfa843cc;
+      border: 1.5px solid var(--green);
       transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      color: #ffdd55;
+      color: var(--sage-dark);
     }
 
-    audio:hover, audio:focus {
-      box-shadow: 0 0 30px #ffdd55ff;
-      border-color: #ffdd55ff;
+    audio:hover,
+    audio:focus {
+      box-shadow: 0 0 30px var(--green);
+      border-color: var(--green);
       outline: none;
     }
 
     h4 {
-      color: #ffdd55;
-      font-size: 30px;
+      color: var(--sage-dark);
+      font-size: 1.9rem;
       margin-bottom: 30px;
       user-select: none;
       text-align: center;
-      text-shadow: 0 0 15px #ffdd55cc;
+      text-shadow: 0 0 8px var(--green);
     }
 
     /* Rhythm Bells images */
@@ -172,14 +187,19 @@
       height: auto;
       border-radius: 18px;
       margin-bottom: 30px;
-      box-shadow: 0 0 25px #bfa843aa;
+      box-shadow: 0 0 25px rgba(146,197,130,0.4);
       user-select: none;
       transition: box-shadow 0.3s ease;
+      filter: drop-shadow(0 0 4px var(--green));
+      background: var(--ivory);
+      padding: 6px;
     }
 
-    #rhythm-bells-section img:hover, #rhythm-bells-section img:focus {
-      box-shadow: 0 0 38px #ffdd55cc;
+    #rhythm-bells-section img:hover,
+    #rhythm-bells-section img:focus {
+      box-shadow: 0 0 38px var(--green);
       outline: none;
+      filter: drop-shadow(0 0 8px var(--green));
     }
 
     /* Audio track wrapper */
@@ -187,34 +207,38 @@
       margin: 0 auto 30px;
       width: 100%;
       max-width: 500px;
-      background: rgba(255, 221, 85, 0.15);
+      background: var(--ivory);
       padding: 15px 20px;
       border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(50, 45, 15, 0.8);
+      box-shadow: 0 5px 18px rgba(83,111,80,0.4);
       transition: background 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
-      color: #ffdd55;
+      color: var(--sage-dark);
     }
 
-    .audio-track:hover, .audio-track:focus-within {
-      background: rgba(255, 221, 85, 0.25);
-      box-shadow: 0 8px 24px rgba(50, 45, 15, 1);
+    .audio-track:hover,
+    .audio-track:focus-within {
+      background: #f1f7e8;
+      box-shadow: 0 8px 24px rgba(83,111,80,0.7);
       outline: none;
     }
 
     .audio-track audio {
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(50, 45, 15, 0.8);
+      box-shadow: 0 2px 8px rgba(83,111,80,0.7);
       cursor: pointer;
       outline: none;
-      color: #ffdd55;
+      color: var(--sage-dark);
+      background: transparent;
+      border: none;
+      width: 100%;
     }
 
     .audio-track .track-name {
       margin-top: 10px;
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #bfa843;
+      color: var(--green);
       text-align: center;
       letter-spacing: 0.05em;
       user-select: none;
@@ -226,14 +250,13 @@
       width: 90%;
       margin: 0 auto 60px;
       padding: 20px 30px;
-      background: rgba(255, 221, 85, 0.25);
-      border: 2.5px solid #ffdd55;
+      background: var(--green);
       border-radius: 18px;
-      box-shadow: 0 0 30px rgba(255, 221, 85, 0.5);
-      font-size: 24px;
+      box-shadow: 0 0 30px rgba(146,197,130,0.7);
+      font-size: 1.5rem;
       font-weight: 700;
       text-align: center;
-      color: #332d0b;
+      color: var(--ivory);
       letter-spacing: 1px;
       user-select: none;
       text-shadow: none;
@@ -256,10 +279,10 @@
 
     @media (max-width: 400px) {
       h3.one, h3.two {
-        font-size: 32px;
+        font-size: 2rem;
       }
       a.link {
-        font-size: 22px;
+        font-size: 1.4rem;
         margin-bottom: 30px;
       }
     }
