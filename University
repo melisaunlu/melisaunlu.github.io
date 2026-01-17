@@ -36,7 +36,7 @@
     content: "";
     position: fixed;
     inset: 0;
-    background-color: var(--ivory);
+    background-color: #A1BFFF;
     z-index: -1;
   }
 

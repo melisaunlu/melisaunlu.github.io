@@ -1,291 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Star Classification</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Star Classification</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
-<style>
-  :root {
-    --ivory: #A1BFFF;
-    --green: #92c582;
-    --blue-muted: #86a5a9;
-    --gray: #767676;
-    --sage-dark: #536f50;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    background: url('saturn-above-the-thick-atmosphere-fahad-sulehria.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--sage-dark);
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    position: relative;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(13, 79, 61, 0.85); /* Keep overlay */
-    z-index: -1;
-  }
-
-  .container {
-    max-width: 960px;
-    width: 90%;
-    background: var(--ivory);
-    border-radius: 22px;
-    padding: 50px 60px;
-    box-shadow: 0 4px 20px rgba(83, 111, 80, 0.3);
-    user-select: none;
-    text-align: center;
-    color: var(--sage-dark);
-  }
-
-  h3 {
-    font-weight: 800;
-    font-size: 3.8rem;
-    color: var(--sage-dark);
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-    user-select: none;
-  }
-
-  .description p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    max-width: 900px;
-    margin: 0 auto 30px;
-    text-align: left;
-    color: var(--sage-dark);
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    max-width: 250px;
-    margin: 30px auto 40px;
-  }
-
-  .btn {
-    display: inline-block;
-    text-align: center;
-    padding: 15px 35px;
-    font-size: 1.25rem;
-    border-radius: 16px;
-    border: 3px solid var(--green);
-    color: var(--green);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    background: transparent;
-  }
-
-  .btn:hover {
-    background: var(--green);
-    color: var(--ivory);
-    box-shadow: 0 0 40px var(--green);
-    transform: scale(1.05);
-  }
-
-  .gallery {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 22px;
-    box-shadow: 0 8px 18px rgba(83, 111, 80, 0.3);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(146, 197, 130, 0.6);
-  }
-
-  /* TECHNOLOGIES / SKILLS */
-  .tech-stack {
-    margin: 70px 0 10px;
-    padding-top: 35px;
-    position: relative;
-    width: 100%;
-  }
-
-  .tech-stack::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 15%;
-    width: 70%;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--green),
-      transparent
-    );
-  }
-
-  .tech-icons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 40px;
-    align-items: center;
-    justify-items: center;
-  }
-
-  .tech {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-  }
-
-  .tech:nth-child(1) { animation-delay: 0.1s; }
-  .tech:nth-child(2) { animation-delay: 0.2s; }
-  .tech:nth-child(3) { animation-delay: 0.3s; }
-  .tech:nth-child(4) { animation-delay: 0.4s; }
-  .tech:nth-child(5) { animation-delay: 0.5s; }
-  .tech:nth-child(6) { animation-delay: 0.6s; }
-
-  .tech img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(146, 197, 130, 0.75));
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  .tech:hover img {
-    transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(146, 197, 130, 1));
-  }
-
-  .tech span {
-    font-size: 0.95rem;
-    color: var(--green);
-    letter-spacing: 0.6px;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
+  <style>
+    :root {
+      --ivory: #fdffe0;
+      --green: #92c582;
+      --blue-muted: #86a5a9;
+      --gray: #767676;
+      --sage-dark: #536f50;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .description p {
-      max-width: 100%;
+    * {
+      box-sizing: border-box;
     }
-    .buttons {
-      max-width: 100%;
-      flex-direction: row;
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
+        url("saturn-above-the-thick-atmosphere-fahad-sulehria.jpg") center / cover fixed;
+      color: var(--sage-dark);
+      padding: 80px 20px;
+      display: flex;
       justify-content: center;
-      gap: 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .btn {
-      font-size: 1rem;
-      padding: 12px 25px;
-    }
-  }
 
-  @media (max-width: 480px) {
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: var(--ivory);
+      border-radius: 22px;
+      padding: 40px 50px;
+      box-shadow: 0 3px 15px rgba(83,111,80,0.3);
+      user-select: none;
+      color: var(--sage-dark);
+    }
+
     h3 {
-      font-size: 2.5rem;
+      font-weight: 800;
+      font-size: 3.2rem;
+      color: var(--sage-dark);
+      margin-bottom: 60px;
+      letter-spacing: 1.5px;
+      text-align: center;
+      user-select: none;
+      position: relative;
     }
-    .description p {
-      font-size: 1rem;
-    }
-    .gallery {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
 
+    h3::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--green);
+      margin: 18px auto 0;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px var(--green);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .content img {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 6px 20px rgba(83,111,80,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .content img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px var(--green);
+    }
+
+    .text {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--gray);
+      text-align: left;
+      background: #f8faea;
+      border-radius: 22px;
+      padding: 28px 32px;
+      box-shadow: 0 0 18px rgba(146,197,130,0.4);
+    }
+
+    .text p {
+      margin-bottom: 1.25em;
+    }
+
+    .github {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 35px;
+      font-size: 1.25rem;
+      border: 3px solid var(--green);
+      color: var(--sage-dark);
+      text-decoration: none;
+      border-radius: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .github:hover {
+      background: var(--green);
+      color: var(--ivory);
+      box-shadow: 0 0 40px var(--green);
+      transform: scale(1.05);
+    }
+
+    .tech-stack {
+      margin: 70px 0 10px;
+      padding-top: 35px;
+      position: relative;
+      width: 100%;
+    }
+
+    .tech-stack::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--green),
+        transparent
+      );
+    }
+
+    .tech-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 40px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .tech {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .tech:nth-child(1) { animation-delay: 0.1s; }
+    .tech:nth-child(2) { animation-delay: 0.2s; }
+    .tech:nth-child(3) { animation-delay: 0.3s; }
+    .tech:nth-child(4) { animation-delay: 0.4s; }
+    .tech:nth-child(5) { animation-delay: 0.5s; }
+    .tech:nth-child(6) { animation-delay: 0.6s; }
+
+    .tech img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(146,197,130,0.75));
+      transition: transform 0.3s ease, filter 0.3s ease;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px;
+    }
+
+    .tech:hover img {
+      transform: translateY(-6px) scale(1.08);
+      filter: drop-shadow(0 0 22px var(--green));
+    }
+
+    .tech span {
+      font-size: 0.95rem;
+      color: var(--sage-dark);
+      letter-spacing: 0.6px;
+      user-select: none;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      width: 100%;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(146,197,130,0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px var(--green);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .container {
+        padding: 30px 25px;
+        margin: 30px auto;
+      }
+      h3 {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+      }
+      .content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .text {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 24px 20px;
+        border-radius: 18px;
+        box-shadow: 0 0 26px rgba(146,197,130,0.3);
+      }
+      .github {
+        font-size: 1.1rem;
+        padding: 14px 30px;
+        margin-top: 25px;
+      }
+      .tech-stack {
+        margin: 50px 0 15px;
+        padding-top: 30px;
+      }
+      .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 30px;
+      }
+      .tech img {
+        width: 60px;
+        height: 60px;
+      }
+      .gallery {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 25px 10px;
+      }
+      .text {
+        font-size: 1rem;
+        padding: 18px 15px;
+      }
+      .github {
+        font-size: 1rem;
+        padding: 12px 25px;
+      }
+      .tech-icons {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 25px;
+      }
+      .tech img {
+        width: 50px;
+        height: 50px;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <h3>Star Classification</h3>
 
-    <div class="description">
-      <p>This project uses machine learning techniques to classify celestial objects, specifically stars, galaxies, and quasars, using observational data from the Sloan Digital Sky Survey (SDSS). The dataset contains 100,000 entries, each with 18 features such as sky coordinates, brightness in different wavelength filters, and redshift.</p>
+    <div class="content">
+      <img src="Screenshot 2026-01-02 at 20.42.25.png" alt="Data exploration plot" />
 
-      <p>The goals are to explore and visualize the data to understand feature distributions. The data is preprocessed by encoding labels, scaling features, and removing unnecessary columns. The most important features are identified using Random Forest feature importance ranking. Predictive models are trained using the top features and evaluated based on accuracy and classification metrics.</p>
+      <div class="text">
+        <p>This project uses machine learning techniques to classify celestial objects, specifically stars, galaxies, and quasars, using observational data from the Sloan Digital Sky Survey (SDSS). The dataset contains 100,000 entries, each with 18 features such as sky coordinates, brightness in different wavelength filters, and redshift.</p>
 
-      <p>The results highlight top predictive features such as redshift and brightness in near-infrared and visible bands (i, r, g). The neural network model achieved approximately 98% accuracy in classifying stars, galaxies, and quasars.</p>
-    </div>
+        <p>The goals are to explore and visualize the data to understand feature distributions. The data is preprocessed by encoding labels, scaling features, and removing unnecessary columns. The most important features are identified using Random Forest feature importance ranking. Predictive models are trained using the top features and evaluated based on accuracy and classification metrics.</p>
 
-    <div class="buttons">
-      <a href="https://github.com/Unmel5/Star_Classification.git" class="btn" target="_blank" rel="noopener noreferrer">
-        🔗 View GitHub Code
-      </a>
+        <p>The results highlight top predictive features such as redshift and brightness in near-infrared and visible bands (i, r, g). The neural network model achieved approximately 98% accuracy in classifying stars, galaxies, and quasars.</p>
+
+        <a href="https://github.com/Unmel5/Star_Classification.git" class="github" target="_blank" rel="noopener noreferrer">
+          🔗 View GitHub Code
+        </a>
+      </div>
     </div>
 
     <div class="gallery">
-      <img src="Screenshot 2026-01-02 at 20.42.25.png" alt="Data exploration plot" />
       <img src="Screenshot 2026-01-02 at 20.42.52.png" alt="Feature importance visualization" />
       <img src="Screenshot 2026-01-02 at 20.43.15.png" alt="Model training results" />
       <img src="Screenshot 2026-01-02 at 20.43.20.png" alt="Neural network architecture" />
       <img src="Screenshot 2026-01-02 at 20.45.22.png" alt="Classification accuracy" />
     </div>
 
-    <!-- TECHNOLOGIES / SKILLS -->
     <div class="tech-stack">
       <div class="tech-icons">
-        <div class="tech">
-          <img src="python.png" alt="Python" />
-          <span>Python</span>
-        </div>
-        <div class="tech">
-          <img src="Scikit_learn_logo_small.svg (1).png" alt="Scikit-learn" />
-          <span>Scikit-learn</span>
-        </div>
-        <div class="tech">
-          <img src="TensorFlow_logo.svg (1).png" alt="TensorFlow" />
-          <span>TensorFlow</span>
-        </div>
-        <div class="tech">
-          <img src="images (8).png" alt="Pandas" />
-          <span>Pandas</span>
-        </div>
-        <div class="tech">
-          <img src="Created_with_Matplotlib-logo.svg (1).png" alt="Matplotlib" />
-          <span>Matplotlib</span>
-        </div>
-        <div class="tech">
-          <img src="images (9).png" alt="Jupyter" />
-          <span>Jupyter</span>
-        </div>
+        <div class="tech"><img src="python.png" alt="Python" /><span>Python</span></div>
+        <div class="tech"><img src="Scikit_learn_logo_small.svg (1).png" alt="Scikit-learn" /><span>Scikit-learn</span></div>
+        <div class="tech"><img src="TensorFlow_logo.svg (1).png" alt="TensorFlow" /><span>TensorFlow</span></div>
+        <div class="tech"><img src="images (8).png" alt="Pandas" /><span>Pandas</span></div>
+        <div class="tech"><img src="Created_with_Matplotlib-logo.svg (1).png" alt="Matplotlib" /><span>Matplotlib</span></div>
+        <div class="tech"><img src="images (9).png" alt="Jupyter" /><span>Jupyter</span></div>
       </div>
     </div>
   </div>
 </body>
 </html>
+
