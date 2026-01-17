@@ -5,21 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Melisa Unlu — Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #1e2a1f;
-      --glass: rgba(46, 72, 55, 0.65);
-      --glass-soft: rgba(70, 110, 85, 0.45);
-
-      --text-main: #e6e8dc;
-      --text-muted: #b9c4b2;
-
-      /*ORANGE ACCENTS */
-      --accent: #d48a3d;        /* burnt orange */
-      --accent-soft: #b36a2e;   /* terracotta */
-      --border: rgba(212, 138, 61, 0.35);
+      --ivory: #fdffe0;
+      --green: #92c582;
+      --blue-muted: #86a5a9;
+      --gray: #767676;
+      --sage-dark: #536f50;
     }
 
     * {
@@ -30,34 +24,21 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background:
-        linear-gradient(rgba(30,42,31,0.92), rgba(30,42,31,0.92)),
-        url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=80')
-        center / cover no-repeat fixed;
-      color: var(--text-main);
+        linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=80")
+        center / cover fixed;
+      color: var(--sage-dark);
+      padding: 80px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 60px 20px;
     }
 
     /*  HERO */
-    .container {
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      border-radius: 28px;
-      padding: 60px;
-      max-width: 720px;
-      width: 100%;
+    .hero {
+      max-width: 760px;
       text-align: center;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-      margin-bottom: 110px;
-    }
-
-    h1 {
-      font-size: 3.6rem;
-      font-weight: 900;
-      margin-bottom: 12px;
+      margin-bottom: 120px;
     }
 
     .name {
@@ -68,157 +49,159 @@
       flex-wrap: wrap;
     }
 
+    h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
     .flag {
-      width: 30px;
+      width: 26px;
     }
 
     .roles {
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
+      margin-top: 22px;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin: 30px 0;
-      font-weight: 600;
+      color: var(--blue-muted);
     }
 
-    h2 {
-      font-weight: 300;
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: var(--text-muted);
+    .hero h2 {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--gray);
     }
 
-    /*  FEATURED  */
-    .featured {
-      max-width: 1100px;
+    /*  SECTION  */
+    section {
       width: 100%;
-      margin-bottom: 130px;
+      max-width: 1100px;
+      margin-bottom: 140px;
     }
 
-    .featured h3 {
+    section h3 {
       text-align: center;
-      font-size: 2.6rem;
+      font-size: 2.3rem;
       margin-bottom: 60px;
-      color: var(--accent);
+      position: relative;
     }
 
+    section h3::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--green);
+      margin: 18px auto 0;
+      border-radius: 2px;
+    }
+
+    /*  GRID  */
     .featured-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
     }
 
+    /*  CARD  */
     .card {
-      background: var(--glass-soft);
-      backdrop-filter: blur(14px);
-      border-radius: 24px;
-      padding: 28px;
+      background: white;
+      border-radius: 26px;
+      padding: 28px 32px;
+      border: 1px solid rgba(83,111,80,0.15);
       display: flex;
-      align-items: center;
-      gap: 20px;
+      gap: 22px;
       text-decoration: none;
-      color: var(--text-main);
-      border: 1px solid var(--border);
+      color: var(--sage-dark);
       transition: all 0.35s ease;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      background: rgba(212,138,61,0.18);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
     }
 
     .card-logo {
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.08);
-      padding: 6px;
       flex-shrink: 0;
+      opacity: 0.9;
     }
 
     .card-content {
-      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .tag {
-      font-size: 0.7rem;
-      letter-spacing: 1.2px;
-      background: var(--accent-soft);
-      color: var(--bg-dark);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--green);
+      color: white;
       padding: 6px 14px;
-      border-radius: 14px;
-      display: inline-block;
-      margin-bottom: 8px;
+      border-radius: 999px;
       font-weight: 600;
+      align-self: flex-start;
+      margin-bottom: 8px;
     }
 
     .card h4 {
       font-size: 1.35rem;
-      margin: 6px 0 8px;
-      color: var(--accent);
+      margin: 4px 0 10px;
     }
 
     .card p {
       font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--text-muted);
+      line-height: 1.6;
+      color: var(--gray);
       margin: 0;
     }
 
-    /*  ABOUT  */
+    /* ABOUT */
     .about {
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      border-radius: 28px;
-      padding: 60px;
-      max-width: 720px;
-      width: 100%;
+      max-width: 760px;
       text-align: center;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-      margin-bottom: 130px;
-    }
-
-    .about h3 {
-      font-size: 2.5rem;
-      margin-bottom: 25px;
-      color: var(--accent);
+      margin: 0 auto 140px;
     }
 
     .about p {
       font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 40px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 50px;
     }
 
     .contact p {
-      margin: 6px 0;
+      margin: 8px 0;
       font-size: 1rem;
     }
 
     .contact a {
-      color: var(--accent);
+      color: var(--sage-dark);
       font-weight: 600;
       text-decoration: none;
+      border-bottom: 2px solid transparent;
     }
 
     .contact a:hover {
-      text-decoration: underline;
+      border-bottom: 2px solid var(--green);
     }
 
-    /*  MESSAGE  */
+    /*  MESSAGE */
     .message-box {
-      margin-top: 50px;
+      margin-top: 60px;
       text-align: left;
     }
 
     .message-box h4 {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       margin-bottom: 20px;
-      color: var(--accent);
     }
 
     form {
@@ -229,50 +212,45 @@
 
     input,
     textarea {
-      border-radius: 14px;
       padding: 14px 18px;
-      border: none;
-      background: rgba(255,255,255,0.08);
-      color: var(--text-main);
+      border-radius: 14px;
+      border: 1px solid rgba(83,111,80,0.25);
       font-family: inherit;
       font-size: 1rem;
     }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(255,255,255,0.6);
-    }
-
     button {
+      margin-top: 10px;
       align-self: flex-start;
       padding: 12px 36px;
-      border-radius: 22px;
-      background: var(--accent);
-      color: var(--bg-dark);
+      border-radius: 999px;
       border: none;
+      background: var(--sage-dark);
+      color: white;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     button:hover {
-      background: var(--accent-soft);
-      transform: scale(1.05);
+      background: var(--green);
     }
 
-    /*  MOBILE  */
+    #form-status {
+      margin-top: 14px;
+      font-weight: 600;
+      color: var(--sage-dark);
+      display: none;
+    }
+
+    /*  MOBILE */
     @media (max-width: 600px) {
       h1 {
         font-size: 2.6rem;
       }
 
-      .container,
-      .about {
-        padding: 40px 25px;
-      }
-
-      button {
-        width: 100%;
+      section h3 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -280,30 +258,30 @@
 
 <body>
 
-  <div class="container">
+  <section class="hero">
     <h1 class="name">
-      <img src="Flag_of_Turkey.svg.webp" class="flag" alt="Turkey Flag" />
+      <img src="Flag_of_Turkey.svg.webp" class="flag" alt="Turkey">
       Melisa Unlu
-      <img src="Flag_of_the_United_States.svg.png" class="flag" alt="USA Flag" />
+      <img src="Flag_of_the_United_States.svg.png" class="flag" alt="USA">
     </h1>
 
     <div class="roles">
-      Computer Science Student · Researcher · Writer · Musician
+      Computer Science · Research · Writing · Music
     </div>
 
     <h2>
-      University of Houston — Computer Science<br />
+      University of Houston — Computer Science<br>
       Minors in Geology & English
     </h2>
-  </div>
+  </section>
 
-  <section class="featured">
+  <section>
     <h3>Featured Work & Leadership</h3>
 
     <div class="featured-grid">
 
       <a href="University of Texas at Austin.html" class="card">
-        <img src="University_of_Texas_at_Austin_seal.svg.png" class="card-logo" />
+        <img src="University_of_Texas_at_Austin_seal.svg.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Research</span>
           <h4>UT Austin Research</h4>
@@ -312,7 +290,7 @@
       </a>
 
       <a href="Colorado School of Mines.html" class="card">
-        <img src="images.png" class="card-logo" />
+        <img src="mines-logo.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Research</span>
           <h4>Colorado School of Mines</h4>
@@ -321,7 +299,7 @@
       </a>
 
       <a href="Rocketry.html" class="card">
-        <img src="cropped-aiaaweblogo.png" class="card-logo" />
+        <img src="cropped-aiaaweblogo.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Engineering</span>
           <h4>Rocketry</h4>
@@ -330,6 +308,7 @@
       </a>
 
       <a href="StarCLassification.html" class="card">
+        <img src="astronomy.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Machine Learning</span>
           <h4>Star Classification</h4>
@@ -338,6 +317,7 @@
       </a>
 
       <a href="Writings.html" class="card">
+        <img src="writing1.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Writing</span>
           <h4>Writing</h4>
@@ -346,6 +326,7 @@
       </a>
 
       <a href="Music.html" class="card">
+        <img src="spacelogo.png" class="card-logo" alt="">
         <div class="card-content">
           <span class="tag">Music</span>
           <h4>Music</h4>
@@ -353,51 +334,81 @@
         </div>
       </a>
 
-      <a href="Webdev.html" class="card">
-        <img src="Webdev.png" class="card-logo" />
-        <div class="card-content">
-          <span class="tag">Web</span>
-          <h4>Web Development</h4>
-          <p>Frontend design & interaction</p>
-        </div>
-      </a>
-
-      <a href="#" class="card">
-        <img src="code_coogs_logo (1).jpeg" class="card-logo" />
-        <div class="card-content">
-          <h4>CodeCoogs Workshop Coordinator</h4>
-          <p>Incoming position</p>
-        </div>
-      </a>
-
     </div>
   </section>
 
-  <div class="about">
+  <section class="about">
     <h3>About Me</h3>
     <p>
       I’m a Computer Science student at the University of Houston with minors in
-      Geology and English. My work sits at the intersection of computation,
+      Geology and English. My work lives at the intersection of computation,
       science, and creative expression.
     </p>
 
     <div class="contact">
-      <p><strong>Email:</strong> <a href="mailto:melissaunlu4@gmail.com">melissaunlu4@gmail.com</a></p>
-      <p><strong>Phone:</strong> +1 (281) 460-1534</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Unmel5" target="_blank">github.com/Unmel5</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank">linkedin.com/in/melisa-unlu</a></p>
+      <p>Email: <a href="mailto:melissaunlu4@gmail.com">melissaunlu4@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/Unmel5" target="_blank">github.com/Unmel5</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank">linkedin.com/in/melisa-unlu</a></p>
     </div>
 
     <div class="message-box">
       <h4>Message Me</h4>
-      <form action="http://127.0.0.1:5000/contact" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
+      <form id="contact-form" action="https://formspree.io/f/mqeeeopb" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+
+        <input type="hidden" name="_subject" value="New Portfolio Message">
+        <input type="hidden" name="_captcha" value="false">
+
         <button type="submit">Send</button>
       </form>
+      <p id="form-status"></p>
     </div>
-  </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // prevent page reload
+
+      status.style.display = 'none'; // hide status initially
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.style.color = 'green';
+          status.textContent = 'Thanks! Your message has been sent.';
+          status.style.display = 'block';
+        } else {
+          const data = await response.json();
+          let errorMsg = 'Oops! There was a problem.';
+          if (data.errors) {
+            errorMsg = data.errors.map(error => error.message).join(', ');
+          }
+          status.style.color = 'red';
+          status.textContent = errorMsg;
+          status.style.display = 'block';
+        }
+      } catch (error) {
+        status.style.color = 'red';
+        status.textContent = 'Network error. Please try again later.';
+        status.style.display = 'block';
+      }
+    });
+  </script>
 
 </body>
 </html>
