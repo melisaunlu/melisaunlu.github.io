@@ -5,48 +5,53 @@
 <title>UH Machine Learning & Geophysics</title>
 
 <style>
+  :root {
+    --ivory: #fdffe0;
+    --green: #92c582;
+    --blue-muted: #86a5a9;
+    --gray: #767676;
+    --sage-dark: #536f50;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
-    background-image: url("Maat_Mons_on_Venus_pillars.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: "Georgia", serif;
+    background:
+      linear-gradient(rgba(253,255,224,0.85), rgba(253,255,224,0.85)),
+      url("Maat_Mons_on_Venus_pillars.jpg") center / cover fixed;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
-    color: white;
-    padding: 40px 20px;
+    color: var(--sage-dark);
+    padding: 60px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .container {
-    background: rgba(10, 20, 40, 0.75);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
+    background: var(--ivory);
+    border-radius: 22px;
     padding: 50px 60px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 6px 25px rgba(83,111,80,0.25);
     user-select: none;
     text-align: center;
   }
 
   h3 {
-    font-size: 42px;
-    font-weight: 700;
-    color: rgb(255, 123, 0);
-    border: 5px solid rgb(0, 255, 213);
+    font-weight: 800;
+    font-size: 3.2rem;
+    color: var(--sage-dark);
+    border: 5px solid var(--green);
     padding: 20px;
     margin-bottom: 40px;
-    letter-spacing: 1px;
-  }
-
-  .description {
-    font-size: 20px;
-    line-height: 1.6;
-    color: beige;
-    text-align: left;
-    margin-bottom: 40px;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+    user-select: none;
+    background: #f9fce3;
+    border-radius: 12px;
+    box-shadow: 0 0 18px var(--green);
   }
 
   .content {
@@ -57,15 +62,37 @@
     margin-bottom: 40px;
   }
 
+  @media (min-width: 900px) {
+    .content {
+      grid-template-columns: 1.3fr 1fr;
+    }
+  }
+
   .content img {
     width: 100%;
-    border-radius: 14px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(83,111,80,0.25);
     transition: transform 0.3s ease;
+    cursor: pointer;
+    background: white;
+    padding: 10px;
   }
 
   .content img:hover {
     transform: scale(1.05);
+    box-shadow: 0 15px 40px var(--green);
+  }
+
+  .description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--sage-dark);
+    text-align: left;
+    user-select: text;
+  }
+
+  .description p {
+    margin-bottom: 1.5em;
   }
 
   .buttons {
@@ -79,31 +106,36 @@
     display: inline-block;
     text-align: center;
     padding: 15px 30px;
-    font-size: 24px;
+    font-size: 1.25rem;
     border-radius: 14px;
-    border: 3px solid rgb(0, 255, 247);
-    color: rgb(0, 255, 247);
+    border: 3px solid var(--blue-muted);
+    color: var(--blue-muted);
     text-decoration: none;
     transition: all 0.3s ease;
     user-select: none;
+    font-weight: 600;
+    background: #f9fce3;
+    box-shadow: 0 0 15px var(--blue-muted);
   }
 
   .btn:hover {
-    background: rgb(0, 255, 247);
-    color: black;
-    box-shadow: 0 0 25px rgb(0, 255, 247);
+    background: var(--blue-muted);
+    color: var(--ivory);
+    box-shadow: 0 0 30px var(--blue-muted);
     transform: scale(1.05);
   }
 
   .advisor {
-    border-color: rgb(255, 174, 0);
-    color: rgb(255, 174, 0);
+    border-color: var(--green);
+    color: var(--green);
+    background: #f9fce3;
+    box-shadow: 0 0 15px var(--green);
   }
 
   .advisor:hover {
-    background: rgb(255, 174, 0);
-    color: black;
-    box-shadow: 0 0 25px rgb(255, 174, 0);
+    background: var(--green);
+    color: var(--ivory);
+    box-shadow: 0 0 30px var(--green);
   }
 
   .gallery {
@@ -115,19 +147,17 @@
 
   .gallery img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(83,111,80,0.25);
     transition: transform 0.3s ease;
+    cursor: pointer;
+    background: white;
+    padding: 8px;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-  }
-
-  @media (min-width: 900px) {
-    .content {
-      grid-template-columns: 1.2fr 1fr;
-    }
+    box-shadow: 0 14px 38px var(--green);
   }
 
   /* TECHNOLOGIES / SKILLS */
@@ -147,7 +177,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 255, 213, 0.8),
+      var(--green),
       transparent
     );
   }
@@ -169,7 +199,6 @@
     animation: fadeUp 0.8s ease forwards;
   }
 
-  /* Stagger animation delay */
   .tech:nth-child(1) { animation-delay: 0.1s; }
   .tech:nth-child(2) { animation-delay: 0.2s; }
   .tech:nth-child(3) { animation-delay: 0.3s; }
@@ -181,19 +210,23 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(0, 255, 213, 0.75));
+    filter: drop-shadow(0 0 14px rgba(146,197,130,0.75));
     transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 8px;
+    background: var(--ivory);
+    padding: 6px;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(0, 255, 213, 1));
+    filter: drop-shadow(0 0 22px var(--green));
   }
 
   .tech span {
     font-size: 0.95rem;
-    color: #cce7e3;
+    color: var(--sage-dark);
     letter-spacing: 0.6px;
+    user-select: none;
   }
 
   @keyframes fadeUp {
@@ -207,6 +240,71 @@
     }
   }
 
+  /* Responsive */
+  @media (max-width: 700px) {
+    .container {
+      padding: 35px 30px;
+      max-width: 100%;
+    }
+    h3 {
+      font-size: 2.8rem;
+      padding: 18px;
+      margin-bottom: 30px;
+    }
+    .content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .description {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .buttons {
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .btn {
+      font-size: 1.1rem;
+      padding: 14px 28px;
+    }
+    .gallery {
+      gap: 25px;
+    }
+    .tech-icons {
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+    .tech img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 25px 10px;
+    }
+    .description {
+      font-size: 1rem;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 12px 24px;
+    }
+    .tech-icons {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 25px;
+    }
+    .tech img {
+      width: 50px;
+      height: 50px;
+    }
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
 </style>
 </head>
 
