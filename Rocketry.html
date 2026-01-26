@@ -20,30 +20,28 @@
     box-sizing: border-box;
   }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background:
-      linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
-      url('10.jpg') center / cover fixed;
-    color: var(--sage-dark);
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .container {
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(
+          circle at top,
+        #eef4ef 0%,
+        #dce8df 45%,
+        #cfded4 100%
+    );
+  color: var(--sage-dark);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 
+ .container {
     max-width: 950px;
     width: 95%;
-    padding: 50px 60px;
-    background: rgba(253, 255, 224, 0.95);
-    border-radius: 24px;
-    box-shadow: 0 3px 25px rgba(83,111,80,0.3);
     user-select: none;
-    text-align: center;
-    color: var(--sage-dark);
   }
 
   h1, h3 {
@@ -63,6 +61,9 @@
     color: var(--sage-dark);
     letter-spacing: -0.02em;
     margin-top: 0;
+    margin-bottom: 40px;
+    user-select: none;
+    text-align: center;
   }
 
   .intro {
@@ -83,7 +84,7 @@
   .photo-block {
     overflow: hidden;
     border-radius: 18px;
-    background: var(--ivory);
+    background: #F2E2D7;
     box-shadow: 0 3px 15px rgba(83,111,80,0.25);
     transition: box-shadow 0.3s ease;
     display: flex;
@@ -100,7 +101,7 @@
     border-radius: 18px 18px 0 0;
     transition: transform 0.35s ease;
     object-fit: contain;
-    background: var(--ivory);
+    background: var(--blue-muted);
     padding: 6px;
   }
 
@@ -113,74 +114,83 @@
     font-size: 1rem;
     color: var(--sage-dark);
     text-align: left;
-    background: var(--ivory);
+    background: #F2E2D7;
     border-radius: 0 0 18px 18px;
     user-select: text;
   }
 
   /* TECHNOLOGIES / SKILLS */
-  .tech-stack {
-    margin: 70px 0 20px;
-    padding-top: 35px;
-    position: relative;
-  }
+.tech-stack {
+  margin: 70px 0 20px;
+  padding-top: 35px;
+  position: relative;
+}
 
-  .tech-stack::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 15%;
-    width: 70%;
-    height: 3px;
-    background: var(--green);
-    border-radius: 2px;
-    box-shadow: 0 2px 8px var(--green);
-  }
+.tech-stack::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background: var(--green);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px var(--green);
+}
 
-  .tech-icons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 40px;
-    justify-items: center;
-  }
+.tech-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
 
-  .tech {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    animation: fadeUp 0.8s ease forwards;
-  }
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;                /* start hidden for fade animation */
+  animation: fadeUp 0.8s ease forwards;
+}
 
-  .tech img {
-    width: 70px;
-    height: 70px;
-    box-shadow: 0 1px 5px rgba(83,111,80,0.6);
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: var(--ivory);
-  }
+.tech:nth-child(1) { animation-delay: 0.1s; }
+.tech:nth-child(2) { animation-delay: 0.2s; }
+.tech:nth-child(3) { animation-delay: 0.3s; }
+.tech:nth-child(4) { animation-delay: 0.4s; }
+.tech:nth-child(5) { animation-delay: 0.5s; }
+.tech:nth-child(6) { animation-delay: 0.6s; }
 
-  .tech:hover img {
-    transform: translateY(-6px) scale(1.1);
-    box-shadow: 0 6px 14px var(--green);
-  }
+.tech img {
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 1px 5px rgba(83,111,80,0.6);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--ivory);
+}
 
-  .tech span {
-    font-size: 0.95rem;
-    color: var(--sage-dark);
-    letter-spacing: 0.6px;
-  }
+.tech:hover img {
+  transform: translateY(-6px) scale(1.1);
+  box-shadow: 0 6px 14px var(--green);
+}
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+.tech span {
+  font-size: 0.95rem;
+  color: var(--sage-dark);
+  letter-spacing: 0.6px;
+}
+
+/* fadeUp keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
   /* Responsive */
   @media (max-width: 768px) {
     h1, h3 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
     }
     .container {
       padding: 40px 30px;
@@ -256,35 +266,34 @@
 
     </div>
 
-    <div class="tech-stack">
-      <div class="tech-icons">
-        <div class="tech">
-          <img src="Arduino_Logo.svg.png" alt="Arduino" />
-          <span>Arduino</span>
-        </div>
-        <div class="tech">
-          <img src="soldering-welding-iron-tool-logo-electric-heater-circuit-technology-symbol-electronic-symbol-85937725.webp" alt="Soldering" />
-          <span>Soldering</span>
-        </div>
-        <div class="tech">
-          <img src="images (4).png" alt="3D Printing" />
-          <span>3D Printing</span>
-        </div>
-        <div class="tech">
-          <img src="il_fullxfull.3616343745_2lhs.avif" alt="Ham Radio" />
-          <span>Ham Radio</span>
-        </div>
-        <div class="tech">
-          <img src="images (6).jpg" alt="Telemetry" />
-          <span>Telemetry</span>
-        </div>
-        <div class="tech">
-          <img src="sun-round-design-in-pcb-layout-style-with-rays-conceptual-illustration-for-you-logo-or-other-design-MPNC3D.jpg" alt="PCB Design" />
-          <span>PCB Design</span>
-        </div>
-      </div>
+<div class="tech-stack">
+  <div class="tech-icons">
+    <div class="tech">
+      <img src="Arduino_Logo.svg.png" alt="Arduino" />
+      <span>Arduino</span>
+    </div>
+    <div class="tech">
+      <img src="soldering-welding-iron-tool-logo-electric-heater-circuit-technology-symbol-electronic-symbol-85937725.webp" alt="Soldering" />
+      <span>Soldering</span>
+    </div>
+    <div class="tech">
+      <img src="images (4).png" alt="3D Printing" />
+      <span>3D Printing</span>
+    </div>
+    <div class="tech">
+      <img src="il_fullxfull.3616343745_2lhs.avif" alt="Ham Radio" />
+      <span>Ham Radio</span>
+    </div>
+    <div class="tech">
+      <img src="images (6).jpg" alt="Telemetry" />
+      <span>Telemetry</span>
+    </div>
+    <div class="tech">
+      <img src="sun-round-design-in-pcb-layout-style-with-rays-conceptual-illustration-for-you-logo-or-other-design-MPNC3D.jpg" alt="PCB Design" />
+      <span>PCB Design</span>
     </div>
   </div>
+</div>
 </body>
 </html>
 

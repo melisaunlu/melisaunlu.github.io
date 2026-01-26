@@ -7,44 +7,40 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
-<style>
-  :root {
-    --ivory: #fdffe0;
-    --green: #92c582;
-    --sage-dark: #536f50;
-    --gray: #767676;
-    --blue-muted: #86a5a9;
-  }
 
-  * {
-    box-sizing: border-box;
-  }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background:
-      linear-gradient(rgba(253,255,224,0.95), rgba(253,255,224,0.95)),
-      url("wp4047238-mercury-planet-wallpapers.jpg") center / cover fixed;
-    color: var(--sage-dark);
-    padding: 60px 20px 80px;
-    display: flex;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  <style>
+    :root {
+      --ivory: #fdffe0;
+      --green: #92c582;
+      --blue-muted: #86a5a9;
+      --gray: #767676;
+      --sage-dark: #536f50;
+    }
 
-  .container {
-    max-width: 700px;
-    width: 90%;
-    background: var(--ivory);
-    border-radius: 24px;
-    padding: 50px 60px;
-    box-shadow: 0 4px 30px rgba(83,111,80,0.25);
-    user-select: none;
-    text-align: center;
-    color: var(--sage-dark);
-  }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(
+          circle at top,
+        #eef4ef 0%,
+        #dce8df 45%,
+        #cfded4 100%
+    );
+  color: var(--sage-dark);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 
   h3 {
     font-weight: 800;
@@ -52,6 +48,7 @@
     margin-bottom: 50px;
     letter-spacing: -0.02em;
     color: var(--sage-dark);
+    text-align: center; 
   }
 
   .description {

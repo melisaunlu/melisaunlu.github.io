@@ -20,29 +20,29 @@
       box-sizing: border-box;
     }
 
-    body {
+     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background:
-        linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
-        url("saturn-above-the-thick-atmosphere-fahad-sulehria.jpg") center / cover fixed;
-      color: var(--sage-dark);
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        radial-gradient(
+          circle at top,
+        #eef4ef 0%,
+        #dce8df 45%,
+        #cfded4 100%
+    );
+  color: var(--sage-dark);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+};    
 
     .container {
       max-width: 900px;
       width: 100%;
-      background: var(--ivory);
-      border-radius: 22px;
-      padding: 40px 50px;
-      box-shadow: 0 3px 15px rgba(83,111,80,0.3);
       user-select: none;
-      color: var(--sage-dark);
     }
 
     h3 {
@@ -94,10 +94,7 @@
       line-height: 1.7;
       color: var(--gray);
       text-align: left;
-      background: #f8faea;
-      border-radius: 22px;
       padding: 28px 32px;
-      box-shadow: 0 0 18px rgba(146,197,130,0.4);
     }
 
     .text p {
@@ -177,9 +174,6 @@
       object-fit: contain;
       filter: drop-shadow(0 0 14px rgba(146,197,130,0.75));
       transition: transform 0.3s ease, filter 0.3s ease;
-      border-radius: 8px;
-      background: #fff;
-      padding: 6px;
     }
 
     .tech:hover img {
@@ -191,7 +185,6 @@
       font-size: 0.95rem;
       color: var(--sage-dark);
       letter-spacing: 0.6px;
-      user-select: none;
     }
 
     @keyframes fadeUp {

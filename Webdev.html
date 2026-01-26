@@ -7,43 +7,38 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
-<style>
-  :root {
-    --ivory: #fdffe0;
-    --green: #92c582;
-    --blue-muted: #86a5a9;
-    --gray: #767676;
-    --sage-dark: #536f50;
-  }
 
-  * {
-    box-sizing: border-box;
-  }
+  <style>
+    :root {
+      --ivory: #fdffe0;
+      --green: #92c582;
+      --blue-muted: #86a5a9;
+      --gray: #767676;
+      --sage-dark: #536f50;
+    }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background:
-      linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
-      url('Churning_atmosphere_on_Saturn_pillars.jpg') center / cover fixed;
-    color: var(--sage-dark);
-    padding: 80px 20px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
-  }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(
+          circle at top,
+        #eef4ef 0%,
+        #dce8df 45%,
+        #cfded4 100%
+    );
+  color: var(--sage-dark);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .container {
-    max-width: 960px;
-    width: 90%;
-    background: var(--ivory);
-    border-radius: 24px;
-    padding: 50px 60px;
-    box-shadow: 0 4px 30px rgba(83,111,80,0.25);
-    user-select: none;
-    color: var(--sage-dark);
-  }
 
   h3 {
     font-weight: 800;
@@ -51,9 +46,7 @@
     margin-bottom: 50px;
     letter-spacing: 0.05em;
     text-align: center;
-    color: var(--green);
-    text-shadow:
-      0 0 6px rgba(146, 197, 130, 0.6);
+    color: var(--sage-dark);
   }
 
   .text-content {
