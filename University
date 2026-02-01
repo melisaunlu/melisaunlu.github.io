@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Magnetic Fields Modeling</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ivory: rgba(253,255,224,0.96);
+    --green: #92c582;
+    --blue-muted: #86a5a9;
+    --gray: #767676;
+    --sage-dark: #536f50;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: url("wp9725843.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--sage-dark);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: #A1BFFF;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 900px;
+    width: 95%;
+    background: rgba(146,197,130, 0.55); /* var(--green) with opacity */
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 40px 50px;
+    box-shadow: 0 0 30px rgba(83,111,80, 0.5); /* darker sage */
+    color: var(--blue-muted);
+    user-select: none;
+  }
+
+  h3 {
+    font-weight: 900;
+    font-size: 3.8rem;
+    color: var(--green);
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(146,197,130, 0.85);
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 45px;
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .content img {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(83,111,80, 0.6); /* sage dark shadow */
+    transition: transform 0.3s ease;
+  }
+
+  .content img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px var(--green);
+  }
+
+  .text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--blue-muted);
+    text-align: left;
+
+    background: rgba(146,197,130, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 28px 32px;
+    box-shadow: 0 0 26px rgba(83,111,80, 0.4);
+  }
+
+  .text p {
+    margin-bottom: 1.25em;
+  }
+
+  .github {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
+    font-size: 1.25rem;
+    border: 3px solid var(--green);
+    color: var(--green);
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .github:hover {
+    background: var(--green);
+    color: var(--sage-dark);
+    box-shadow: 0 0 40px var(--green);
+    transform: scale(1.05);
+  }
+
+  .tech-stack {
+    margin: 70px 0 10px;
+    padding-top: 35px;
+    position: relative;
+    width: 100%;
+  }
+
+  .tech-stack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--green),
+      transparent
+    );
+  }
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .tech:nth-child(1) { animation-delay: 0.1s; }
+  .tech:nth-child(2) { animation-delay: 0.2s; }
+  .tech:nth-child(3) { animation-delay: 0.3s; }
+  .tech:nth-child(4) { animation-delay: 0.4s; }
+  .tech:nth-child(5) { animation-delay: 0.5s; }
+  .tech:nth-child(6) { animation-delay: 0.6s; }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 14px var(--green));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .tech:hover img {
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 0 22px var(--green));
+  }
+
+  .tech span {
+    font-size: 0.95rem;
+    color: var(--blue-muted);
+    letter-spacing: 0.6px;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .gallery {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    width: 100%;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 15px 30px rgba(83,111,80, 0.6);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px var(--green);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .container {
+      padding: 30px 25px;
+      margin: 30px auto;
+    }
+    h3 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+    .content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .text {
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 24px 20px;
+      border-radius: 18px;
+      box-shadow: 0 0 26px rgba(83,111,80, 0.3);
+    }
+    .github {
+      font-size: 1.1rem;
+      padding: 14px 30px;
+      margin-top: 25px;
+    }
+    .tech-stack {
+      margin: 50px 0 15px;
+      padding-top: 30px;
+    }
+    .tech-icons {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 30px;
+    }
+    .tech img {
+      width: 60px;
+      height: 60px;
+    }
+    .gallery {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 25px 10px;
+    }
+    .text {
+      font-size: 1rem;
+      padding: 18px 15px;
+    }
+    .github {
+      font-size: 1rem;
+      padding: 12px 25px;
+    }
+    .tech-icons {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 25px;
+    }
+    .tech img {
+      width: 50px;
+      height: 50px;
+    }
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Magnetic Fields Modeling</h3>
+
+    <div class="content">
+      <img src="image.png" alt="Magnetic field simulation" />
+
+      <div class="text">
+        <p>
+          Spent a summer working with <strong>Dr. Krista Soderlund</strong>,
+          <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on
+          numerically modeling magnetic fields around early Earth, Venus, and
+          the Moon.
+        </p>
+
+        <p>
+          Generated magnetic and kinetic energy fields, zonal flows, and entropy
+          levels of early Earth using supercomputers and parallel computing.
+        </p>
+
+        <p>
+          Successfully implemented and validated a radial electrical conductivity
+          profile with a sharp gradient at the core–mantle boundary, bridging
+          idealized models with realistic planetary bodies.
+        </p>
+
+        <p>
+          Conducted extensive test cases analyzing magnetic surfaces, tilt,
+          zonal flows, and kinetic/magnetic field behavior for poster
+          presentation.
+        </p>
+
+        <a href="https://github.com/dunyuliu/magic.bmo.git"
+           class="github"
+           target="_blank"
+           rel="noopener noreferrer">
+          🔗 View GitHub Code
+        </a>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGIES -->
+    <div class="tech-stack">
+      <div class="tech-icons">
+        <div class="tech">
+          <img src="Fortran_logo.svg.png" alt="Fortran" />
+          <span>Fortran</span>
+        </div>
+        <div class="tech">
+          <img src="images.png" alt="MPI" />
+          <span>MPI</span>
+        </div>
+        <div class="tech">
+          <img src="images (5).jpg" alt="Python" />
+          <span>Python</span>
+        </div>
+        <div class="tech">
+          <img src="images (1).png" alt="Linux" />
+          <span>Linux / HPC</span>
+        </div>
+        <div class="tech">
+          <img src="images (2).png" alt="Supercomputing" />
+          <span>TACC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <img src="Img2.png" alt="Simulation result 1" />
+      <img src="IMG3.png" alt="Simulation result 2" />
+    </div>
+  </div>
+</body>
+</html>
+

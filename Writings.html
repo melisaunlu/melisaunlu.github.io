@@ -4,72 +4,62 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Writings Portfolio</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+  /* Reset & base */
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    margin: 0;
-    min-height: 100vh;
-    background: url("hydrothermal.png") no-repeat center center fixed;
-    background-size: cover;
     font-family: 'Poppins', sans-serif;
-    color: #a0e9d8;
+    background: #0f1a17;
+    color: #cfdad6;
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px 80px;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(10, 60, 50, 0.85);
-    z-index: -1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .container {
-    background: rgba(10, 146, 99, 0.5);
-    backdrop-filter: blur(14px);
-    border-radius: 20px;
     max-width: 960px;
     width: 90%;
     padding: 50px 60px;
-    box-shadow: 0 0 30px rgba(10, 146, 99, 0.7);
     user-select: none;
-    color: #a0e9d8;
+    background: #19322e;
+    border-radius: 24px;
+    box-shadow: 0 6px 30px rgba(83, 111, 80, 0.7);
+    text-align: center;
+    color: #a3b5a6;
   }
 
   h3 {
-    font-size: 42px;
-    font-weight: 700;
-    color: #d4ce46;
-    border: 5px solid #d4ce46;
-    padding: 20px;
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: #d4ce46; /* gold */
+    letter-spacing: 0.02em;
     margin-bottom: 40px;
-    letter-spacing: 1px;
-    text-align: center;
-    text-shadow: 0 0 10px #d4ce46aa;
+    user-select: none;
   }
 
   .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #dedacf;
     max-width: 600px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 50px;
     padding: 20px 30px;
-    background: rgba(0, 80, 60, 0.75);
-    border: 2px solid #00ffd9;
+    background: #23775c;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 217, 0.6);
-    text-align: center;
-    font-size: 26px;
-    color: #9ce6de;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 12px rgba(83, 111, 80, 0.15);
     font-style: italic;
+    user-select: text;
   }
 
   .grid {
@@ -80,13 +70,14 @@
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: #9bd5c3;
+    user-select: text;
   }
 
   .card {
-    background: rgba(10, 100, 70, 0.6);
-    border-radius: 16px;
-    box-shadow: 0 15px 30px rgba(0, 255, 217, 0.3);
+    background: #19322e;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(83,111,80,0.3);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -97,15 +88,16 @@
   }
 
   .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 255, 217, 0.7);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 12px 40px #9bd5c3;
   }
 
   .card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-bottom: 2px solid #00ffd9;
+    border-bottom: 2px solid #9bd5c3;
+    background: #0f1a17;
   }
 
   /* Button style */
@@ -115,45 +107,43 @@
     padding: 12px 24px;
     font-size: 18px;
     font-weight: 600;
-    color: #00ffd9;
-    border: 2.5px solid #00ffd9;
+    color: #9bd5c3;
+    border: 2.5px solid #9bd5c3;
     border-radius: 12px;
     background: transparent;
     text-align: center;
     transition: all 0.3s ease;
+    user-select: none;
   }
 
   .btn:hover {
-    background-color: #00ffd9;
-    color: #00332f;
-    box-shadow: 0 0 20px #00ffd9;
+    background-color: #9bd5c3;
+    color: #0f1a17;
+    box-shadow: 0 0 20px #9bd5c3;
   }
 
-  /* New teal box outside container */
   .more-articles {
     max-width: 960px;
     width: 90%;
     margin: 40px auto 0 auto;
     padding: 20px 30px;
-    background: rgba(0, 255, 217, 0.25);
-    border: 2px solid #00ffd9;
+    background: rgba(155, 213, 195, 0.2);
+    border: 2px solid #23af83;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 217, 0.4);
-    color: #00ffd9;
+    box-shadow: 0 0 15px rgba(155, 213, 195, 0.35);
+    color: #a3b5a6;
     font-size: 22px;
     text-align: center;
     font-style: italic;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     user-select: none;
   }
 
   @media (max-width: 900px) {
     h3 {
-      font-size: 32px;
-      padding: 14px 0;
+      font-size: 2.4rem;
     }
     .intro {
-      font-size: 20px;
+      font-size: 1rem;
       padding: 16px 20px;
       max-width: 100%;
     }
@@ -264,7 +254,6 @@
     </div>
   </div>
 
-  <!-- Separate teal box with message outside container -->
   <div class="more-articles">
     Plus many more articles online and in print!
   </div>

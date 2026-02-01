@@ -70,37 +70,91 @@
       margin-bottom: 30px;
     }
 
-    .intro {
-      color: #cfdad6;
-      margin-bottom: 40px;
-    }
+.intro {
+  line-height: 1.5;
+}
 
-    .socials a {
-      margin-right: 20px;
-      color: #d4ce46;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.uh-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fdfdfd;
+  /* font-size removed to inherit from .intro */
+}
 
-    .socials a:hover {
-      text-decoration: underline;
-    }
+.uh-logo {
+  width: 26px;
+  height: auto;
+  filter: drop-shadow(0 0 4px #a8a89b);
+}
 
     /* ---------- ABOUT ---------- */
 
-    #about {
-      background: #121f1b;
-    }
+.about {
+  background: #121f1b;
+}
 
-    .about-content {
-      max-width: 720px;
-    }
+.about-content {
+  max-width: 720px;
+}
 
-    .about-content p {
-      color: #cfdad6;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-    }
+.contact {
+  display: flex;
+  gap: 24px;
+  margin: 30px 0 50px;
+  flex-wrap: wrap;
+}
+
+.contact a {
+  color: #d4ce46;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.message-box {
+  padding: 32px;
+  border-left: 3px solid #9bd5c3;
+}
+
+.message-box h3 {
+  margin-bottom: 20px;
+  color: #d4ce46;
+}
+.message-box input,
+.message-box textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #9bd5c3;
+  color: #e6e6e6;
+  padding: 12px 4px;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.message-box input::placeholder,
+.message-box textarea::placeholder {
+  color: #9aa7a2;
+}
+
+.message-box button {
+  background: none;
+  border: 1px solid #d4ce46;
+  color: #d4ce46;
+  padding: 10px 26px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.message-box button:hover {
+  background: #d4ce46;
+  color: #0f1a17;
+}
 
     /* ---------- PROJECTS ---------- */
 
@@ -169,79 +223,198 @@
         Computer Science Student · Researcher · Writer · Musician
       </div>
 
-      <p class="intro">
-        Exploring the intersection of computation, science, and creative expression.
-        University of Houston — Computer Science, minors in Geology & English.
-      </p>
+<p class="intro">
+  Exploring the intersection of computation, science, and creative expression.<br />
+  <span class="uh-info">
+    <img src="uh_red.png" alt="University of Houston Logo" class="uh-logo" />
+    <span>University of Houston: Bachelors of Science in Computer Science with minors in Geology and English.</span>
+  </span>
+</p>
 
-      <div class="socials">
-        <a href="https://github.com/Unmel5">GitHub</a>
-        <a href="https://linkedin.com/in/melisa-unlu-035726159/">LinkedIn</a>
-        <a href="mailto:melissaunlu4@gmail.com">Email</a>
-      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
-    <div class="about-content">
-      <h2>About Me</h2>
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-content">
+    <h2>About Me</h2>
 
-      <p>
-        I’m a Computer Science student at the University of Houston with minors in
-        Geology and English. My work spans research in geophysics and machine
-        learning, technical leadership, writing, music, and art.
-      </p>
+    <p>
+      I’m a Computer Science student at the University of Houston with minors in
+      Geology and English. My work lives at the intersection of computation,
+      science, and creative expression. I have worked with intersections of natural sciences and computation along with various projects in writing and music.
+    </p>
 
-      <p>
-        I enjoy building systems that sit at the intersection of science,
-        computation, and human expression.
-      </p>
+    <!-- Tech Stack -->
+    <div class="tech-stack">
+      <h3>Tech Stack</h3>
+      <div class="tech-icons">
+        <div class="tech">
+          <img src="reactlogo.png" alt="React" />
+          <span>React</span>
+        </div>
+        <div class="tech">
+          <img src="Vitejs-logo.svg.png" alt="Vite" />
+          <span>Vite</span>
+        </div>
+        <div class="tech">
+          <img src="images (7).jpg" alt="Flask" />
+          <span>Flask</span>
+        </div>
+        <div class="tech">
+          <img src="images (8).jpg" alt="SQLite" />
+          <span>SQLite</span>
+        </div>
+        <div class="tech">
+          <img src="images (7).png" alt="SQLAlchemy" />
+          <span>SQLAlchemy</span>
+        </div>
+        <div class="tech">
+          <img src="pythonlogo.png" alt="Python" />
+          <span>Python</span>
+        </div>
+        <div class="tech">
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects & Research</h2>
-
-    <div class="projects-grid">
-      <a href="University of Texas at Austin.html" class="project">
-        <img src="University_of_Texas_at_Austin_seal.svg.png" class="project-logo" />
-        <h3>UT Austin Research</h3>
-        <p>Computational geoscience & scientific analysis</p>
-      </a>
-
-      <a href="Colorado School of Mines.html" class="project">
-        <img src="mines-logo.png" class="project-logo" />
-        <h3>Colorado School of Mines</h3>
-        <p>Geophysics and applied research</p>
-      </a>
-
-      <a href="University of Houston.html" class="project">
-        <img src="uh_red.png" class="project-logo" />
-        <h3>University of Houston Research</h3>
-        <p>Machine learning & groundwater modeling</p>
-      </a>
-
-      <a href="Rocketry.html" class="project">
-        <img src="rocketry.png" class="project-logo" />
-        <h3>Rocketry</h3>
-        <p>Flight systems, testing, and leadership</p>
-      </a>
-
-      <a href="StarCLassification.html" class="project">
-        <img src="astronomy.png" class="project-logo" />
-        <h3>Star Classification</h3>
-        <p>Machine learning for astronomical datasets</p>
-      </a>
-
-      <a href="Music.html" class="project">
-        <img src="writing1.png" class="project-logo" />
-        <h3>Music & Writing</h3>
-        <p>Creative composition and academic writing</p>
-      </a>
+    <div class="contact">
+      <a href="mailto:melissaunlu4@gmail.com">Email</a>
+      <a href="https://github.com/Unmel5" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank">LinkedIn</a>
     </div>
-  </section>
 
+    <div class="message-box">
+      <h3>Message Me</h3>
+
+      <form id="contact-form" action="https://formspree.io/f/mqeeeopb" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <p id="form-status"></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Tech Stack Styling */
+  .tech-stack {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #2e3b36;
+  }
+
+  .tech-stack h3 {
+    color: #d4ce46;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .tech-icons {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    user-select: none;
+  }
+
+  .tech img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px #9bd5c3);
+    border-radius: 12px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: default;
+  }
+
+  .tech:hover img {
+    transform: translateY(-5px) scale(1.1);
+    filter: drop-shadow(0 0 15px #9bd5c3);
+  }
+
+  .tech span {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #86a5a9;
+  }
+</style>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects & Research</h2>
+
+  <div class="projects-grid">
+
+    <!-- RESEARCH -->
+    <a href="University of Texas at Austin.html" class="project">
+      <img src="University_of_Texas_at_Austin_seal.svg.png" class="project-logo" />
+      <h3>UT Austin Research</h3>
+      <p>Computational geoscience & scientific analysis</p>
+    </a>
+
+    <a href="Colorado School of Mines.html" class="project">
+      <img src="mines-logo.png" class="project-logo" />
+      <h3>Colorado School of Mines</h3>
+      <p>Geophysics and applied research</p>
+    </a>
+
+    <a href="University of Houston.html" class="project">
+      <img src="uh_red.png" class="project-logo" />
+      <h3>University of Houston Research</h3>
+      <p>Machine learning & groundwater modeling</p>
+    </a>
+
+    <!-- ENGINEERING -->
+    <a href="Rocketry.html" class="project">
+      <img src="rocketry.png" class="project-logo" />
+      <h3>Rocketry</h3>
+      <p>Flight systems, testing, and leadership</p>
+    </a>
+
+    <!-- MACHINE LEARNING -->
+    <a href="StarCLassification.html" class="project">
+      <img src="astronomy.png" class="project-logo" />
+      <h3>Star Classification</h3>
+      <p>Machine learning for astronomical datasets</p>
+    </a>
+
+    <!-- CREATIVE -->
+    <a href="Writings.html" class="project">
+      <img src="writing1.png" class="project-logo" />
+      <h3>Writing</h3>
+      <p>Writings and journalistic pursuits</p>
+    </a>
+
+    <a href="Music.html" class="project">
+      <img src="spacelogo.png" class="project-logo" />
+      <h3>Music</h3>
+      <p>Composition and musical performance</p>
+    </a>
+
+    <!-- LEADERSHIP / WEB -->
+    <a href="CodeCoogsOfficer.html" class="project">
+      <img src="images (1).jpeg" class="project-logo" />
+      <h3>Code Coogs Workshop Officer</h3>
+      <p>Workshops & incoming leadership position</p>
+    </a>
+
+    <a href="Webdev.html" class="project">
+      <img src="webdev.png" class="project-logo" />
+      <h3>Web Development</h3>
+      <p>Frontend and interaction-focused projects</p>
+    </a>
+    
+  </div>
+</section>
 </body>
 </html>

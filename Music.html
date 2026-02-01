@@ -1,273 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Last Minute Games</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Last Minute Games | University of Houston</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-      background: url('tyr5mj819dp21.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Georgia', serif;
-      color: #b8d8d8;
-      margin: 0;
-      padding: 40px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-shadow: 0 0 8px rgba(255, 221, 85, 0.85);
-      position: relative;
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f1a17;
+    color: #cfdad6;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+  }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-color: rgba(13, 79, 61, 0.85);
-      z-index: -1;
-    }
+  .container {
+    max-width: 960px;
+    width: 90%;
+    padding: 50px 60px;
+    background: #19322e;
+    border-radius: 24px;
+    box-shadow: 0 6px 30px rgba(83, 111, 80, 0.7);
+    color: #a3b5a6;
+    margin-bottom: 60px;
+  }
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      margin-bottom: 60px;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-      padding: 30px 25px 40px;
-      background: rgba(10, 146, 99, 0.5);
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(13, 79, 61, 0.5);
-      user-select: none;
-      color: #b8d8d8;
-    }
+  h3.one, h3.two {
+    font-weight: 900;
+    font-size: 3.8rem;
+    margin-bottom: 50px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: #d4ce46; /* gold accent */
+    user-select: none;
+  }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
+  h3.two {
+    color: #9bd5c3; /* greenish accent */
+  }
 
-    h3.one, h3.two {
-      text-align: center;
-      font-size: 44px;
-      margin-bottom: 40px;
-      user-select: none;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 14px 0;
-      border-radius: 14px;
-      text-shadow: 0 0 12px rgba(255, 221, 85, 0.9);
-      box-shadow: 0 0 25px rgba(255, 221, 85, 0.5);
-      color: #ffdd55;
-      border: 4px solid #ffdd55;
-      background: rgba(255, 221, 85, 0.15);
-    }
+  a.link {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #9bd5c3;
+    text-decoration: none;
+    margin-bottom: 40px;
+    padding: 12px 0;
+    border: 3px solid #9bd5c3;
+    border-radius: 26px;
+    box-shadow: 0 4px 15px rgba(155, 213, 195, 0.4);
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+  a.link:hover,
+  a.link:focus {
+    background-color: #9bd5c3;
+    color: #0f1a17;
+    box-shadow: 0 6px 25px rgba(155, 213, 195, 0.8);
+    transform: scale(1.05);
+    outline: none;
+  }
 
-    h3.two {
-      box-shadow: 0 0 25px rgba(255, 221, 85, 0.7);
-      background: rgba(255, 221, 85, 0.1);
-      color: #ffdd55;
-      border-color: #ffdd55;
-      text-shadow: 0 0 12px #ffdd55;
-    }
+  .game-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px 30px;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 18px 25px;
+    background: #0f1a17;
+    border-radius: 26px;
+    box-shadow: 0 15px 30px rgba(155, 213, 195, 0.3);
+    color: #a3b5a6;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
 
-    a.link {
-      display: block;
-      text-align: center;
-      font-size: 28px;
-      font-weight: 600;
-      color: #ffdd55;
-      text-decoration: none;
-      margin-bottom: 40px;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-      user-select: none;
-      text-shadow: 0 0 10px rgba(255, 221, 85, 0.8);
-    }
+  .game-item:hover,
+  .game-item:focus-within {
+    background-color: #9bd5c3;
+    color: #0f1a17;
+    box-shadow: 0 20px 40px rgba(155, 213, 195, 0.8);
+    transform: scale(1.03);
+    outline: none;
+  }
 
-    a.link:hover, a.link:focus {
-      color: #fff08a;
-      text-decoration: underline;
-      text-shadow:
-        0 0 20px #fff08a,
-        0 0 40px #fff08acc;
-      outline: none;
-    }
+  .game-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 26px;
+    box-shadow: 0 15px 30px rgba(155, 213, 195, 0.3);
+    background: #19322e;
+    padding: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
 
+  .game-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px #9bd5c3;
+  }
+
+  audio {
+    width: 100%;
+    outline: none;
+    border-radius: 26px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 6px 20px rgba(155, 213, 195, 0.6);
+    background: transparent;
+    border: 3px solid #9bd5c3;
+    color: #a3b5a6;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  audio:hover,
+  audio:focus {
+    box-shadow: 0 8px 30px #9bd5c3;
+    border-color: #9bd5c3;
+    outline: none;
+  }
+
+  h4 {
+    color: #a3b5a6;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    user-select: none;
+    text-align: center;
+  }
+
+  /* Rhythm Bells images */
+  #rhythm-bells-section img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 26px;
+    margin-bottom: 30px;
+    user-select: none;
+    transition: box-shadow 0.3s ease;
+    background: #19322e;
+    padding: 12px;
+    box-shadow: 0 15px 30px rgba(155, 213, 195, 0.3);
+  }
+
+  #rhythm-bells-section img:hover,
+  #rhythm-bells-section img:focus {
+    box-shadow: 0 0 40px #9bd5c3;
+    outline: none;
+  }
+
+  /* Audio track wrapper */
+  .audio-track {
+    background: #0f1a17;
+    padding: 20px 30px;
+    border-radius: 26px;
+    box-shadow: 0 15px 30px rgba(155, 213, 195, 0.3);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    user-select: none;
+    margin-bottom: 40px;
+    color: #a3b5a6;
+  }
+
+  .audio-track:focus-within {
+    background: #9bd5c3;
+    box-shadow: 0 20px 40px rgba(155, 213, 195, 0.8);
+    outline: none;
+    color: #0f1a17;
+  }
+
+  .audio-track audio {
+    border-radius: 26px;
+    box-shadow: 0 8px 25px rgba(155, 213, 195, 0.5);
+    cursor: pointer;
+    outline: none;
+    color: #a3b5a6;
+    background: transparent;
+    border: none;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .audio-track audio:hover,
+  .audio-track audio:focus {
+    box-shadow: 0 10px 35px #9bd5c3;
+    outline: none;
+  }
+
+  .audio-track .track-name {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #9bd5c3;
+    text-align: center;
+    letter-spacing: 0.05em;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+
+  .audio-track:focus-within .track-name {
+    color: #0f1a17;
+  }
+
+  /* Bottom message */
+  .bottom-message {
+    max-width: 960px;
+    width: 90%;
+    margin: 0 auto 60px;
+    padding: 25px 30px;
+    background: #9bd5c3;
+    border-radius: 26px;
+    box-shadow: 0 0 40px rgba(155, 213, 195, 0.7);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    color: #0f1a17;
+    letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
     .game-item {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 20px 30px;
-      align-items: center;
-      margin-bottom: 40px;
-      padding: 18px 15px;
-      border-bottom: 2px solid rgba(255, 221, 85, 0.4);
-      cursor: pointer;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-      border-radius: 15px;
-      background: rgba(255, 221, 85, 0.05);
-      user-select: none;
-      color: #ffdd55;
+      grid-template-columns: 1fr;
+      gap: 20px 0;
+      text-align: center;
     }
-
-    .game-item:hover, .game-item:focus-within {
-      border-color: #ffdd55;
-      background: rgba(255, 221, 85, 0.12);
-      outline: none;
-    }
-
     .game-item img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 18px;
-      box-shadow: 0 0 20px 3px #bfa843aa;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
+      margin: 0 auto;
     }
-
-    .game-item:hover img {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px 6px #ffdd55cc;
-    }
-
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 12px;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: 0 0 15px #bfa843cc;
-      background: transparent;
-      border: 1.5px solid #bfa843cc;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      color: #ffdd55;
-    }
-
-    audio:hover, audio:focus {
-      box-shadow: 0 0 30px #ffdd55ff;
-      border-color: #ffdd55ff;
-      outline: none;
-    }
-
-    h4 {
-      color: #ffdd55;
-      font-size: 30px;
-      margin-bottom: 30px;
-      user-select: none;
-      text-align: center;
-      text-shadow: 0 0 15px #ffdd55cc;
-    }
-
-    /* Rhythm Bells images */
-    #rhythm-bells-section img {
-      max-width: 500px;
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 25px #bfa843aa;
-      user-select: none;
-      transition: box-shadow 0.3s ease;
-    }
-
-    #rhythm-bells-section img:hover, #rhythm-bells-section img:focus {
-      box-shadow: 0 0 38px #ffdd55cc;
-      outline: none;
-    }
-
-    /* Audio track wrapper */
     .audio-track {
-      margin: 0 auto 30px;
-      width: 100%;
-      max-width: 500px;
-      background: rgba(255, 221, 85, 0.15);
-      padding: 15px 20px;
-      border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(50, 45, 15, 0.8);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      color: #ffdd55;
+      max-width: 100%;
     }
+  }
 
-    .audio-track:hover, .audio-track:focus-within {
-      background: rgba(255, 221, 85, 0.25);
-      box-shadow: 0 8px 24px rgba(50, 45, 15, 1);
-      outline: none;
+  @media (max-width: 480px) {
+    body {
+      padding: 25px 10px;
     }
-
-    .audio-track audio {
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(50, 45, 15, 0.8);
-      cursor: pointer;
-      outline: none;
-      color: #ffdd55;
+    h3.one, h3.two {
+      font-size: 3rem;
+      margin-bottom: 40px;
     }
-
     .audio-track .track-name {
-      margin-top: 10px;
-      font-size: 20px;
-      font-weight: 700;
-      color: #bfa843;
-      text-align: center;
-      letter-spacing: 0.05em;
-      user-select: none;
+      font-size: 1.3rem;
     }
-
-    /* Bottom message */
-    .bottom-message {
-      max-width: 900px;
-      width: 90%;
-      margin: 0 auto 60px;
-      padding: 20px 30px;
-      background: rgba(255, 221, 85, 0.25);
-      border: 2.5px solid #ffdd55;
-      border-radius: 18px;
-      box-shadow: 0 0 30px rgba(255, 221, 85, 0.5);
-      font-size: 24px;
-      font-weight: 700;
-      text-align: center;
-      color: #332d0b;
-      letter-spacing: 1px;
-      user-select: none;
-      text-shadow: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 700px) {
-      .game-item {
-        grid-template-columns: 1fr;
-        gap: 20px 0;
-        text-align: center;
-      }
-      .game-item img {
-        margin: 0 auto;
-      }
-      .audio-track {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 400px) {
-      h3.one, h3.two {
-        font-size: 32px;
-      }
-      a.link {
-        font-size: 22px;
-        margin-bottom: 30px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container" id="rhythm-bells-section">
-    <h3 class="two" tabindex="0">RHYTHM BELLS</h3>
+
+  <div class="container" id="rhythm-bells-section" tabindex="0">
+    <h3 class="two">RHYTHM BELLS</h3>
     <img src="rhythmgamesart.png" alt="Rhythm Bells" tabindex="0" />
     <img src="image.webp" alt="Rhythm Bells Image" tabindex="0" />
 
@@ -281,7 +280,7 @@
         <source src="untitled.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
-      <div class="track-name">Snow Days</div>
+      <h3 class="track-name">Snow Days</h3>
     </div>
 
     <div class="audio-track" tabindex="0">
@@ -289,7 +288,7 @@
         <source src="track2.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
-      <div class="track-name">Into The Bells</div>
+      <h3 class="track-name">Into The Bells</h3>
     </div>
 
     <div class="audio-track" tabindex="0">
@@ -297,12 +296,12 @@
         <source src="track3.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
-      <div class="track-name">Clock Strikes 12</div>
+      <h3 class="track-name">Clock Strikes 12</h3>
     </div>
   </div>
 
-  <div class="container" id="last-minute-games-section">
-    <h3 class="one" tabindex="0">LAST MINUTE GAMES</h3>
+  <div class="container" id="last-minute-games-section" tabindex="0">
+    <h3 class="one">LAST MINUTE GAMES</h3>
 
     <a href="https://playlastminutegames.itch.io/castle-of-time" target="_blank" class="link" rel="noopener noreferrer" tabindex="0">
       🎮 Castle of Time
@@ -389,5 +388,23 @@
   </div>
 
   <p class="bottom-message" tabindex="0">Plus many more piano tracks for rooms and minigames!</p>
+
+  <style>
+    .bottom-message {
+      max-width: 960px;
+      width: 90%;
+      margin: 0 auto 60px;
+      padding: 25px 30px;
+      background: #9bd5c3;
+      border-radius: 26px;
+      box-shadow: 0 0 40px rgba(155, 213, 195, 0.7);
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center;
+      color: #0f1a17;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+  </style>
 </body>
 </html>

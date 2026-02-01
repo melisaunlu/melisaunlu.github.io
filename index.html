@@ -1,9 +1,514 @@
 <!DOCTYPE html>
-<html> 
-    <head> 
-        <title>Website</title>
-    </head>
-    <body> 
-        <h1> Melisa Unlu </h1>
-    </body>
-    </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="oxGMtHPSqH10e8yckstaKnaBKuQG70SxnxXRPVrL8WY" />
+  <title>Melisa Unlu — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #fdffe0;
+      --green: #61c891;
+      --blue-muted: #86a5a9;
+      --gray: #767676;
+      --sage-dark: #a1233a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        linear-gradient(rgba(253,255,224,0.96), rgba(253,255,224,0.96)),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=80")
+        center / cover fixed;
+      color: var(--sage-dark);
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      
+      position: relative; 
+      z-index: 0; 
+    }
+    body::before { 
+        content: ""; 
+        position: fixed; 
+        inset: 0; 
+        background: rgba(70, 130, 180, 0.25); 
+        pointer-events: none; 
+        z-index: -1; 
+    }
+
+    /*  HERO */
+    .hero {
+      max-width: 760px;
+      text-align: center;
+      margin-bottom: 120px;
+      user-select: none;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .flag {
+      width: 26px;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .flag:hover {
+      transform: scale(1.1);
+    }
+
+    .roles {
+      margin-top: 22px;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue-muted);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .hero h2 {
+      margin-top: 30px;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #7e0a27;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /*  SECTION  */
+    section {
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 140px;
+    }
+
+    section h3 {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 60px;
+      position: relative;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      user-select: none;
+    }
+
+    section h3::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--green);
+      margin: 18px auto 0;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px var(--green);
+    }
+
+    /*  GRID  */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+    }
+
+    /*  CARD  */
+    .card {
+      background: #f5f1e9;
+      border-radius: 26px;
+      padding: 28px 32px;
+      border: 1px solid rgba(83,111,80,0.15);
+      display: flex;
+      gap: 18px;
+      text-decoration: none;
+      color: var(--sage-dark);
+      transition: all 0.35s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+      border-color: var(--green);
+    }
+
+    .card-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.9;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .card-logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--green);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      align-self: flex-start;
+      margin-bottom: 8px;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(146,197,130,0.6);
+    }
+
+    .card h4 {
+      font-size: 1.35rem;
+      margin: 4px 0 10px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--gray);
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 760px;
+      text-align: center;
+      margin: 0 auto 140px;
+      user-select: none;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 50px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      font-size: 1rem;
+      user-select: text;
+    }
+
+    .contact a {
+      color: var(--sage-dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact a:hover {
+      border-bottom: 2px solid var(--green);
+    }
+
+    /*  MESSAGE */
+    .message-box {
+      margin-top: 60px;
+      text-align: left;
+    }
+
+    .message-box h4 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    input,
+    textarea {
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(83,111,80,0.25);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    button {
+      margin-top: 10px;
+      align-self: flex-start;
+      padding: 12px 36px;
+      border-radius: 999px;
+      border: none;
+      background: var(--sage-dark);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+      background: var(--green);
+      box-shadow: 0 6px 12px rgba(146,197,130,0.7);
+    }
+
+    #form-status {
+      margin-top: 14px;
+      font-weight: 600;
+      color: var(--sage-dark);
+      display: none;
+    }
+
+    /*  MOBILE */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.6rem;
+      }
+
+      section h3 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1 class="name">
+      <img src="Flag_of_Turkey.svg.webp" class="flag" alt="Turkey">
+      Melisa Unlu
+      <img src="Flag_of_the_United_States.svg.png" class="flag" alt="USA">
+    </h1>
+
+    <div class="roles">
+      Computer Science · Research · Writing · Music
+    </div>
+
+    <h2>
+      University of Houston:  Computer Science<br>
+      Minors in Geology & English
+    </h2>
+  </section>
+
+  <section>
+    <h3>Featured Work & Leadership</h3>
+
+    <div class="featured-grid">
+
+      <a href="University of Texas at Austin.html" class="card">
+        <img src="University_of_Texas_at_Austin_seal.svg.png" class="card-logo" alt="UT Austin logo">
+        <div class="card-content">
+          <span class="tag">Research</span>
+          <h4>UT Austin Research</h4>
+          <p>Computational Planetary Science</p>
+        </div>
+      </a>
+
+      <a href="Colorado School of Mines.html" class="card">
+        <img src="mines-logo.png" class="card-logo" alt="Colorado School of Mines logo">
+        <div class="card-content">
+          <span class="tag">Research</span>
+          <h4>Colorado School of Mines</h4>
+          <p>Computational Geophysics and Applied Math</p>
+        </div>
+      </a>
+
+      <a href="Rocketry.html" class="card">
+        <img src="cropped-aiaaweblogo.png" class="card-logo" alt="Rocketry logo">
+        <div class="card-content">
+          <span class="tag">Engineering</span>
+          <h4>Rocketry</h4>
+          <p>Flight systems, Testing and Leadership.</p>
+        </div>
+      </a>
+
+      <a href="StarCLassification.html" class="card">
+        <img src="astronomy.png" class="card-logo" alt="Star Classification logo">
+        <div class="card-content">
+          <span class="tag">Machine Learning</span>
+          <h4>Star Classification</h4>
+          <p>Machine Learning models for astronomical dataasets</p>
+        </div>
+      </a>
+
+      <a href="Writings.html" class="card">
+        <img src="writing1.png" class="card-logo" alt="Writing logo">
+        <div class="card-content">
+          <span class="tag">Writing</span>
+          <h4>Writing</h4>
+          <p>Creative and academic work</p>
+        </div>
+      </a>
+
+      <a href="Music.html" class="card">
+        <img src="spacelogo.png" class="card-logo" alt="Music logo">
+        <div class="card-content">
+          <span class="tag">Music</span>
+          <h4>Music</h4>
+          <p>Composition & Performance</p>
+        </div>
+      </a>
+
+      <!-- New University of Houston Card -->
+      <a href="University of Houston.html" class="card">
+        <img src="images.jpeg" class="card-logo" alt="University of Houston logo">
+        <div class="card-content">
+          <span class="tag">Machine Learning</span>
+          <h4>University of Houston</h4>
+          <p>Machine Learning and Geophysics </p>
+        </div>
+      </a>
+
+      <!-- Astronomy Club Officer -->
+      <a href="AstronomyClubOfficer.html" class="card">
+        <img src="images.png" class="card-logo" alt="Astronomy Club Officer logo">
+        <div class="card-content">
+          <span class="tag">Leadership</span>
+          <h4>Astronomy Club Officer</h4>
+          <p>Club Historian and Photographer</p>
+        </div>
+      </a>
+
+      <!-- Code Coogs Officer -->
+      <a href="CodeCoogsOfficer.html" class="card">
+        <img src="images (1).jpeg" class="card-logo" alt="Code Coogs logo">
+        <div class="card-content">
+          <span class="tag">Leadership</span>
+          <h4>Code Coogs Workshop Officer</h4>
+          <p>Workshops / Incoming Position.</p>
+        </div>
+      </a>
+      <a href="Webdev.html" class="card">
+          <img src="webdev.png" class="card-logo" alt="Web dev logo">
+          <div class="card-content"> 
+              <span class="tag">Projects</span>
+              <h4>Web dev </h4>
+              <p> Projects involving web development </p> 
+          </div>
+     </a> 
+    </div>
+  </section>
+
+  <section class="about">
+    <h3>About Me</h3>
+    <p>
+      I’m a Computer Science student at the University of Houston with minors in
+      Geology and English. My work lives at the intersection of computation,
+      science, and creative expression.
+    </p>
+
+    <div class="contact">
+      <p>Email: <a href="mailto:melissaunlu4@gmail.com">melissaunlu4@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/Unmel5" target="_blank">https://github.com/melisaunlu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank">linkedin.com/in/melisa-unlu</a></p>
+    </div>
+
+    <div class="message-box">
+      <h4>Message Me</h4>
+      <form id="contact-form" action="https://formspree.io/f/mqeeeopb" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+
+        <input type="hidden" name="_subject" value="New Portfolio Message">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-status"></p>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // prevent page reload
+
+      status.style.display = 'none'; // hide status initially
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.style.color = 'green';
+          status.textContent = 'Thanks! Your message has been sent.';
+          status.style.display = 'block';
+        } else {
+          const data = await response.json();
+          let errorMsg = 'Oops! There was a problem.';
+          if (data.errors) {
+            errorMsg = data.errors.map(error => error.message).join(', ');
+          }
+          status.style.color = 'red';
+          status.textContent = errorMsg;
+          status.style.display = 'block';
+        }
+      } catch (error) {
+        status.style.color = 'red';
+        status.textContent = 'Network error. Please try again later.';
+        status.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>

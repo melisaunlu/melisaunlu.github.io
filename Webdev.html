@@ -2,76 +2,65 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WebDev Projects | University of Houston</title>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
 
+<style>
+  /* Reset & base */
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    margin: 0;
-    min-height: 100vh;
-    background-image: url('Churning_atmosphere_on_Saturn_pillars.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
-    color: #4aba91; /* light green text */
+    background: #0f1a17;
+    color: #cfdad6;
+    padding: 80px 20px;
     display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(14, 81, 53, 0.85); /* dark green overlay */
-    z-index: -1;
+    flex-direction: column;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .container {
-    background: rgba(13, 146, 99, 0.55);
-    backdrop-filter: blur(14px);
-    border-radius: 22px;
-    padding: 50px 60px;
     max-width: 960px;
     width: 90%;
-    box-shadow: 0 0 30px rgba(14, 81, 53, 0.5);
-    color: #4aba91;
+    padding: 50px 60px;
     user-select: none;
-    text-align: center;
+    background: #19322e;
+    border-radius: 24px;
+    box-shadow: 0 6px 30px rgba(83, 111, 80, 0.7);
+    color: #a3b5a6;
   }
 
   h3 {
     font-weight: 900;
     font-size: 3.8rem;
-    color: #d4ce46; /* yellow titles */
     margin-bottom: 50px;
-    letter-spacing: 2px;
-    text-shadow: 0 0 12px rgba(212, 206, 70, 0.85);
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: #d4ce46; /* gold accent */
+    user-select: none;
   }
 
   .text-content {
     max-width: 900px;
     margin: 0 auto 40px;
     text-align: left;
+    color: #a3b5a6;
   }
 
   .text-content p {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: #92e6e6; /* lighter cyan */
-    margin-bottom: 1.25em;
-    background: rgba(13, 146, 99, 0.4);
-    backdrop-filter: blur(12px);
-    border-radius: 22px;
-    padding: 20px 28px;
-    box-shadow: 0 0 26px rgba(14, 81, 53, 0.4);
+    color: #8ba796;
+    margin-bottom: 1.5em;
+    user-select: text;
   }
 
   .content {
@@ -94,20 +83,21 @@
     text-align: center;
     padding: 15px 30px;
     font-size: 1.5rem;
-    border-radius: 16px;
-    border: 3px solid #4aba91;
-    color: #4aba91;
+    border-radius: 26px;
+    border: 3px solid #9bd5c3;
+    color: #9bd5c3;
     text-decoration: none;
     transition: all 0.3s ease;
     user-select: none;
     cursor: pointer;
     font-weight: 600;
+    box-shadow: 0 4px 15px rgba(155, 213, 195, 0.4);
   }
 
   .btn:hover {
-    background-color: #4aba91;
-    color: #494b4b; /* dark gray text on hover */
-    box-shadow: 0 0 40px #4aba91;
+    background-color: #9bd5c3;
+    color: #0f1a17;
+    box-shadow: 0 6px 25px rgba(155, 213, 195, 0.8);
     transform: scale(1.05);
   }
 
@@ -120,15 +110,17 @@
 
   .gallery img {
     width: 100%;
-    border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(14, 81, 53, 0.6);
+    border-radius: 26px;
+    box-shadow: 0 15px 30px rgba(155, 213, 195, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    background: #0f1a17;
+    user-select: none;
   }
 
   .gallery img:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(74, 186, 145, 0.9);
+    box-shadow: 0 20px 40px #9bd5c3;
   }
 
   /* TECHNOLOGIES / SKILLS */
@@ -144,13 +136,15 @@
     top: 0;
     left: 15%;
     width: 70%;
-    height: 2px;
+    height: 3px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(212, 206, 70, 0.8),
+      #9bd5c3,
       transparent
     );
+    border-radius: 2px;
+    box-shadow: 0 2px 8px #9bd5c3;
   }
 
   .tech-icons {
@@ -181,19 +175,21 @@
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 14px rgba(74, 186, 145, 0.75));
+    filter: drop-shadow(0 0 14px #9bd5c3);
     transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 12px;
   }
 
   .tech:hover img {
     transform: translateY(-6px) scale(1.08);
-    filter: drop-shadow(0 0 22px rgba(74, 186, 145, 1));
+    filter: drop-shadow(0 0 22px #9bd5c3);
   }
 
   .tech span {
     font-size: 0.95rem;
-    color: #b0e7e7;
+    color: #86a5a9;
     letter-spacing: 0.6px;
+    user-select: none;
   }
 
   @keyframes fadeUp {
@@ -235,7 +231,6 @@
     }
     .text-content p {
       font-size: 1rem;
-      padding: 14px 12px;
     }
     .gallery {
       grid-template-columns: 1fr;
@@ -248,6 +243,7 @@
     .tech img {
       width: 50px;
       height: 50px;
+      border-radius: 10px;
     }
   }
 </style>
@@ -258,7 +254,7 @@
     <h3>WebDev</h3>
 
     <div class="text-content">
-      <p>I have two Web Dev projects I worked on. These include this website that is currently in progress (both front end and backend) and a web application for my database class. Here, I'll show the web application we developed and some screenshots.</p>
+      <p>I have two Web Dev projects I worked on. These include this website that is currently in progress (both front end and backend) and a web application for my software design class. Here, I'll show the web application we developed and some screenshots.</p>
 
       <p>For this project, we worked as a team to build a web app. I mainly worked on the database and integrating it with the frontend along with unit tests and coverage reports.</p>
 
@@ -281,7 +277,6 @@
       </div>
     </div>
 
-    <!-- TECHNOLOGIES / SKILLS -->
     <div class="tech-stack">
       <div class="tech-icons">
         <div class="tech">
