@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rocketry | University of Houston AIAA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#cfdad6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.container{max-width:950px;width:100%;}
+h3{
+font-weight:900;
+font-size:3.4rem;
+color:#d4ce46;
+margin-bottom:50px;
+letter-spacing:2px;
+text-align:center;
+line-height:1.1;
+}
+.intro{
+font-size:1.15rem;
+line-height:1.7;
+color:#a3b5a6;
+max-width:700px;
+margin:0 auto 60px;
+text-align:left;
+}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+width:100%;
+}
+.photo-block{
+overflow:hidden;
+border-radius:22px;
+background:#121d18;
+box-shadow:0 8px 20px rgba(212,206,70,.25);
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+.photo-block:hover{box-shadow:0 12px 30px rgba(212,206,70,.6);}
+.photo-block img{
+width:100%;
+border-radius:22px 22px 0 0;
+transition:.35s;
+object-fit:contain;
+background:#1f2b22;
+padding:8px;
+}
+.photo-block:hover img{transform:scale(1.06);}
+.caption{
+padding:14px 20px;
+font-size:1rem;
+background:#121d18;
+border-radius:0 0 22px 22px;
+}
+.tech-stack{margin:70px 0 20px;padding-top:35px;position:relative;width:100%;}
+.tech-stack::before{
+content:"";
+position:absolute;
+top:0;
+left:15%;
+width:70%;
+height:3px;
+background:#9bd5c3;
+border-radius:2px;
+box-shadow:0 2px 8px #9bd5c3;
+}
+.tech-icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+gap:40px;
+justify-items:center;
+}
+.tech{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+.tech img{
+width:70px;
+height:70px;
+border-radius:12px;
+background:#121d18;
+box-shadow:0 0 12px rgba(155,213,195,.5);
+object-fit:contain;
+}
+.tech:hover img{
+transform:translateY(-6px) scale(1.1);
+box-shadow:0 0 24px #9bd5c3;
+}
+.tech span{font-size:.95rem;color:#9bd5c3;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h3>Rocketry</h3>
+
+<p class="intro">
+During high school and freshman year at University of Houston,
+I was active in <strong>AIAA-UH</strong>.
+I worked on <strong>Oberon</strong> and <strong>Zephyr</strong>.
+I developed flight computers, telemetry systems,
+and co-founded the hobby rocketry team.
+</p>
+
+<div class="gallery">
+
+<div class="photo-block">
+<img src="../images/rocketry2.png.jpeg" alt="Avionics work"/>
+<p class="caption">Avionics and flight computers development.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/IMG_9244 (1).jpeg" alt="Electronics work"/>
+<p class="caption">Hands-on electronics and telemetry systems.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry1.png" alt="Rocket lab"/>
+<p class="caption">Lab showcasing the Oberon rocket.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry3.png.jpeg" alt="Launch prep"/>
+<p class="caption">Preparing systems during launch.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry4.png.jpeg" alt="Launch group"/>
+<p class="caption">Team at the launch site.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry7.png.jpeg" alt="Telemetry system"/>
+<p class="caption">Original telemetry system.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry9.png.jpeg" alt="Flight controller"/>
+<p class="caption">Flight controller hardware.</p>
+</div>
+
+<div class="photo-block">
+<img src="../images/rocketry10.png.jpeg" alt="Breadboard systems"/>
+<p class="caption">Breadboard avionics systems.</p>
+</div>
+
+</div>
+
+<div class="tech-stack">
+<div class="tech-icons">
+
+<div class="tech">
+<img src="../images/Arduino_Logo.svg.png" alt="Arduino"/>
+<span>Arduino</span>
+</div>
+
+<div class="tech">
+<img src="../images/soldering-welding-iron-tool-logo-electric-heater-circuit-technology-symbol-electronic-symbol-85937725.webp" alt="Soldering"/>
+<span>Soldering</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (4).png" alt="3D Printing"/>
+<span>3D Printing</span>
+</div>
+
+<div class="tech">
+<img src="../images/il_fullxfull.3616343745_2lhs.avif" alt="Ham Radio"/>
+<span>Ham Radio</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (6).jpg" alt="Telemetry"/>
+<span>Telemetry</span>
+</div>
+
+<div class="tech">
+<img src="../images/sun-round-design-in-pcb-layout-style-with-rays-conceptual-illustration-for-you-logo-or-other-design-MPNC3D.jpg" alt="PCB Design"/>
+<span>PCB Design</span>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

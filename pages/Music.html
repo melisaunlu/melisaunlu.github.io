@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Music | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#cfdad6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.container{
+max-width:960px;
+width:90%;
+padding:50px 60px;
+background:#19322e;
+border-radius:24px;
+box-shadow:0 6px 30px rgba(83,111,80,.7);
+margin-bottom:60px;
+}
+
+h3{
+font-weight:900;
+font-size:3.5rem;
+margin-bottom:50px;
+text-align:center;
+color:#d4ce46;
+}
+
+h3.alt{
+color:#9bd5c3;
+}
+
+.link{
+display:block;
+text-align:center;
+font-size:1.5rem;
+font-weight:600;
+color:#9bd5c3;
+text-decoration:none;
+margin-bottom:40px;
+padding:12px 0;
+border:3px solid #9bd5c3;
+border-radius:26px;
+transition:.3s;
+}
+
+.link:hover{
+background:#9bd5c3;
+color:#0f1a17;
+transform:scale(1.05);
+}
+
+.game-item{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:20px 30px;
+align-items:center;
+margin-bottom:40px;
+padding:18px 25px;
+background:#0f1a17;
+border-radius:26px;
+box-shadow:0 15px 30px rgba(155,213,195,.3);
+transition:.3s;
+}
+
+.game-item:hover{
+background:#9bd5c3;
+color:#0f1a17;
+transform:scale(1.03);
+}
+
+.game-item img{
+width:200px;
+height:200px;
+object-fit:contain;
+border-radius:26px;
+background:#19322e;
+padding:8px;
+}
+
+audio{
+width:100%;
+border-radius:26px;
+box-shadow:0 6px 20px rgba(155,213,195,.6);
+border:3px solid #9bd5c3;
+background:transparent;
+}
+
+.audio-track{
+background:#0f1a17;
+padding:20px 30px;
+border-radius:26px;
+box-shadow:0 15px 30px rgba(155,213,195,.3);
+margin-bottom:40px;
+}
+
+.audio-track h4{
+margin-top:15px;
+font-size:1.5rem;
+text-align:center;
+color:#9bd5c3;
+}
+
+#rhythm img{
+max-width:500px;
+width:100%;
+border-radius:26px;
+margin-bottom:30px;
+background:#19322e;
+padding:12px;
+box-shadow:0 15px 30px rgba(155,213,195,.3);
+}
+
+.bottom-message{
+max-width:960px;
+width:90%;
+margin:0 auto 60px;
+padding:25px 30px;
+background:#9bd5c3;
+border-radius:26px;
+font-size:1.6rem;
+font-weight:700;
+text-align:center;
+color:#0f1a17;
+}
+
+@media(max-width:700px){
+.game-item{grid-template-columns:1fr;text-align:center;}
+.game-item img{margin:0 auto;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- RHYTHM BELLS -->
+<div class="container" id="rhythm">
+<h3 class="alt">RHYTHM BELLS</h3>
+
+<img src="../images/rhythmgamesart.png" alt="Rhythm Bells">
+<img src="../images/image.webp" alt="Rhythm Bells Image">
+
+<a href="https://gamejolt.com/games/rhythm-bells/1040221"
+target="_blank"
+class="link">
+🎮 Rhythm Bells
+</a>
+
+<div class="audio-track">
+<audio controls>
+<source src="../audio/untitled.mp3" type="audio/mpeg">
+</audio>
+<h4>Snow Days</h4>
+</div>
+
+<div class="audio-track">
+<audio controls>
+<source src="../audio/track2.mp3" type="audio/mpeg">
+</audio>
+<h4>Into The Bells</h4>
+</div>
+
+<div class="audio-track">
+<audio controls>
+<source src="../audio/track3.mp3" type="audio/mpeg">
+</audio>
+<h4>Clock Strikes 12</h4>
+</div>
+
+</div>
+
+<!-- LAST MINUTE GAMES -->
+<div class="container">
+<h3>LAST MINUTE GAMES</h3>
+
+<a href="https://playlastminutegames.itch.io/castle-of-time"
+target="_blank"
+class="link">
+🎮 Castle of Time
+</a>
+
+<div class="game-item">
+<img src="../images/battle.png">
+<audio controls>
+<source src="../audio/battletheme_enemy (1) (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/dreamsequence.png">
+<audio controls>
+<source src="../audio/gamedev (1) (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/adriannemaid.png">
+<audio controls>
+<source src="../audio/Adrianne (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/allistairsemifinal.png">
+<audio controls>
+<source src="../audio/Alistair (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/avantsemifinal.png">
+<audio controls>
+<source src="../audio/Avant (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/charlessemifinal.png">
+<audio controls>
+<source src="../audio/Charles (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/eliassemifinal.png">
+<audio controls>
+<source src="../audio/Elias (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/jester2ndversion.png">
+<audio controls>
+<source src="../audio/Marco (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/nikolaussemifinal.png">
+<audio controls>
+<source src="../audio/Nikolaus (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="game-item">
+<img src="../images/sebastiansemifinal.png">
+<audio controls>
+<source src="../audio/Sebestian (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+</div>
+
+<p class="bottom-message">
+Plus many more piano tracks for rooms and minigames!
+</p>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writings Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#cfdad6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.container{
+max-width:960px;
+width:90%;
+padding:50px 60px;
+background:#19322e;
+border-radius:24px;
+box-shadow:0 6px 30px rgba(83,111,80,.7);
+text-align:center;
+color:#a3b5a6;
+}
+h3{
+font-weight:900;
+font-size:2.6rem;
+color:#d4ce46;
+margin:70px 0 35px 0;
+}
+h3:first-of-type{margin-top:0;}
+.intro{
+font-size:1.1rem;
+line-height:1.7;
+color:#dedacf;
+max-width:600px;
+margin:0 auto 40px;
+padding:20px 30px;
+background:#23775c;
+border-radius:15px;
+font-style:italic;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+.card{
+background:#19322e;
+border-radius:18px;
+box-shadow:0 4px 20px rgba(83,111,80,.3);
+overflow:hidden;
+transition:.3s;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-bottom:20px;
+}
+.card:hover{
+transform:translateY(-6px) scale(1.04);
+box-shadow:0 12px 40px #9bd5c3;
+}
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-bottom:2px solid #9bd5c3;
+background:#0f1a17;
+}
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 24px;
+font-size:18px;
+font-weight:600;
+color:#9bd5c3;
+border:2.5px solid #9bd5c3;
+border-radius:12px;
+background:transparent;
+transition:.3s;
+}
+.btn:hover{
+background:#9bd5c3;
+color:#0f1a17;
+box-shadow:0 0 20px #9bd5c3;
+}
+.more-articles{
+max-width:960px;
+width:90%;
+margin:50px auto 0 auto;
+padding:20px 30px;
+background:rgba(155,213,195,.2);
+border:2px solid #23af83;
+border-radius:15px;
+box-shadow:0 0 15px rgba(155,213,195,.35);
+font-size:22px;
+text-align:center;
+font-style:italic;
+}
+@media(max-width:900px){
+h3{font-size:2.2rem;}
+.intro{font-size:1rem;}
+}
+@media(max-width:480px){
+.grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h3>Writings</h3>
+
+<div class="intro">
+Columnist at <em>The Cooglife</em> &amp; <em>The Daily Cougar</em>
+</div>
+
+<h3>Technology &amp; Anthropology</h3>
+<div class="grid">
+
+<div class="card">
+<img src="../images/writing1.png">
+<a href="https://thedailycougar.com/2024/10/07/we-need-to-prioritize-solitude-as-much-as-socializing/" class="btn" target="_blank">
+We Need to Prioritize Solitude as Much as Socializing
+</a>
+</div>
+
+<div class="card">
+<img src="../images/opinion.png">
+<a href="https://thedailycougar.com/2024/11/22/the-internet-has-made-news-far-too-stressful/" class="btn" target="_blank">
+The internet has made news far too stressful
+</a>
+</div>
+
+<div class="card">
+<img src="../images/opinion2.png">
+<a href="https://thedailycougar.com/2024/09/30/ai-is-not-the-threat-we-think-it-is/" class="btn" target="_blank">
+AI is not the threat we think it is
+</a>
+</div>
+
+</div>
+
+<h3>Art, Film and History</h3>
+<div class="grid">
+
+<div class="card">
+<img src="../images/writing2.png">
+<a href="https://cooglife.com/2024/12/understanding-the-classicism-art-movement/" class="btn" target="_blank">
+Understanding the Classicism Art Movement
+</a>
+</div>
+
+<div class="card">
+<img src="../images/backtothefuture.png">
+<a href="https://cooglife.com/2025/01/back-to-future-and-campus/" class="btn" target="_blank">
+Back to the Future and Campus
+</a>
+</div>
+
+<div class="card">
+<img src="../images/christmas carol.png">
+<a href="https://cooglife.com/2024/12/a-christmas-carol-a-message-before-christmas/" class="btn" target="_blank">
+A Christmas Carol: A Message Before Christmas
+</a>
+</div>
+
+<div class="card">
+<img src="../images/Alienromulus.png">
+<a href="https://cooglife.com/2024/12/alien-romulus-still-has-us-in-awe/" class="btn" target="_blank">
+Alien: Romulus Still Has Us in Awe
+</a>
+</div>
+
+<div class="card">
+<img src="../images/mayanculture.png">
+<a href="https://cooglife.com/2025/04/mayan-culture-vibrant-in-houston/" class="btn" target="_blank">
+Mayan Culture Vibrant in Houston
+</a>
+</div>
+
+<div class="card">
+<img src="../images/vampires.png">
+<a href="https://cooglife.com/2024/10/where-the-vampire-come-from/" class="btn" target="_blank">
+Where Do Vampires Come From?
+</a>
+</div>
+
+</div>
+
+<h3>Interviews</h3>
+<div class="grid">
+
+<div class="card">
+<img src="../images/findinghertune.png">
+<a href="https://cooglife.com/2024/09/finding-her-tune-the-perfect-melody-between-music-and-a-doctoral-degree/" class="btn" target="_blank">
+Finding Her Tune
+</a>
+</div>
+
+<div class="card">
+<img src="../images/astronomy.png">
+<a href="https://cooglife.com/2024/05/uh-astronomy-club-brings-space-enthusiasts-together/" class="btn" target="_blank">
+UH Astronomy Club
+</a>
+</div>
+
+<div class="card">
+<img src="../images/theater.png">
+<a href="https://cooglife.com/2025/12/inside-uhs-honor-club-theater-where-students-run-the-show/" class="btn" target="_blank">
+Inside UH’s Honor Club Theater
+</a>
+</div>
+
+<div class="card">
+<img src="../images/football.png">
+<a href="https://cooglife.com/2025/10/game-days-the-countdown-to-1159/" class="btn" target="_blank">
+Game Days & The Countdown to 11:59
+</a>
+</div>
+
+<div class="card">
+<a href="https://cooglife.com/2025/10/uh-alumna-faculty-member-gains-national-recognition/" class="btn" target="_blank">
+UH Alumna Gains National Recognition
+</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="more-articles">
+Plus many more articles online and in print!
+</div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Star Classification</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#cfdad6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.container{max-width:900px;width:100%;}
+h3{
+font-weight:900;
+font-size:3.2rem;
+color:#d4ce46;
+margin-bottom:60px;
+letter-spacing:2px;
+text-align:center;
+line-height:1.1;
+}
+.content{
+display:grid;
+grid-template-columns:1fr 1.4fr;
+gap:40px;
+align-items:center;
+margin-bottom:40px;
+width:100%;
+}
+.content img{
+width:100%;
+border-radius:22px;
+box-shadow:0 10px 30px rgba(155,213,195,.4);
+transition:.3s;
+background:#121d18;
+padding:8px;
+object-fit:contain;
+}
+.content img:hover{
+transform:scale(1.05);
+box-shadow:0 14px 40px #9bd5c3;
+}
+.text{
+font-size:1.15rem;
+line-height:1.7;
+color:#a3b5a6;
+padding:28px 32px;
+}
+.text p{margin-bottom:1.25em;}
+.github{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+font-size:1.25rem;
+border:3px solid #9bd5c3;
+color:#9bd5c3;
+text-decoration:none;
+border-radius:16px;
+font-weight:600;
+transition:.3s;
+}
+.github:hover{
+background:#9bd5c3;
+color:#121d18;
+box-shadow:0 0 40px #9bd5c3;
+transform:scale(1.05);
+}
+.gallery{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+width:100%;
+}
+.gallery img{
+width:100%;
+border-radius:22px;
+box-shadow:0 10px 30px rgba(155,213,195,.4);
+transition:.3s;
+background:#121d18;
+padding:8px;
+object-fit:contain;
+}
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 12px 40px #9bd5c3;
+}
+.tech-stack{margin:70px 0 10px;padding-top:35px;position:relative;width:100%;}
+.tech-stack::before{
+content:"";
+position:absolute;
+top:0;
+left:15%;
+width:70%;
+height:2px;
+background:linear-gradient(90deg,transparent,#9bd5c3,transparent);
+}
+.tech-icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+gap:40px;
+justify-items:center;
+}
+.tech{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+.tech img{
+width:70px;
+height:70px;
+object-fit:contain;
+background:#121d18;
+border-radius:12px;
+padding:8px;
+}
+.tech span{font-size:.95rem;color:#9bd5c3;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h3>Star Classification</h3>
+
+<div class="content">
+<img src="../images/Screenshot 2026-01-02 at 20.42.25.png" alt="Data exploration plot"/>
+
+<div class="text">
+<p>
+This project classifies celestial objects (stars, galaxies, quasars)
+using SDSS observational data with 100,000 entries and 18 features.
+</p>
+
+<p>
+Data preprocessing included label encoding, scaling, and feature selection
+using Random Forest importance ranking.
+</p>
+
+<p>
+A neural network achieved ~98% accuracy in classification.
+</p>
+
+<a href="https://github.com/Unmel5/Star_Classification.git"
+class="github"
+target="_blank"
+rel="noopener noreferrer">
+🔗 View GitHub Code
+</a>
+</div>
+</div>
+
+<div class="gallery">
+<img src="../images/Screenshot 2026-01-02 at 20.42.52.png"/>
+<img src="../images/Screenshot 2026-01-02 at 20.43.15.png"/>
+<img src="../images/Screenshot 2026-01-02 at 20.43.20.png"/>
+<img src="../images/Screenshot 2026-01-02 at 20.45.22.png"/>
+</div>
+
+<div class="tech-stack">
+<div class="tech-icons">
+
+<div class="tech">
+<img src="../images/python.png"/>
+<span>Python</span>
+</div>
+
+<div class="tech">
+<img src="../images/Scikit_learn_logo_small.svg (1).png"/>
+<span>Scikit-learn</span>
+</div>
+
+<div class="tech">
+<img src="../images/TensorFlow_logo.svg (1).png"/>
+<span>TensorFlow</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (8).png"/>
+<span>Pandas</span>
+</div>
+
+<div class="tech">
+<img src="../images/Created_with_Matplotlib-logo.svg (1).png"/>
+<span>Matplotlib</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (9).png"/>
+<span>Jupyter</span>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

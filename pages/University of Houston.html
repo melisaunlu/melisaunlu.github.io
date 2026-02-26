@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UH Machine Learning & Geophysics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#e6e6e6;
+line-height:1.6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.container{max-width:900px;width:100%;}
+h3{
+font-weight:900;
+font-size:3.8rem;
+color:#d4ce46;
+margin-bottom:50px;
+letter-spacing:2px;
+text-align:center;
+line-height:1.2;
+}
+.content{
+display:grid;
+grid-template-columns:1fr 1.4fr;
+gap:45px;
+align-items:center;
+margin-bottom:40px;
+width:100%;
+}
+.content img{
+width:100%;
+border-radius:22px;
+box-shadow:0 8px 18px rgba(212,206,70,.3);
+transition:.3s;
+background:#121d18;
+padding:12px;
+}
+.content img:hover{
+transform:scale(1.05);
+box-shadow:0 12px 30px rgba(212,206,70,.6);
+}
+.description{font-size:1.15rem;line-height:1.7;color:#cfdad6;}
+.description p{margin-bottom:1.25em;}
+.buttons{margin-top:30px;display:flex;gap:20px;flex-wrap:wrap;}
+.btn{
+display:inline-block;
+padding:15px 35px;
+font-size:1.25rem;
+border:2px solid #d4ce46;
+color:#d4ce46;
+text-decoration:none;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+}
+.btn:hover{
+background:#d4ce46;
+color:#0f1a17;
+box-shadow:0 0 40px #d4ce46;
+transform:scale(1.05);
+}
+.advisor{border-color:#9bd5c3;color:#9bd5c3;}
+.advisor:hover{
+background:#9bd5c3;
+color:#0f1a17;
+box-shadow:0 0 40px #9bd5c3;
+}
+.gallery{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+width:100%;
+}
+.gallery img{
+width:100%;
+border-radius:22px;
+box-shadow:0 8px 18px rgba(212,206,70,.3);
+transition:.3s;
+background:#121d18;
+padding:10px;
+}
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 12px 30px rgba(212,206,70,.6);
+}
+.tech-stack{margin:70px 0 10px;padding-top:35px;position:relative;width:100%;}
+.tech-stack::before{
+content:"";
+position:absolute;
+top:0;
+left:15%;
+width:70%;
+height:2px;
+background:linear-gradient(90deg,transparent,#9bd5c3,transparent);
+}
+.tech-icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+gap:40px;
+align-items:center;
+justify-items:center;
+}
+.tech{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+.tech img{
+width:70px;
+height:70px;
+object-fit:contain;
+filter:drop-shadow(0 0 10px rgba(155,213,195,.6));
+border-radius:12px;
+background:#121d18;
+padding:6px;
+}
+.tech:hover img{
+transform:translateY(-6px) scale(1.08);
+filter:drop-shadow(0 0 18px rgba(155,213,195,.9));
+}
+.tech span{font-size:.95rem;color:#9bd5c3;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h3>University of Houston<br>Machine Learning & Geophysics</h3>
+
+<div class="content">
+<img src="../images/UH1.png" alt="Resistivity modeling visualization"/>
+
+<div class="description">
+<p>
+This six-month research project with <strong>Dr. Sun</strong> focused on
+<strong>machine learning models applied to geophysical resistivity data</strong>,
+with emphasis on California groundwater systems.
+</p>
+
+<p>
+The project generates <strong>synthetic resistivity profiles</strong>
+using a vertical grid, then trains a neural network through supervised learning.
+</p>
+
+<p>
+This work introduced computational geophysics, numerical modeling,
+and machine learning inversion techniques.
+</p>
+
+<div class="buttons">
+<a href="https://github.com/Unmel5/1D-Conductivity-Models-.git" class="btn">
+🔗 View GitHub Code
+</a>
+
+<a href="https://sites.google.com/view/jiajiasun/home?authuser=0"
+class="btn advisor"
+target="_blank"
+rel="noopener noreferrer">
+👩‍🔬 Dr. Jiajia Sun
+</a>
+</div>
+</div>
+</div>
+
+<div class="gallery">
+<img src="../images/UH3.png" alt="Neural network output"/>
+<img src="../images/UH4.png" alt="Model comparison results"/>
+</div>
+
+<div class="tech-stack">
+<div class="tech-icons">
+
+<div class="tech">
+<img src="../images/python.png" alt="Python"/>
+<span>Python</span>
+</div>
+
+<div class="tech">
+<img src="../images/Tensorflow_logo.svg.png" alt="TensorFlow"/>
+<span>TensorFlow</span>
+</div>
+
+<div class="tech">
+<img src="../images/pytorchlogo.png" alt="PyTorch"/>
+<span>PyTorch</span>
+</div>
+
+<div class="tech">
+<img src="../images/Scikit_learn_logo_small.svg.png" alt="Scikit-learn"/>
+<span>Scikit-learn</span>
+</div>
+
+<div class="tech">
+<img src="../images/Created_with_Matplotlib-logo.svg.png" alt="Matplotlib"/>
+<span>Matplotlib</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (5).png" alt="Geophysics"/>
+<span>Geophysics</span>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

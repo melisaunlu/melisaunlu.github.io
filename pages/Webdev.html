@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WebDev Projects | University of Houston</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:#0f1a17;
+color:#cfdad6;
+padding:80px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.container{
+max-width:960px;
+width:90%;
+padding:50px 60px;
+background:#19322e;
+border-radius:24px;
+box-shadow:0 6px 30px rgba(83,111,80,.7);
+}
+h3{
+font-weight:900;
+font-size:3.8rem;
+margin-bottom:50px;
+text-align:center;
+color:#d4ce46;
+}
+.text-content p{
+font-size:1.15rem;
+line-height:1.7;
+color:#8ba796;
+margin-bottom:1.5em;
+}
+.content{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+justify-content:center;
+align-items:flex-start;
+}
+.buttons{
+display:flex;
+flex-direction:column;
+gap:20px;
+min-width:250px;
+}
+.btn{
+display:inline-block;
+text-align:center;
+padding:15px 30px;
+font-size:1.5rem;
+border-radius:26px;
+border:3px solid #9bd5c3;
+color:#9bd5c3;
+text-decoration:none;
+transition:.3s;
+font-weight:600;
+}
+.btn:hover{
+background:#9bd5c3;
+color:#0f1a17;
+transform:scale(1.05);
+}
+.gallery{
+flex:1 1 600px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+.gallery img{
+width:100%;
+border-radius:26px;
+box-shadow:0 15px 30px rgba(155,213,195,.3);
+transition:.3s;
+background:#0f1a17;
+}
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 20px 40px #9bd5c3;
+}
+.tech-stack{margin:70px 0 10px;padding-top:35px;position:relative;}
+.tech-stack::before{
+content:"";
+position:absolute;
+top:0;
+left:15%;
+width:70%;
+height:3px;
+background:linear-gradient(90deg,transparent,#9bd5c3,transparent);
+box-shadow:0 2px 8px #9bd5c3;
+}
+.tech-icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+gap:40px;
+justify-items:center;
+}
+.tech{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+.tech img{
+width:70px;
+height:70px;
+object-fit:contain;
+border-radius:12px;
+}
+.tech span{font-size:.95rem;color:#86a5a9;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h3>WebDev</h3>
+
+<div class="text-content">
+<p>I built two web projects including this portfolio and a team web application for software design.</p>
+<p>I worked on the database integration, backend connection, unit testing, and coverage reports.</p>
+<p>The stack includes React + Vite frontend, Flask backend, and SQLite with SQLAlchemy ORM.</p>
+</div>
+
+<div class="content">
+
+<div class="buttons">
+<a href="https://github.com/williamngo3000/COSC4353_Project.git"
+class="btn"
+target="_blank"
+rel="noopener noreferrer">
+🔗 View GitHub Code
+</a>
+</div>
+
+<div class="gallery">
+<img src="../images/database1.png" />
+<img src="../images/coverage report.png" />
+<img src="../images/Screenshot 2026-01-02 at 20.04.53.png" />
+<img src="../images/Screenshot 2026-01-02 at 20.05.07.png" />
+<img src="../images/Screenshot 2026-01-02 at 20.05.19.png" />
+</div>
+
+</div>
+
+<div class="tech-stack">
+<div class="tech-icons">
+
+<div class="tech">
+<img src="../images/reactlogo.png" />
+<span>React</span>
+</div>
+
+<div class="tech">
+<img src="../images/Vitejs-logo.svg.png" />
+<span>Vite</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (7).jpg" />
+<span>Flask</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (8).jpg" />
+<span>SQLite</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (7).png" />
+<span>SQLAlchemy</span>
+</div>
+
+<div class="tech">
+<img src="../images/pythonlogo.png" />
+<span>Python</span>
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

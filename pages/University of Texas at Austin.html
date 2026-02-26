@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>STA/LTA & Autoencoder Seismic Analysis</title>
+<title>Magnetic Fields Modeling</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
 
@@ -48,6 +48,7 @@ box-shadow:0 12px 30px rgba(212,206,70,.6);
 }
 .text{font-size:1.15rem;line-height:1.7;color:#cfdad6;}
 .text p{margin-bottom:1.25em;}
+
 .github{
 display:inline-block;
 margin-top:30px;
@@ -66,6 +67,7 @@ color:#0f1a17;
 box-shadow:0 0 40px #d4ce46;
 transform:scale(1.05);
 }
+
 .tech-stack{margin:70px 0 10px;padding-top:35px;position:relative;width:100%;}
 .tech-stack::before{
 content:"";
@@ -100,7 +102,12 @@ transition:.3s;
 transform:translateY(-6px) scale(1.08);
 filter:drop-shadow(0 0 18px rgba(155,213,195,.9));
 }
-.tech span{font-size:.95rem;color:#9bd5c3;}
+.tech span{
+font-size:.95rem;
+color:#9bd5c3;
+letter-spacing:.6px;
+}
+
 .gallery{
 margin-top:60px;
 display:grid;
@@ -123,21 +130,35 @@ box-shadow:0 12px 30px rgba(212,206,70,.6);
 
 <body>
 <div class="container">
-
-<h3>Seismic STA/LTA & Autoencoder<br>Testing and Scalability</h3>
+<h3>Magnetic Fields Modeling</h3>
 
 <div class="content">
-<img src="../images/img5.png" alt="STA/LTA analysis output" />
+<img src="../images/image.png" alt="Magnetic field simulation" />
 
 <div class="text">
 <p>
-Developed Python pipelines for seismic event detection using <strong>STA/LTA</strong>
-with DASCore and applied a <strong>pre-trained autoencoder</strong> for anomaly detection.
-Work focused on preprocessing, spectral reconstruction, unit testing, and serial
-scalability benchmarking.
+Spent a summer working with <strong>Dr. Krista Soderlund</strong>,
+<strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on
+numerically modeling magnetic fields around early Earth, Venus, and
+the Moon.
 </p>
 
-<a href="https://github.com/Unmel5/mines-geophysics.git"
+<p>
+Generated magnetic and kinetic energy fields, zonal flows, and entropy
+levels of early Earth using supercomputers and parallel computing.
+</p>
+
+<p>
+Successfully implemented and validated a radial electrical conductivity
+profile with a sharp gradient at the core–mantle boundary.
+</p>
+
+<p>
+Conducted extensive test cases analyzing magnetic surfaces, tilt,
+zonal flows, and kinetic/magnetic field behavior.
+</p>
+
+<a href="https://github.com/dunyuliu/magic.bmo.git"
 class="github"
 target="_blank"
 rel="noopener noreferrer">
@@ -150,35 +171,36 @@ rel="noopener noreferrer">
 <div class="tech-icons">
 
 <div class="tech">
-<img src="../images/python.png" alt="Python">
+<img src="../images/Fortran_logo.svg.png" alt="Fortran"/>
+<span>Fortran</span>
+</div>
+
+<div class="tech">
+<img src="../images/images.png" alt="MPI"/>
+<span>MPI</span>
+</div>
+
+<div class="tech">
+<img src="../images/images (5).jpg" alt="Python"/>
 <span>Python</span>
 </div>
 
 <div class="tech">
-<img src="../images/numpy-logo-png_seeklogo-398690.png" alt="NumPy">
-<span>NumPy</span>
+<img src="../images/images (1).png" alt="Linux"/>
+<span>Linux / HPC</span>
 </div>
 
 <div class="tech">
-<img src="../images/images (3).png" alt="PyTorch">
-<span>PyTorch</span>
-</div>
-
-<div class="tech">
-<img src="../images/ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png" alt="DASCore">
-<span>DASCore</span>
-</div>
-
-<div class="tech">
-<img src="../images/Octicons-mark-github.svg.png" alt="GitHub">
-<span>GitHub</span>
+<img src="../images/images (2).png" alt="Supercomputing"/>
+<span>TACC</span>
 </div>
 
 </div>
 </div>
 
 <div class="gallery">
-<img src="../images/img4.png" alt="Autoencoder reconstruction" />
+<img src="../images/Img2.png" alt="Simulation result 1"/>
+<img src="../images/IMG3.png" alt="Simulation result 2"/>
 </div>
 
 </div>
