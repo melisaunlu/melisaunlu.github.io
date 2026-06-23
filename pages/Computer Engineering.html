@@ -183,6 +183,23 @@
     color:var(--ink-muted);
     max-width:640px;
   }
+  .project-images{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    margin-top:20px;
+    max-width:640px;
+  }
+  .project-images img{
+    width:100%;
+    border-radius:10px;
+    border:1px solid var(--hairline);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .project-images img:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 28px rgba(35,43,39,.1);
+  }
 
   @media (max-width:520px){
     .project-row{grid-template-columns:1fr;}
@@ -226,6 +243,10 @@
         <div>
           <h3>Custom Mechanical Macro Keyboard</h3>
           <p>Hand-wired macro keypad with a soldered switch matrix on an ATmega32u4, flashed with custom QMK firmware for a 12-key function/navigation layout.</p>
+          <div class="project-images">
+            <img src="../images/macro-keyboard-board.png" alt="Hand-wired macro keyboard switch matrix on a custom PCB">
+            <img src="../images/macro-keyboard-qmk-flash.jpg" alt="Flashing the macro keyboard with custom QMK firmware">
+          </div>
         </div>
       </div>
 
@@ -234,6 +255,10 @@
         <div>
           <h3>Arduino Prototyping</h3>
           <p>Breadboard prototypes spanning sensor input, LED output, and L298N motor driver control, with custom C/C++ firmware for real-time sensor-triggered logic.</p>
+          <div class="project-images">
+            <img src="../images/arduino-breadboard-leds.png" alt="Arduino breadboard prototype with sensor input and LED output">
+            <img src="../images/arduino-sketch-diagram.jpg" alt="Hand-drawn circuit sketch for the Arduino breadboard prototype">
+          </div>
         </div>
       </div>
 
@@ -242,6 +267,9 @@
         <div>
           <h3>Rocketry &amp; Avionics</h3>
           <p>Designed rocket nosecone/fin geometry in CAD, soldered compact flight-computer PCBs with GPS, and analyzed real flight telemetry data post-launch.</p>
+          <div class="project-images">
+            <img src="../images/rocketry-avionics-bay.jpg" alt="Rocket avionics bay components including flight-computer PCBs and fin bracket">
+          </div>
         </div>
       </div>
 
@@ -250,6 +278,9 @@
         <div>
           <h3>Raspberry Pi Telemetry &amp; Display Rig</h3>
           <p>Integrated a Raspberry Pi with an LCD display and RF antenna module alongside a breadboard sensor array for a multi-device telemetry setup.</p>
+          <div class="project-images">
+            <img src="../images/engineering-desk-setup.jpg" alt="Workbench setup for the telemetry and display build">
+          </div>
         </div>
       </div>
 
@@ -258,6 +289,9 @@
         <div>
           <h3>QRP Labs RF Radio Kit Build</h3>
           <p>Assembled and soldered a multi-board RF kit involving crystal oscillators, precision resistor networks, and an LCD readout for signal generation.</p>
+          <div class="project-images">
+            <img src="../images/qrp-labs-radio-kit.jpg" alt="QRP Labs RF radio kit PCBs with LCD readout and components">
+          </div>
         </div>
       </div>
 
@@ -266,6 +300,10 @@
         <div>
           <h3>Wireless Power Transfer System</h3>
           <p>Engineered a custom PCB with a 3-coil planar inductive array, crystal-driven oscillator, and transistor amplification for contactless power transfer.</p>
+          <div class="project-images">
+            <img src="../images/wireless-power-coil-board.jpg" alt="Custom PCB with 3-coil planar inductive array and crystal oscillator">
+            <img src="../images/wireless-power-setup.jpg" alt="Workbench setup soldering the wireless power transfer board">
+          </div>
         </div>
       </div>
 
@@ -274,6 +312,9 @@
         <div>
           <h3>3D-Printed Enclosure Design</h3>
           <p>Modeled and 3D-printed a custom enclosure to house electronics, iterating on print settings and mounting geometry to fit PCB and connector layouts.</p>
+          <div class="project-images">
+            <img src="../images/3d-printing-process.jpg" alt="3D printer printing the custom electronics enclosure">
+          </div>
         </div>
       </div>
 
