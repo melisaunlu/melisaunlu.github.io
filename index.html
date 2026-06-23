@@ -7,12 +7,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --pitch:#0C0A0D;
-  --pitch-2:#13100E;
+  --paper:#0C0A0D;
   --vellum:#E8DDC7;
   --vellum-dim:#9C8F77;
   --gold:#C9A24B;
@@ -28,147 +27,146 @@ html{scroll-behavior:smooth;}
 
 body{
   font-family:'Cormorant Garamond', serif;
-  background:var(--pitch);
+  background:var(--paper);
   color:var(--vellum);
   line-height:1.6;
-  font-size:1.2rem;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 
-/* ambient */
-.candleglow,.vignette,.grain,.frame{
-  position:fixed; inset:0; pointer-events:none;
-}
-.candleglow{
-  background:
-    radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
-    radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
-}
-.vignette{
-  background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
-}
-.frame{
-  inset:14px;
-  border:1px solid var(--hairline);
-}
+a{color:inherit;text-decoration:none;}
 
-.wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 32px;
+}
 
 /* NAV */
-header.site-nav{
-  position:sticky; top:0; z-index:40;
-  background:linear-gradient(to bottom, rgba(12,10,13,.92), rgba(12,10,13,.6));
-  backdrop-filter:blur(6px);
+header{
+  position:sticky; top:0;
+  z-index:50;
+  background:rgba(12,10,13,.85);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--hairline);
 }
-.site-nav .wrap{
-  display:flex; justify-content:space-between; align-items:center; height:70px;
-}
-.brand{
-  font-family:'Cinzel';
-  letter-spacing:.22em;
-  color:var(--gold);
-}
-nav a{
-  font-family:'IBM Plex Mono';
-  font-size:.7rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--vellum-dim);
-  text-decoration:none;
-  margin-left:28px;
-}
-
-/* HERO unchanged feel */
-#hero{padding:130px 0 110px;}
-.name{
-  font-family:'Cinzel';
-  font-size:clamp(3rem,8vw,6rem);
-}
-.name .initial{
-  color:var(--gold-bright);
-}
-.role-line{opacity:.9;margin-top:10px;}
-.intro{max-width:650px;margin-top:18px;}
-
-/* ===================== */
-/* PROJECT CARDS SYSTEM  */
-/* ===================== */
-
-#projects{padding:70px 0;}
-
-.section-head{
+.nav{
   display:flex;
   justify-content:space-between;
-  border-bottom:1px solid var(--hairline);
-  padding-bottom:18px;
-  margin-bottom:30px;
+  align-items:center;
+  height:70px;
 }
-.section-head h2{
-  font-family:'Cinzel';
-  color:var(--gold);
-}
-
-/* GRID THAT FIXES EVERYTHING */
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:18px;
-  margin-bottom:70px;
-}
-
-/* CARD */
-.card{
-  display:block;
-  padding:18px;
-  border:1px solid var(--hairline);
-  border-radius:8px;
-  text-decoration:none;
-  color:inherit;
-  transition:.3s ease;
-  background:rgba(255,255,255,0.02);
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  border-color:var(--gold);
-}
-
-.card h4{
-  font-family:'Cinzel';
-  font-size:1.1rem;
-  margin-bottom:6px;
-}
-
-.card p{
-  font-size:.95rem;
-  color:var(--vellum-dim);
-}
-
-/* category label */
-.cat-label{
-  font-family:'IBM Plex Mono';
-  font-size:.7rem;
+.brand{
+  font-family:'Cinzel', serif;
   letter-spacing:.2em;
   color:var(--gold);
-  margin:40px 0 14px;
+}
+.nav a{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  color:var(--vellum-dim);
+  margin-left:24px;
 }
 
-/* ABOUT unchanged */
-.about-content{max-width:680px;}
-.about-content p{margin-bottom:22px;}
+/* HERO */
+.hero{
+  padding:120px 0 80px;
+}
+.name{
+  font-family:'Cinzel', serif;
+  font-size:3.5rem;
+  color:var(--vellum);
+}
+.name em{color:var(--gold);}
+.role{
+  margin-top:10px;
+  color:var(--vellum-dim);
+}
+.bio{
+  margin-top:24px;
+  max-width:650px;
+  color:var(--vellum);
+}
+.uh{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--vellum-dim);
+}
+.uh img{width:20px;height:20px}
 
-.contact-links a{
-  margin-right:18px;
+/* SECTION */
+section{padding:70px 0;}
+.head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:1px solid var(--hairline);
+  padding-bottom:16px;
+  margin-bottom:40px;
+}
+.head h2{
+  font-family:'Cinzel', serif;
   color:var(--gold);
-  text-decoration:none;
 }
 
-.message-box{
+/* CARD SYSTEM (UNIFIED) */
+.card{
+  display:grid;
+  grid-template-columns:1fr 30px;
+  gap:20px;
+  padding:22px 0;
+  border-bottom:1px solid var(--hairline);
+}
+.card:hover{
+  padding-left:10px;
+  background:rgba(201,162,75,.04);
+}
+.card h3{
+  font-size:1.2rem;
+}
+.card p{
+  color:var(--vellum-dim);
+  margin-top:4px;
+}
+.card img{
+  width:26px;height:26px;
+  justify-self:end;
+}
+
+/* ABOUT */
+.about p{
+  margin-bottom:18px;
+  max-width:700px;
+}
+.links a{
+  margin-right:20px;
+  font-family:'IBM Plex Mono';
+  font-size:.75rem;
+  color:var(--gold);
+}
+
+/* CONTACT BOX */
+.box{
   border:1px solid var(--hairline);
-  padding:30px;
+  padding:28px;
   margin-top:30px;
+}
+.box input,.box textarea{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--hairline);
+  color:var(--vellum);
+  margin-bottom:18px;
+  padding:8px 0;
+}
+button{
+  background:var(--gold);
+  border:none;
+  padding:10px 20px;
+  font-family:'IBM Plex Mono';
+  letter-spacing:.1em;
 }
 
 </style>
@@ -176,111 +174,138 @@ nav a{
 
 <body>
 
-<div class="candleglow"></div>
-<div class="vignette"></div>
-<div class="frame"></div>
-
-<header class="site-nav">
-  <div class="wrap">
-    <div class="brand">M. Unlu</div>
-    <nav>
-      <a href="#projects">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<header>
+<div class="wrap nav">
+  <div class="brand">M. UNLU</div>
+  <nav>
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</div>
 </header>
 
-<!-- HERO (UNCHANGED STRUCTURE) -->
-<section id="hero">
-  <div class="wrap">
-    <h1 class="name"><span class="initial">M</span>elisa Unlu</h1>
-    <p class="role-line">Computer Science · Engineering · Writing · Music · Art</p>
-    <p class="intro">
-      Exploring computation, engineering, and creative expression.
-    </p>
+<!-- HERO (UNCHANGED CONTENT) -->
+<section class="hero">
+<div class="wrap">
+  <h1 class="name">Melisa <em>Unlu</em></h1>
+  <div class="role">Computer Science · Engineering · Writing · Music · Art</div>
+
+  <p class="bio">
+    Exploring the intersection of computation, engineering, and creative expression through software, geology,
+    aerospace, and artistic projects.
+  </p>
+
+  <div class="uh">
+    <img src="images/uh_red.png" />
+    University of Houston — CS + Geology + English
   </div>
+</div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Work</h2>
-    </div>
+<!-- WORK -->
+<section id="work">
+<div class="wrap">
+  <div class="head"><h2>Work</h2></div>
 
-    <!-- Internships -->
-    <div class="cat-label">Internships</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/University of Texas at Austin.html">
-        <h4>UT Austin</h4><p>Planetary science software & modeling.</p>
-      </a>
-      <a class="card" href="Colorado School of Mines.html">
-        <h4>Colorado School of Mines</h4><p>Seismic anomaly detection pipelines.</p>
-      </a>
+  <a class="card" href="pages/University of Texas at Austin.html">
+    <div>
+      <h3>University of Texas at Austin</h3>
+      <p>Planetary science software development (TACC, magnetic field modeling).</p>
     </div>
+    <img src="images/University_of_Texas_at_Austin_seal.svg.png"/>
+  </a>
 
-    <!-- Software -->
-    <div class="cat-label">Software Projects</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/University of Houston.html"><h4>UH</h4><p>ML groundwater modeling.</p></a>
-      <a class="card" href="pages/StarCLassification.html"><h4>Star Classification</h4><p>Astronomy ML models.</p></a>
-      <a class="card" href="pages/Webdev.html"><h4>Web Development</h4><p>Full stack engineering.</p></a>
+  <a class="card" href="Colorado School of Mines.html">
+    <div>
+      <h3>Colorado School of Mines</h3>
+      <p>Seismic detection + autoencoder anomaly pipelines.</p>
     </div>
+    <img src="images/mines-logo.png"/>
+  </a>
 
-    <!-- Engineering -->
-    <div class="cat-label">Engineering</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/Computer Engineering.html"><h4>Computer Engineering</h4><p>PCB, firmware, RF systems.</p></a>
-      <a class="card" href="pages/Rocketry.html"><h4>Rocketry</h4><p>AIAA avionics & leadership.</p></a>
+  <a class="card" href="pages/University of Houston.html">
+    <div>
+      <h3>University of Houston</h3>
+      <p>Machine learning for groundwater + environmental systems.</p>
     </div>
+    <img src="images/uh_red.png"/>
+  </a>
 
-    <!-- Leadership -->
-    <div class="cat-label">Leadership</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/CodeCoogs Workshop Coordinator - incoming position.html"><h4>Code Coogs</h4><p>Workshop coordination.</p></a>
-      <a class="card" href="pages/AstronomyClubOfficer.html"><h4>Astronomy Club</h4><p>Historian & photography.</p></a>
+  <a class="card" href="pages/StarCLassification.html">
+    <div>
+      <h3>Star Classification</h3>
+      <p>Supervised ML for astronomical classification.</p>
     </div>
+    <img src="images/astronomy.png"/>
+  </a>
 
-    <!-- Music -->
-    <div class="cat-label">Music</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/Music.html"><h4>Music</h4><p>Composition & game audio.</p></a>
+  <a class="card" href="pages/Webdev.html">
+    <div>
+      <h3>Web Development</h3>
+      <p>Frontend + backend systems engineering.</p>
     </div>
+    <img src="images/webdev.png"/>
+  </a>
 
-    <!-- Writing (NO LONGER HIDDEN) -->
-    <div class="cat-label">Writing</div>
-    <div class="cards-grid">
-      <a class="card" href="pages/Writings.html"><h4>Writing</h4><p>Essays & creative work.</p></a>
+  <a class="card" href="pages/Rocketry.html">
+    <div>
+      <h3>Rocketry</h3>
+      <p>Avionics, testing, and leadership (AIAA-UH).</p>
     </div>
+    <img src="images/rocketry.png"/>
+  </a>
 
-  </div>
+  <a class="card" href="pages/Music.html">
+    <div>
+      <h3>Music</h3>
+      <p>Composition and game development music.</p>
+    </div>
+    <img src="images/spacelogo.png"/>
+  </a>
+
+  <a class="card" href="pages/Writings.html">
+    <div>
+      <h3>Writing</h3>
+      <p>Essays, journalism, and creative writing.</p>
+    </div>
+    <img src="images/writing1.png"/>
+  </a>
+
+</div>
 </section>
 
-<!-- ABOUT (UNCHANGED CONTENT AREA STYLE PRESERVED) -->
+<!-- ABOUT (RESTORED FULL) -->
 <section id="about">
-  <div class="wrap about-content">
-    <h2>About</h2>
-    <p>
-      I'm a Computer Science student at the University of Houston with minors in Geology and English...
-    </p>
+<div class="wrap about">
+  <div class="head"><h2>About</h2></div>
 
-    <div class="contact-links">
-      <a href="mailto:melissaunlu4@gmail.com">Email</a>
-      <a href="https://github.com/Unmel5">GitHub</a>
-      <a href="https://linkedin.com">LinkedIn</a>
-    </div>
+  <p>
+    I'm a Computer Science student at the University of Houston with minors in Geology and English.
+    I'm fascinated by computers, engineering, and creative disciplines such as writing, music, and art.
+  </p>
 
-    <div id="contact" class="message-box">
-      <h3>Send a message</h3>
-      <form action="https://formspree.io/f/mqeeeopb" method="POST">
-        <input name="name" placeholder="Name" required>
-        <input name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
+  <p>
+    I've worked at the intersections of computer science, geology, aerospace engineering, and creative systems
+    through research and independent projects.
+  </p>
+
+  <div class="links">
+    <a href="mailto:melissaunlu4@gmail.com">Email</a>
+    <a href="https://github.com/Unmel5">GitHub</a>
+    <a href="https://www.linkedin.com/in/melisa-unlu-035726159/">LinkedIn</a>
   </div>
+
+  <!-- CONTACT BOX RESTORED -->
+  <div id="contact" class="box">
+    <h3>Send a Message</h3>
+    <input placeholder="Name"/>
+    <input placeholder="Email"/>
+    <textarea placeholder="Message"></textarea>
+    <button>Send</button>
+  </div>
+
+</div>
 </section>
 
 </body>
