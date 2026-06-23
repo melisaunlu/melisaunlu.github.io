@@ -3,184 +3,223 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Melisa Unlu — Workshop Coordinator</title>
+<title>Workshop Coordinator — Melisa Unlu</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --paper:#F1F3EE;
-    --paper-soft:#E8EBE3;
-    --ink:#232B27;
-    --ink-muted:#5C6660;
-    --teal:#0FA85C;
-    --sand:#AD8B61;
-    --hairline:#D7DCD2;
-    --max:900px;
-  }
+:root{
+  --pitch:#0C0A0D;
+  --pitch-2:#13100E;
+  --vellum:#E8DDC7;
+  --vellum-dim:#9C8F77;
+  --gold:#C9A24B;
+  --gold-bright:#EBCB78;
+  --garnet:#8C2433;
+  --hairline:rgba(201,162,75,.18);
+  --max:900px;
+}
 
-  *{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
 
-  body{
-    font-family:'IBM Plex Sans', sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.65;
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
-  }
+body{
+  font-family:'Cormorant Garamond', serif;
+  background:var(--pitch);
+  color:var(--vellum);
+  line-height:1.6;
+  font-size:1.15rem;
+  overflow-x:hidden;
+}
 
-  a{color:inherit;}
+/* ---------- atmosphere ---------- */
+.candleglow{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(650px 520px at 50% -10%, rgba(201,162,75,.16), transparent 70%),
+    radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
+  animation:flicker 7s ease-in-out infinite;
+}
+.vignette{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.72) 100%);
+}
+.frame{
+  position:fixed; inset:14px; z-index:2; pointer-events:none;
+  border:1px solid var(--hairline);
+  box-shadow:inset 0 0 0 4px rgba(12,10,13,.6), inset 0 0 60px rgba(0,0,0,.6);
+}
 
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 28px;
-  }
+@keyframes flicker{
+  0%,100%{opacity:1;} 45%{opacity:.92;} 60%{opacity:.98;} 72%{opacity:.86;}
+}
 
-  /* ---------- nav ---------- */
-  header.site-nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(241,243,238,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--hairline);
-  }
-  .site-nav .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .site-nav .brand{
-    font-family:'Newsreader', serif;
-    font-weight:500;
-    font-size:1.15rem;
-  }
-  .site-nav a.back{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    text-decoration:none;
-    color:var(--ink-muted);
-    position:relative;
-    padding-bottom:4px;
-  }
-  .site-nav a.back::after{
-    content:'';
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:1px;
-    background:var(--teal);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:transform .35s ease;
-  }
-  .site-nav a.back:hover{color:var(--ink);}
-  .site-nav a.back:hover::after{transform:scaleX(1);}
+.layer{position:relative; z-index:3;}
 
-  /* ---------- page head ---------- */
-  .page-head{padding:90px 0 50px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.74rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin-bottom:18px;
-    padding-left:14px;
-    border-left:3px solid var(--teal);
-  }
-  h1{
-    font-family:'Newsreader', serif;
-    font-weight:400;
-    font-size:clamp(2.4rem, 5.5vw, 3.6rem);
-    line-height:1.08;
-    color:var(--ink);
-  }
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 40px;
+}
 
-  section{padding:0 0 90px;}
+/* ---------- nav ---------- */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:linear-gradient(to bottom, rgba(12,10,13,.92), rgba(12,10,13,.6));
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--hairline);
+}
 
-  /* ---------- text content ---------- */
-  .text-card{
-    border:1px solid var(--hairline);
-    border-left:3px solid var(--teal);
-    border-radius:8px;
-    padding:36px 40px;
-    background:var(--paper-soft);
-    max-width:680px;
-  }
-  .text-card p{
-    font-size:1.02rem;
-    color:var(--ink);
-    margin-bottom:24px;
-  }
-  .text-card p:last-child{margin-bottom:0;}
-  .text-card strong{color:var(--teal); font-weight:500;}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:70px;
+}
 
-  /* ---------- gallery ---------- */
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    margin-bottom:24px;
-  }
-  .gallery img{
-    width:100%;
-    border-radius:8px;
-    border:1px solid var(--hairline);
-    transition:transform .3s ease, box-shadow .3s ease;
-    cursor:pointer;
-  }
-  .gallery img:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(35,43,39,.1);
-  }
+.brand{
+  font-family:'Cinzel', serif;
+  letter-spacing:.2em;
+  color:var(--gold);
+  font-size:.95rem;
+}
 
-  @media (max-width:700px){
-    .text-card{padding:28px 26px;}
-  }
+.back{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--vellum-dim);
+}
+.back:hover{color:var(--gold-bright);}
+
+/* ---------- header ---------- */
+.hero{
+  padding:110px 0 50px;
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+  padding-left:10px;
+  border-left:2px solid var(--gold);
+}
+
+h1{
+  font-family:'Cinzel', serif;
+  font-size:clamp(2.4rem,5vw,3.2rem);
+  font-weight:600;
+  color:var(--vellum);
+}
+
+/* ---------- content card ---------- */
+.card{
+  border:1px solid var(--hairline);
+  border-left:2px solid var(--garnet);
+  border-radius:8px;
+  background:linear-gradient(180deg, var(--pitch-2), var(--pitch));
+  padding:38px 42px;
+  max-width:720px;
+  box-shadow:0 0 40px rgba(0,0,0,.35);
+}
+
+.card p{
+  font-size:1.15rem;
+  color:var(--vellum-dim);
+  margin-bottom:22px;
+}
+
+.card p strong{
+  color:var(--gold-bright);
+  font-weight:500;
+}
+
+/* ---------- gallery ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin:24px 0;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:8px;
+  border:1px solid var(--hairline);
+  transition:.35s ease;
+  cursor:pointer;
+}
+
+.gallery img:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 18px 40px rgba(0,0,0,.55);
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:640px){
+  .wrap{padding:0 24px;}
+  .card{padding:28px 24px;}
+}
 </style>
 </head>
 
 <body>
 
-<header class="site-nav">
+<div class="candleglow"></div>
+<div class="vignette"></div>
+<div class="frame"></div>
+
+<div class="layer">
+
+<header>
   <div class="wrap">
-    <div class="brand">M. Unlu</div>
-    <a class="back" href="/index.html">← Back to Home</a>
+    <nav>
+      <div class="brand">M. UNLU</div>
+      <a class="back" href="/index.html">← Return</a>
+    </nav>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="page-head">
-    <div class="eyebrow">Leadership — Code Coogs</div>
-    <h1>Workshop Coordinator</h1>
-  </div>
+<div class="wrap hero">
+  <div class="eyebrow">Leadership — Code Coogs</div>
+  <h1>Workshop Coordinator</h1>
 </div>
 
-<div class="wrap">
-  <section>
-    <div class="text-card">
+<section>
+  <div class="wrap">
+    <div class="card">
+
       <p>
-        As a workshop coordinator, I presented three workshops: a professional resume workshop with Cougarettes, a two-day comprehensive WebDev workshop, and a MATLAB workshop with Cougarettes. I created the slides, helped train the incoming workshop officer, collaborated with other officers and organizations, and designed interactive materials for students.
+        As a workshop coordinator, I presented three workshops: a professional resume workshop
+        with Cougarettes, a two-day Web Development workshop, and a MATLAB workshop.
+        I created slides, trained incoming officers, collaborated with other organizations,
+        and designed interactive materials for students.
       </p>
+
       <div class="gallery">
-        <img src="/images/codecoogs1.png" alt="Code Coogs 1"/>
-        <img src="/images/codecoogs2.png" alt="Code Coogs 2"/>
-        <img src="/images/codecoogs3.png" alt="Code Coogs 3"/>
+        <img src="/images/codecoogs1.png" alt="Workshop image 1">
+        <img src="/images/codecoogs2.png" alt="Workshop image 2">
+        <img src="/images/codecoogs3.png" alt="Workshop image 3">
       </div>
-      <p>
-        The goal was to help students strengthen their practical coding abilities while also
-        preparing them for internships, research opportunities, and industry careers.
-      </p>
-    </div>
-  </section>
-</div>
 
+      <p>
+        The goal was to help students strengthen practical coding abilities while also preparing them
+        for internships, research opportunities, and industry careers.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</div>
 </body>
 </html>
