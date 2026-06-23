@@ -1,285 +1,508 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>STA/LTA &amp; Autoencoder Seismic Analysis</title>
+<title>Colorado School of Mines</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --paper:#F1F3EE;
-    --paper-soft:#E8EBE3;
-    --ink:#232B27;
-    --ink-muted:#5C6660;
-    --teal:#0FA85C;
-    --sand:#AD8B61;
-    --hairline:#D7DCD2;
-    --max:900px;
+
+:root{
+  --pitch:#0C0A0D;
+  --pitch-2:#141114;
+
+  --vellum:#E8DDC7;
+  --vellum-dim:#9B8E76;
+
+  --gold:#C9A24B;
+  --gold-bright:#EBCB78;
+
+  --garnet:#8C2433;
+
+  --hairline:rgba(201,162,75,.18);
+  --hairline-strong:rgba(201,162,75,.34);
+
+  --max:1000px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:var(--pitch);
+  color:var(--vellum);
+  line-height:1.7;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- atmosphere ---------- */
+
+.candleglow{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+
+  background:
+    radial-gradient(
+      700px 500px at 50% -8%,
+      rgba(201,162,75,.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      1000px 700px at 85% 15%,
+      rgba(140,36,51,.08),
+      transparent 80%
+    );
+}
+
+.vignette{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+
+  background:
+    radial-gradient(
+      120% 100% at 50% 35%,
+      transparent 55%,
+      rgba(0,0,0,.7) 100%
+    );
+}
+
+.frame{
+  position:fixed;
+  inset:14px;
+  border:1px solid var(--hairline);
+  pointer-events:none;
+  z-index:1;
+}
+
+.layer{
+  position:relative;
+  z-index:2;
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:auto;
+  padding:0 40px;
+}
+
+/* ---------- nav ---------- */
+
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(12,10,13,.95),
+      rgba(12,10,13,.7)
+    );
+
+  backdrop-filter:blur(8px);
+
+  border-bottom:1px solid var(--hairline);
+}
+
+.site-nav .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:72px;
+}
+
+.brand{
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  letter-spacing:.22em;
+  font-size:.95rem;
+}
+
+.back{
+  text-decoration:none;
+
+  color:var(--vellum-dim);
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.7rem;
+
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.back:hover{
+  color:var(--gold-bright);
+}
+
+/* ---------- hero ---------- */
+
+.page-head{
+  padding:120px 0 80px;
+}
+
+.eyebrow{
+  display:inline-block;
+
+  font-family:'IBM Plex Mono',monospace;
+
+  font-size:.72rem;
+
+  color:var(--gold);
+
+  letter-spacing:.2em;
+  text-transform:uppercase;
+
+  border-left:2px solid var(--gold);
+
+  padding-left:14px;
+
+  margin-bottom:24px;
+}
+
+h1{
+  font-family:'Cinzel',serif;
+
+  font-weight:500;
+
+  font-size:clamp(3rem,6vw,5rem);
+
+  line-height:1.08;
+
+  color:var(--vellum);
+
+  text-shadow:
+    0 0 30px rgba(201,162,75,.15);
+}
+
+.rule{
+  width:180px;
+  height:1px;
+
+  margin-top:28px;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--gold),
+      transparent
+    );
+}
+
+/* ---------- project card ---------- */
+
+.project{
+  display:grid;
+
+  grid-template-columns:1fr 1.1fr;
+
+  gap:50px;
+
+  align-items:center;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--pitch-2),
+      var(--pitch)
+    );
+
+  border:1px solid var(--hairline);
+
+  border-radius:10px;
+
+  padding:40px;
+
+  box-shadow:
+    0 0 40px rgba(0,0,0,.45);
+}
+
+.project img{
+  width:100%;
+
+  border-radius:8px;
+
+  border:1px solid var(--hairline-strong);
+
+  transition:.3s;
+}
+
+.project img:hover{
+  transform:translateY(-4px);
+}
+
+.text p{
+  color:var(--vellum-dim);
+  font-size:1.18rem;
+  margin-bottom:24px;
+}
+
+.text strong{
+  color:var(--gold-bright);
+}
+
+/* ---------- button ---------- */
+
+.github{
+  display:inline-block;
+
+  margin-top:10px;
+
+  text-decoration:none;
+
+  font-family:'IBM Plex Mono',monospace;
+
+  font-size:.75rem;
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  color:var(--gold);
+
+  border:1px solid var(--gold);
+
+  padding:14px 30px;
+
+  transition:.3s;
+}
+
+.github:hover{
+  background:var(--gold);
+  color:var(--pitch);
+
+  box-shadow:
+    0 0 25px rgba(201,162,75,.35);
+}
+
+/* ---------- divider ---------- */
+
+.divider{
+  text-align:center;
+  margin:90px 0 50px;
+  color:var(--gold);
+  font-size:1.3rem;
+}
+
+/* ---------- tech ---------- */
+
+.section-title{
+  text-align:center;
+
+  font-family:'Cinzel',serif;
+
+  color:var(--gold);
+
+  margin-bottom:40px;
+
+  letter-spacing:.08em;
+}
+
+.tech-icons{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(120px,1fr));
+
+  gap:40px;
+
+  text-align:center;
+}
+
+.tech img{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+}
+
+.tech span{
+  display:block;
+
+  margin-top:10px;
+
+  color:var(--vellum-dim);
+
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.75rem;
+}
+
+/* ---------- gallery ---------- */
+
+.gallery{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:30px;
+}
+
+.gallery img{
+  width:100%;
+
+  border-radius:8px;
+
+  border:1px solid var(--hairline-strong);
+
+  transition:.3s;
+}
+
+.gallery img:hover{
+  transform:translateY(-4px);
+}
+
+@media(max-width:800px){
+
+  .project{
+    grid-template-columns:1fr;
   }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
-
-  body{
-    font-family:'IBM Plex Sans', sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.65;
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;}
 
   .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 28px;
+    padding:0 24px;
   }
 
-  /* ---------- nav ---------- */
-  header.site-nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(241,243,238,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--hairline);
-  }
-  .site-nav .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .site-nav .brand{
-    font-family:'Newsreader', serif;
-    font-weight:500;
-    font-size:1.15rem;
-  }
-  .site-nav a.back{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    text-decoration:none;
-    color:var(--ink-muted);
-    position:relative;
-    padding-bottom:4px;
-  }
-  .site-nav a.back::after{
-    content:'';
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:1px;
-    background:var(--teal);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:transform .35s ease;
-  }
-  .site-nav a.back:hover{color:var(--ink);}
-  .site-nav a.back:hover::after{transform:scaleX(1);}
-
-  /* ---------- page head ---------- */
-  .page-head{padding:90px 0 50px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.74rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin-bottom:18px;
-    padding-left:14px;
-    border-left:3px solid var(--teal);
-  }
   h1{
-    font-family:'Newsreader', serif;
-    font-weight:400;
-    font-size:clamp(2.2rem, 5vw, 3.2rem);
-    line-height:1.12;
-    color:var(--ink);
+    font-size:2.5rem;
   }
+}
 
-  section{padding:0 0 80px;}
-
-  /* ---------- content ---------- */
-  .content{
-    display:grid;
-    grid-template-columns:1fr 1.1fr;
-    gap:48px;
-    align-items:center;
-  }
-  .content img{
-    width:100%;
-    border-radius:10px;
-    border:1px solid var(--hairline);
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .content img:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(35,43,39,.1);
-  }
-  .text p{
-    font-size:1.02rem;
-    color:var(--ink);
-    margin-bottom:26px;
-  }
-  .text strong{color:var(--teal); font-weight:500;}
-
-  .github{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 26px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.78rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    border:1px solid var(--teal);
-    background:var(--teal);
-    color:var(--paper);
-    text-decoration:none;
-    border-radius:3px;
-    transition:background .25s ease, color .25s ease, box-shadow .25s ease;
-  }
-  .github:hover{background:transparent; color:var(--teal); box-shadow:0 0 0 1px var(--teal) inset;}
-
-  /* ---------- tech stack ---------- */
-  .tech-stack{
-    border-top:1px solid var(--hairline);
-    padding-top:50px;
-  }
-  .section-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.7rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--ink-muted);
-    margin-bottom:32px;
-  }
-  .tech-icons{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-    gap:36px;
-    align-items:start;
-    justify-items:center;
-  }
-  .tech{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-  }
-  .tech img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    transition:transform .3s ease;
-  }
-  .tech:hover img{transform:translateY(-4px);}
-  .tech span{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.78rem;
-    color:var(--ink-muted);
-  }
-
-  /* ---------- gallery ---------- */
-  .gallery{
-    border-top:1px solid var(--hairline);
-    padding-top:50px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-  }
-  .gallery img{
-    width:100%;
-    border-radius:10px;
-    border:1px solid var(--hairline);
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .gallery img:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(35,43,39,.1);
-  }
-
-  @media (max-width:680px){
-    .content{grid-template-columns:1fr;}
-  }
 </style>
 </head>
 
 <body>
 
+<div class="candleglow"></div>
+<div class="vignette"></div>
+<div class="frame"></div>
+
+<div class="layer">
+
 <header class="site-nav">
   <div class="wrap">
     <div class="brand">M. Unlu</div>
-    <a class="back" href="../index.html#projects">← Back to Work</a>
+    <a class="back" href="../index.html#projects">
+      ← Back to Work
+    </a>
   </div>
 </header>
 
 <div class="wrap">
+
   <div class="page-head">
-    <div class="eyebrow">Research — Colorado School of Mines</div>
-    <h1>Seismic STA/LTA &amp; Autoencoder<br>Testing and Scalability</h1>
+    <div class="eyebrow">
+      Research • Colorado School of Mines
+    </div>
+
+    <h1>
+      Seismic STA/LTA &
+      <br>
+      Autoencoder Analysis
+    </h1>
+
+    <div class="rule"></div>
   </div>
-</div>
 
-<div class="wrap">
+  <section class="project">
 
-  <section>
-    <div class="content">
-      <img src="../images/img5.png" alt="STA/LTA analysis output" />
-      <div class="text">
-        <p>
-          Developed Python pipelines for seismic event detection using <strong>STA/LTA</strong>
-          with DASCore and applied a <strong>pre-trained autoencoder</strong> for anomaly detection.
-          Work focused on preprocessing, spectral reconstruction, unit testing, and serial
-          scalability benchmarking.
-        </p>
-        <a href="https://github.com/Unmel5/mines-geophysics.git"
-           class="github"
-           target="_blank"
-           rel="noopener noreferrer">
-          View GitHub Code →
-        </a>
-      </div>
+    <img
+      src="../images/img5.png"
+      alt="STA/LTA Analysis">
+
+    <div class="text">
+
+      <p>
+        Developed seismic processing pipelines for
+        <strong>Distributed Acoustic Sensing (DAS)</strong>
+        data using STA/LTA event detection methods and
+        machine-learning-based anomaly detection.
+      </p>
+
+      <p>
+        Integrated a
+        <strong>pre-trained autoencoder</strong>
+        to reconstruct and identify unusual signal
+        behavior while improving preprocessing,
+        testing, and workflow reliability.
+      </p>
+
+      <p>
+        Conducted scalability studies and validation
+        experiments to evaluate performance across
+        large seismic datasets and reconstruction tasks.
+      </p>
+
+      <a
+        href="https://github.com/Unmel5/mines-geophysics.git"
+        class="github"
+        target="_blank">
+
+        View GitHub Repository
+      </a>
+
     </div>
+
   </section>
 
-  <section class="tech-stack">
-    <div class="section-label">Tech Stack</div>
-    <div class="tech-icons">
-      <div class="tech">
-        <img src="../images/python.png" alt="Python">
-        <span>Python</span>
-      </div>
-      <div class="tech">
-        <img src="../images/numpy-logo-png_seeklogo-398690.png" alt="NumPy">
-        <span>NumPy</span>
-      </div>
-      <div class="tech">
-        <img src="../images/images (3).png" alt="PyTorch">
-        <span>PyTorch</span>
-      </div>
-      <div class="tech">
-        <img src="../images/ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png" alt="DASCore">
-        <span>DASCore</span>
-      </div>
-      <div class="tech">
-        <img src="../images/Octicons-mark-github.svg.png" alt="GitHub">
-        <span>GitHub</span>
-      </div>
+  <div class="divider">❦</div>
+
+  <h2 class="section-title">Tech Stack</h2>
+
+  <section class="tech-icons">
+
+    <div class="tech">
+      <img src="../images/python.png">
+      <span>Python</span>
     </div>
+
+    <div class="tech">
+      <img src="../images/numpy-logo-png_seeklogo-398690.png">
+      <span>NumPy</span>
+    </div>
+
+    <div class="tech">
+      <img src="../images/images (3).png">
+      <span>PyTorch</span>
+    </div>
+
+    <div class="tech">
+      <img src="../images/ffa5fa29-2cbb-49fe-be23-00c92823ae9d.png">
+      <span>DASCore</span>
+    </div>
+
+    <div class="tech">
+      <img src="../images/Octicons-mark-github.svg.png">
+      <span>GitHub</span>
+    </div>
+
   </section>
+
+  <div class="divider">❦</div>
 
   <section class="gallery">
-    <img src="../images/img4.png" alt="Autoencoder reconstruction" />
+
+    <img
+      src="../images/img4.png"
+      alt="Autoencoder Reconstruction">
+
   </section>
+
+</div>
 
 </div>
 
 </body>
 </html>
+```
