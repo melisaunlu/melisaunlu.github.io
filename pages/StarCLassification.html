@@ -5,204 +5,351 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Star Classification</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --paper:#F1F3EE;
+  --paper-soft:#E8EBE3;
+  --ink:#232B27;
+  --ink-muted:#5C6660;
+  --teal:#0FA85C;
+  --sand:#AD8B61;
+  --hairline:#D7DCD2;
+  --max:900px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
-font-family:'Poppins',sans-serif;
-background:#004488;
-color:#cfdad6;
-padding:80px 20px;
-display:flex;
-flex-direction:column;
-align-items:center;
+  font-family:'IBM Plex Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
 }
-.container{max-width:900px;width:100%;}
-h3{
-font-weight:900;
-font-size:3.2rem;
-color:#d4ce46;
-margin-bottom:60px;
-letter-spacing:2px;
-text-align:center;
-line-height:1.1;
+
+a{color:inherit;}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 28px;
 }
+
+/* NAV */
+
+header.site-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(241,243,238,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+}
+
+.site-nav .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:64px;
+}
+
+.brand{
+  font-family:'Newsreader',serif;
+  font-weight:500;
+  font-size:1.15rem;
+}
+
+.back{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink-muted);
+  position:relative;
+  padding-bottom:4px;
+}
+
+.back::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:var(--teal);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s ease;
+}
+
+.back:hover::after{
+  transform:scaleX(1);
+}
+
+/* HEADER */
+
+.page-head{
+  padding:90px 0 50px;
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.74rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:18px;
+  padding-left:14px;
+  border-left:3px solid var(--teal);
+}
+
+h1{
+  font-family:'Newsreader',serif;
+  font-weight:400;
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  line-height:1.12;
+}
+
+/* CONTENT */
+
+section{
+  padding:0 0 80px;
+}
+
 .content{
-display:grid;
-grid-template-columns:1fr 1.4fr;
-gap:40px;
-align-items:center;
-margin-bottom:40px;
-width:100%;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:center;
 }
+
 .content img{
-width:100%;
-border-radius:22px;
-box-shadow:0 10px 30px rgba(155,213,195,.4);
-transition:.3s;
-background:#121d18;
-padding:8px;
-object-fit:contain;
+  width:100%;
+  border-radius:10px;
+  border:1px solid var(--hairline);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
+
 .content img:hover{
-transform:scale(1.05);
-box-shadow:0 14px 40px #9bd5c3;
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(35,43,39,.1);
 }
-.text{
-font-size:1.15rem;
-line-height:1.7;
-color:#a3b5a6;
-padding:28px 32px;
+
+.text p{
+  font-size:1.02rem;
+  color:var(--ink);
+  margin-bottom:24px;
 }
-.text p{margin-bottom:1.25em;}
+
+.text strong{
+  color:var(--teal);
+  font-weight:500;
+}
+
+/* BUTTON */
+
 .github{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-font-size:1.25rem;
-border:3px solid #9bd5c3;
-color:#9bd5c3;
-text-decoration:none;
-border-radius:16px;
-font-weight:600;
-transition:.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 26px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border:1px solid var(--teal);
+  background:var(--teal);
+  color:var(--paper);
+  text-decoration:none;
+  border-radius:3px;
+  transition:.25s ease;
 }
+
 .github:hover{
-background:#9bd5c3;
-color:#121d18;
-box-shadow:0 0 40px #9bd5c3;
-transform:scale(1.05);
+  background:transparent;
+  color:var(--teal);
+  box-shadow:0 0 0 1px var(--teal) inset;
 }
-.gallery{
-margin-top:60px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-width:100%;
+
+/* TECH STACK */
+
+.tech-stack{
+  border-top:1px solid var(--hairline);
+  padding-top:50px;
 }
-.gallery img{
-width:100%;
-border-radius:22px;
-box-shadow:0 10px 30px rgba(155,213,195,.4);
-transition:.3s;
-background:#121d18;
-padding:8px;
-object-fit:contain;
+
+.section-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  margin-bottom:32px;
 }
-.gallery img:hover{
-transform:scale(1.05);
-box-shadow:0 12px 40px #9bd5c3;
-}
-.tech-stack{margin:70px 0 10px;padding-top:35px;position:relative;width:100%;}
-.tech-stack::before{
-content:"";
-position:absolute;
-top:0;
-left:15%;
-width:70%;
-height:2px;
-background:linear-gradient(90deg,transparent,#9bd5c3,transparent);
-}
+
 .tech-icons{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-gap:40px;
-justify-items:center;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+  gap:36px;
+  justify-items:center;
 }
+
 .tech{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
 }
+
 .tech img{
-width:70px;
-height:70px;
-object-fit:contain;
-background:#121d18;
-border-radius:12px;
-padding:8px;
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  transition:transform .3s ease;
 }
-.tech span{font-size:.95rem;color:#9bd5c3;}
+
+.tech:hover img{
+  transform:translateY(-4px);
+}
+
+.tech span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+  color:var(--ink-muted);
+}
+
+/* GALLERY */
+
+.gallery{
+  border-top:1px solid var(--hairline);
+  padding-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:10px;
+  border:1px solid var(--hairline);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.gallery img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(35,43,39,.1);
+}
+
+@media(max-width:680px){
+  .content{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<h3>Star Classification</h3>
+<header class="site-nav">
+  <div class="wrap">
+    <div class="brand">M. Unlu</div>
+    <a class="back" href="../index.html#projects">← Back to Work</a>
+  </div>
+</header>
 
-<div class="content">
-<img src="../images/Screenshot 2026-01-02 at 20.42.25.png" alt="Data exploration plot"/>
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Machine Learning Project</div>
+    <h1>Star Classification<br>Using SDSS Data</h1>
+  </div>
 
-<div class="text">
-<p>
-This project classifies celestial objects (stars, galaxies, quasars)
-using SDSS observational data with 100,000 entries and 18 features.
-</p>
+  <section>
+    <div class="content">
+      <img src="../images/Screenshot 2026-01-02 at 20.42.25.png"
+           alt="Data exploration plot">
 
-<p>
-Data preprocessing included label encoding, scaling, and feature selection
-using Random Forest importance ranking.
-</p>
+      <div class="text">
+        <p>
+          Classified <strong>stars, galaxies, and quasars</strong> using
+          Sloan Digital Sky Survey observational data containing
+          100,000 samples and 18 features.
+        </p>
 
-<p>
-A neural network achieved ~98% accuracy in classification.
-</p>
+        <p>
+          Applied preprocessing techniques including label encoding,
+          feature scaling, and feature selection through
+          <strong>Random Forest importance ranking</strong>.
+        </p>
 
-<a href="https://github.com/Unmel5/Star_Classification.git"
-class="github"
-target="_blank"
-rel="noopener noreferrer">
-🔗 View GitHub Code
-</a>
+        <p>
+          Built and trained a neural network model achieving
+          approximately <strong>98% classification accuracy</strong>.
+        </p>
+
+        <a href="https://github.com/Unmel5/Star_Classification.git"
+           class="github"
+           target="_blank"
+           rel="noopener noreferrer">
+          View GitHub Code →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-stack">
+    <div class="section-label">Tech Stack</div>
+
+    <div class="tech-icons">
+      <div class="tech">
+        <img src="../images/python.png">
+        <span>Python</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/Scikit_learn_logo_small.svg (1).png">
+        <span>Scikit-learn</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/TensorFlow_logo.svg (1).png">
+        <span>TensorFlow</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/images (8).png">
+        <span>Pandas</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/Created_with_Matplotlib-logo.svg (1).png">
+        <span>Matplotlib</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/images (9).png">
+        <span>Jupyter</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <img src="../images/Screenshot 2026-01-02 at 20.42.52.png">
+    <img src="../images/Screenshot 2026-01-02 at 20.43.15.png">
+    <img src="../images/Screenshot 2026-01-02 at 20.43.20.png">
+    <img src="../images/Screenshot 2026-01-02 at 20.45.22.png">
+  </section>
+
 </div>
-</div>
 
-<div class="gallery">
-<img src="../images/Screenshot 2026-01-02 at 20.42.52.png"/>
-<img src="../images/Screenshot 2026-01-02 at 20.43.15.png"/>
-<img src="../images/Screenshot 2026-01-02 at 20.43.20.png"/>
-<img src="../images/Screenshot 2026-01-02 at 20.45.22.png"/>
-</div>
-
-<div class="tech-stack">
-<div class="tech-icons">
-
-<div class="tech">
-<img src="../images/python.png"/>
-<span>Python</span>
-</div>
-
-<div class="tech">
-<img src="../images/Scikit_learn_logo_small.svg (1).png"/>
-<span>Scikit-learn</span>
-</div>
-
-<div class="tech">
-<img src="../images/TensorFlow_logo.svg (1).png"/>
-<span>TensorFlow</span>
-</div>
-
-<div class="tech">
-<img src="../images/images (8).png"/>
-<span>Pandas</span>
-</div>
-
-<div class="tech">
-<img src="../images/Created_with_Matplotlib-logo.svg (1).png"/>
-<span>Matplotlib</span>
-</div>
-
-<div class="tech">
-<img src="../images/images (9).png"/>
-<span>Jupyter</span>
-</div>
-
-</div>
-</div>
-
-</div>
 </body>
 </html>
