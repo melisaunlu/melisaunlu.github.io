@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,7 @@
 <style>
 :root{
   --paper:#F1F3EE;
+  --paper-soft:#E8EBE3;
   --ink:#232B27;
   --ink-muted:#5C6660;
   --teal:#0FA85C;
@@ -35,9 +35,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-a{
-  color:inherit;
-}
+a{color:inherit;}
 
 .wrap{
   max-width:var(--max);
@@ -46,7 +44,6 @@ a{
 }
 
 /* ---------- NAV ---------- */
-
 .site-nav{
   position:sticky;
   top:0;
@@ -98,9 +95,8 @@ a{
 }
 
 /* ---------- HEADER ---------- */
-
 .page-head{
-  padding:120px 0 70px;
+  padding:110px 0 60px;
 }
 
 .eyebrow{
@@ -111,27 +107,26 @@ a{
   color:var(--teal);
   border-left:3px solid var(--teal);
   padding-left:14px;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 h1{
   font-family:'Newsreader',serif;
-  font-size:clamp(2.8rem,5vw,4rem);
+  font-size:clamp(2.6rem,5vw,3.8rem);
   font-weight:400;
   line-height:1.05;
   color:var(--ink);
 }
 
 /* ---------- CONTENT ---------- */
-
 section{
-  padding-bottom:100px;
+  padding-bottom:90px;
 }
 
 .content{
   display:grid;
   grid-template-columns:1fr 1.1fr;
-  gap:60px;
+  gap:50px;
   align-items:center;
 }
 
@@ -150,8 +145,8 @@ section{
 }
 
 .text p{
-  font-size:1.03rem;
-  margin-bottom:24px;
+  font-size:1.02rem;
+  margin-bottom:20px;
 }
 
 .text strong{
@@ -160,21 +155,21 @@ section{
 }
 
 /* ---------- BUTTON ---------- */
-
 .github{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  text-decoration:none;
-  padding:12px 24px;
+  margin-top:10px;
+  padding:12px 22px;
   background:var(--teal);
-  color:white;
+  color:#fff;
   border:1px solid var(--teal);
   border-radius:3px;
   font-family:'IBM Plex Mono',monospace;
   font-size:.78rem;
   letter-spacing:.08em;
   text-transform:uppercase;
+  text-decoration:none;
   transition:.25s ease;
 }
 
@@ -184,7 +179,6 @@ section{
 }
 
 /* ---------- TECH STACK ---------- */
-
 .tech-stack{
   border-top:1px solid var(--hairline);
   padding-top:50px;
@@ -196,13 +190,13 @@ section{
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--ink-muted);
-  margin-bottom:36px;
+  margin-bottom:30px;
 }
 
 .tech-icons{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-  gap:40px;
+  gap:36px;
 }
 
 .tech{
@@ -213,7 +207,7 @@ section{
   width:48px;
   height:48px;
   object-fit:contain;
-  margin-bottom:12px;
+  margin-bottom:10px;
   transition:.3s ease;
 }
 
@@ -228,13 +222,12 @@ section{
 }
 
 /* ---------- GALLERY ---------- */
-
 .gallery{
   border-top:1px solid var(--hairline);
   padding-top:50px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:24px;
+  gap:22px;
 }
 
 .gallery img{
@@ -252,7 +245,6 @@ section{
 }
 
 @media(max-width:700px){
-
   .content{
     grid-template-columns:1fr;
   }
@@ -260,7 +252,6 @@ section{
   .gallery{
     grid-template-columns:1fr;
   }
-
 }
 </style>
 </head>
@@ -270,9 +261,7 @@ section{
 <header class="site-nav">
   <div class="wrap">
     <div class="brand">M. Unlu</div>
-    <a href="../index.html#projects" class="back">
-      ← Back to Work
-    </a>
+    <a href="../index.html#projects" class="back">← Back to Work</a>
   </div>
 </header>
 
@@ -280,41 +269,30 @@ section{
 
   <div class="page-head">
     <div class="eyebrow">Machine Learning Project</div>
-
-    <h1>
-      Star Classification Using
-      <br>
-      SDSS Survey Data
-    </h1>
+    <h1>Star Classification Using<br>SDSS Survey Data</h1>
   </div>
 
   <section>
-
     <div class="content">
 
-      <img src="../images/Screenshot 2026-01-02 at 20.42.25.png"
-           alt="Star Classification">
+      <img src="../images/Screenshot 2026-01-02 at 20.42.25.png" alt="Star Classification visualization">
 
       <div class="text">
 
         <p>
           Developed machine learning models to classify
           <strong>stars, galaxies, and quasars</strong>
-          using Sloan Digital Sky Survey observations containing
-          over 100,000 astronomical objects.
+          using Sloan Digital Sky Survey data with over 100,000 astronomical objects.
         </p>
 
         <p>
-          Applied preprocessing techniques including label encoding,
-          feature scaling, exploratory analysis, and
-          <strong>Random Forest feature importance ranking</strong>
-          to identify the most informative features.
+          Applied preprocessing including feature scaling, label encoding, exploratory analysis,
+          and <strong>Random Forest feature importance</strong> to identify key predictors.
         </p>
 
         <p>
-          Built and trained a TensorFlow neural network that achieved
-          approximately <strong>98% classification accuracy</strong>
-          across all object categories.
+          Built and trained a TensorFlow neural network achieving approximately
+          <strong>98% classification accuracy</strong>.
         </p>
 
         <a href="https://github.com/Unmel5/Star_Classification.git"
@@ -326,62 +304,29 @@ section{
       </div>
 
     </div>
-
   </section>
 
   <section class="tech-stack">
-
-    <div class="section-label">
-      Tech Stack
-    </div>
+    <div class="section-label">Tech Stack</div>
 
     <div class="tech-icons">
-
-      <div class="tech">
-        <img src="../images/python.png" alt="Python">
-        <span>Python</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/Scikit_learn_logo_small.svg (1).png" alt="Scikit-learn">
-        <span>Scikit-learn</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/TensorFlow_logo.svg (1).png" alt="TensorFlow">
-        <span>TensorFlow</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images (8).png" alt="Pandas">
-        <span>Pandas</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/Created_with_Matplotlib-logo.svg (1).png" alt="Matplotlib">
-        <span>Matplotlib</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images (9).png" alt="Jupyter">
-        <span>Jupyter</span>
-      </div>
-
+      <div class="tech"><img src="../images/python.png" alt="Python"><span>Python</span></div>
+      <div class="tech"><img src="../images/Scikit_learn_logo_small.svg (1).png" alt="Scikit-learn"><span>Scikit-learn</span></div>
+      <div class="tech"><img src="../images/TensorFlow_logo.svg (1).png" alt="TensorFlow"><span>TensorFlow</span></div>
+      <div class="tech"><img src="../images/images (8).png" alt="Pandas"><span>Pandas</span></div>
+      <div class="tech"><img src="../images/Created_with_Matplotlib-logo.svg (1).png" alt="Matplotlib"><span>Matplotlib</span></div>
+      <div class="tech"><img src="../images/images (9).png" alt="Jupyter"><span>Jupyter</span></div>
     </div>
-
   </section>
 
   <section class="gallery">
-
-    <img src="../images/Screenshot 2026-01-02 at 20.42.52.png" alt="">
-    <img src="../images/Screenshot 2026-01-02 at 20.43.15.png" alt="">
-    <img src="../images/Screenshot 2026-01-02 at 20.43.20.png" alt="">
-    <img src="../images/Screenshot 2026-01-02 at 20.45.22.png" alt="">
-
+    <img src="../images/Screenshot 2026-01-02 at 20.42.52.png" alt="Data visualization 1">
+    <img src="../images/Screenshot 2026-01-02 at 20.43.15.png" alt="Data visualization 2">
+    <img src="../images/Screenshot 2026-01-02 at 20.43.20.png" alt="Data visualization 3">
+    <img src="../images/Screenshot 2026-01-02 at 20.45.22.png" alt="Model output results">
   </section>
 
 </div>
 
 </body>
 </html>
-```
