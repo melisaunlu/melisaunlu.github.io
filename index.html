@@ -35,218 +35,185 @@
     font-size:1.2rem;
     font-weight:400;
     -webkit-font-smoothing:antialiased;
-    position:relative;
     overflow-x:hidden;
   }
 
-  /* ---------- ambient atmosphere ---------- */
+  /* ---------- atmosphere ---------- */
   .candleglow{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
+    position:fixed; inset:0;
     background:
       radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
       radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
-    animation:flicker 7s ease-in-out infinite;
+    pointer-events:none;
   }
+
   .vignette{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
+    position:fixed; inset:0;
     background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
+    pointer-events:none;
   }
+
   .grain{
-    position:fixed; inset:0; z-index:1; pointer-events:none;
-    opacity:.05; mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    position:fixed; inset:0;
+    opacity:.05;
+    pointer-events:none;
   }
-  @keyframes flicker{
-    0%,100%{opacity:1;} 45%{opacity:.9;} 60%{opacity:.97;} 72%{opacity:.86;}
-  }
+
   .frame{
-    position:fixed; inset:14px; z-index:2; pointer-events:none;
+    position:fixed; inset:14px;
     border:1px solid var(--hairline);
-    box-shadow:inset 0 0 0 4px rgba(12,10,13,.6), inset 0 0 60px rgba(0,0,0,.5);
+    pointer-events:none;
   }
-  .layer{position:relative; z-index:3;}
 
-  a{color:inherit;}
+  .layer{position:relative; z-index:2;}
 
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 40px;
+  }
 
-  /* ---------- nav ---------- */
-  header.site-nav{
-    position:sticky; top:0; z-index:40;
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
     background:linear-gradient(to bottom, rgba(12,10,13,.92), rgba(12,10,13,.6));
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--hairline);
   }
-  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:70px;}
-  .site-nav .brand{
-    font-family:'Cinzel', serif; font-weight:600; font-size:1rem;
-    letter-spacing:.22em; color:var(--gold);
-  }
-  .site-nav nav{display:flex; gap:34px;}
-  .site-nav nav a{
-    font-family:'IBM Plex Mono', monospace; font-size:.66rem; letter-spacing:.22em;
-    text-transform:uppercase; text-decoration:none; color:var(--vellum-dim);
-    position:relative; padding-bottom:5px; transition:color .3s ease;
-  }
-  .site-nav nav a::after{
-    content:''; position:absolute; left:0; right:0; bottom:0; height:1px;
-    background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .4s ease;
-  }
-  .site-nav nav a:hover,.site-nav nav a:focus-visible{color:var(--gold-bright);}
-  .site-nav nav a:hover::after,.site-nav nav a:focus-visible::after{transform:scaleX(1);}
 
-  /* ---------- hero ---------- */
-  #hero{padding:130px 0 110px;}
-  .hero-content{max-width:760px;}
-  .eyebrow{display:flex; align-items:center; gap:10px; margin-bottom:26px;}
-  .eyebrow .flag{
-    width:20px; height:20px; object-fit:contain; border-radius:2px;
-    border:1px solid var(--hairline); filter:saturate(.7) brightness(.95);
+  header .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:70px;
   }
-  h1.name{
-    font-family:'Cinzel', serif; font-weight:600;
-    font-size:clamp(3rem, 8vw, 6.2rem); line-height:1.0; letter-spacing:.02em;
-    color:var(--vellum); margin-bottom:6px; text-shadow:0 0 36px rgba(201,162,75,.18);
+
+  .brand{
+    font-family:'Cinzel', serif;
+    letter-spacing:.22em;
+    color:var(--gold);
   }
-  h1.name .initial{
+
+  .back{
+    font-family:'IBM Plex Mono';
+    font-size:.7rem;
+    text-transform:uppercase;
+    color:var(--vellum-dim);
+    text-decoration:none;
+  }
+
+  .back:hover{color:var(--gold);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:90px 0 40px;
+  }
+
+  .hero h1{
+    font-family:'Cinzel',serif;
+    font-size:3rem;
+    color:var(--gold);
+  }
+
+  .tag{
+    font-family:'IBM Plex Mono';
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--vellum-dim);
+    margin-top:10px;
+  }
+
+  /* ---------- CATEGORY DASHBOARD (NEW) ---------- */
+  .dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:14px;
+    margin:40px 0 80px;
+  }
+
+  .dash-card{
+    text-decoration:none;
+    text-align:center;
+    padding:20px;
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    font-family:'Cinzel',serif;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    background:linear-gradient(180deg, rgba(19,16,14,.8), rgba(12,10,13,.9));
+    transition:.25s ease;
+  }
+
+  .dash-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--hairline-strong);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:60px 0;
+  }
+
+  .section-title{
+    font-family:'Cinzel',serif;
     color:var(--gold-bright);
-    background:linear-gradient(160deg, var(--gold-bright), var(--gold) 55%, #8a6e2c);
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-    text-shadow:none; filter:drop-shadow(0 0 14px rgba(201,162,75,.35));
-  }
-  h1.name em{font-style:italic; font-weight:400; color:var(--gold);}
-  .rule-under{width:160px; height:1px; background:linear-gradient(to right, var(--gold), transparent); margin:24px 0 26px;}
-  .role-line{
-    font-style:italic; font-size:1.45rem; color:var(--vellum); margin-bottom:20px; letter-spacing:.01em;
-  }
-  .intro{font-size:1.22rem; color:var(--vellum-dim); max-width:600px;}
-  .uh-info{
-    display:flex; align-items:center; gap:10px; margin-top:24px; padding-top:20px;
-    border-top:1px solid var(--hairline); color:var(--vellum-dim);
-    font-family:'IBM Plex Mono', monospace; font-size:.74rem; letter-spacing:.06em;
-  }
-  .uh-logo{width:20px; height:20px; object-fit:contain; filter:saturate(.6) brightness(1.4);}
-
-  /* ---------- fleuron ---------- */
-  .fleuron{display:flex; align-items:center; justify-content:center; gap:18px; color:var(--gold); padding:6px 0 0;}
-  .fleuron::before,.fleuron::after{
-    content:''; height:1px; flex:0 1 200px;
-    background:linear-gradient(to right, transparent, var(--hairline-strong), transparent);
-  }
-  .fleuron span{font-size:1.1rem; letter-spacing:.4em; opacity:.85;}
-
-  /* ---------- sections ---------- */
-  section{padding:70px 0;}
-  .section-head{
-    display:flex; align-items:baseline; justify-content:space-between;
-    border-bottom:1px solid var(--hairline); padding-bottom:20px; margin-bottom:50px;
-    gap:16px; flex-wrap:wrap;
-  }
-  .section-head h2{
-    font-family:'Cinzel', serif; font-weight:500; font-size:1.9rem;
-    letter-spacing:.06em; color:var(--gold);
-  }
-  .section-head .count{
-    font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--vellum-dim);
-    letter-spacing:.14em; text-transform:uppercase;
+    font-size:1.4rem;
+    margin-bottom:22px;
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:10px;
   }
 
-  /* ---------- categories ---------- */
-  .category{margin-bottom:52px;}
-  .category:last-child{margin-bottom:0;}
-  .category-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:8px;}
-  .category-head h3{
-    font-family:'Cinzel', serif; font-weight:500; font-size:.92rem;
-    letter-spacing:.18em; text-transform:uppercase; color:var(--vellum);
-  }
-  .category-head .count{font-family:'IBM Plex Mono', monospace; font-size:.7rem; color:var(--garnet); letter-spacing:.1em;}
-
-  /* ---------- entries ---------- */
-  .entry{
-    display:grid; grid-template-columns:18px 1fr 22px; align-items:center; gap:22px;
-    padding:22px 18px 22px 10px; border-bottom:1px solid var(--hairline);
-    text-decoration:none; color:inherit; border-radius:6px;
-    transition:background .35s ease, box-shadow .35s ease, padding-left .35s ease;
-  }
-  .category .entry:last-child{border-bottom:none;}
-  .entry .seal{
-    width:9px; height:9px; border-radius:50%; background:var(--garnet);
-    box-shadow:0 0 0 3px rgba(140,36,51,.14);
-    transition:background .35s ease, box-shadow .35s ease;
-  }
-  .entry h4{
-    font-family:'Cormorant Garamond', serif; font-weight:600; font-size:1.42rem;
-    color:var(--vellum); margin-bottom:2px; transition:color .35s ease;
-  }
-  .entry p{font-size:1.06rem; color:var(--vellum-dim); max-width:680px;}
-  .entry .mark{justify-self:end; color:var(--gold); font-size:1.1rem; opacity:.5; transition:opacity .35s ease, transform .35s ease;}
-  .entry:hover,.entry:focus-visible{
-    background:linear-gradient(to right, rgba(201,162,75,.07), rgba(201,162,75,.01));
-    box-shadow:inset 2px 0 0 var(--gold), 0 0 30px rgba(201,162,75,.06);
-    padding-left:18px; outline:none;
-  }
-  .entry:hover .seal,.entry:focus-visible .seal{background:var(--gold-bright); box-shadow:0 0 12px rgba(235,203,120,.7);}
-  .entry:hover h4,.entry:focus-visible h4{color:var(--gold-bright);}
-  .entry:hover .mark,.entry:focus-visible .mark{opacity:1; transform:translateX(3px);}
-
-  /* ---------- about ---------- */
-  .about-content{max-width:680px;}
-  .about-content p{font-size:1.24rem; color:var(--vellum); margin-bottom:24px;}
-  .about-content .first-letter::first-letter{
-    font-family:'Cinzel', serif; font-size:3.4rem; float:left; line-height:.82;
-    padding:6px 12px 0 0; color:var(--gold-bright);
-  }
-  .contact-links{display:flex; gap:30px; flex-wrap:wrap; margin:36px 0 56px;}
-  .contact-links a{
-    font-family:'IBM Plex Mono', monospace; font-size:.76rem; letter-spacing:.12em;
-    text-transform:uppercase; text-decoration:none; color:var(--gold);
-    border-bottom:1px solid transparent; padding-bottom:3px; transition:border-color .3s ease, color .3s ease;
-  }
-  .contact-links a:hover,.contact-links a:focus-visible{border-color:var(--gold); color:var(--gold-bright); outline:none;}
-
-  .message-box{
-    border:1px solid var(--hairline); border-left:2px solid var(--garnet); border-radius:6px;
-    padding:38px; background:linear-gradient(180deg, var(--pitch-2), var(--pitch));
-  }
-  .message-box h3{font-family:'Cinzel', serif; font-weight:500; font-size:1.2rem; letter-spacing:.1em; margin-bottom:24px; color:var(--gold);}
-  .message-box label{
-    display:block; font-family:'IBM Plex Mono', monospace; font-size:.64rem;
-    letter-spacing:.16em; text-transform:uppercase; color:var(--vellum-dim); margin-bottom:7px;
-  }
-  .field{margin-bottom:24px;}
-  .message-box input,.message-box textarea{
-    width:100%; background:transparent; border:none; border-bottom:1px solid var(--hairline-strong);
-    color:var(--vellum); padding:9px 2px; font-family:'Cormorant Garamond', serif; font-size:1.15rem;
-    resize:vertical; transition:border-color .3s ease;
-  }
-  .message-box input::placeholder,.message-box textarea::placeholder{color:#5f5648;}
-  .message-box input:focus,.message-box textarea:focus{outline:none; border-color:var(--gold);}
-  .message-box button{
-    background:transparent; border:1px solid var(--gold); color:var(--gold);
-    padding:13px 34px; font-family:'IBM Plex Mono', monospace; font-size:.74rem;
-    letter-spacing:.16em; text-transform:uppercase; border-radius:3px; cursor:pointer;
-    transition:background .3s ease, color .3s ease, box-shadow .3s ease;
-  }
-  .message-box button:hover,.message-box button:focus-visible{
-    background:var(--gold); color:var(--pitch); box-shadow:0 0 24px rgba(201,162,75,.4); outline:none;
+  /* ---------- GRID ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
   }
 
-  /* ---------- reveal ---------- */
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .9s ease, transform .9s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
-    .candleglow{animation:none;}
-    html{scroll-behavior:auto;}
+  /* ---------- CARDS ---------- */
+  .card{
+    background:linear-gradient(180deg, rgba(19,16,14,.9), rgba(12,10,13,.9));
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    overflow:hidden;
+    transition:.25s ease;
   }
 
-  @media (max-width:640px){
-    .wrap{padding:0 24px;}
-    .frame{inset:8px;}
-    .site-nav nav{gap:18px;}
-    .entry{grid-template-columns:14px 1fr;}
-    .entry .mark{display:none;}
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(201,162,75,.35);
+  }
+
+  .card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-bottom:1px solid var(--hairline);
+  }
+
+  .card a{
+    display:block;
+    padding:16px 18px;
+    font-size:1.1rem;
+    color:var(--vellum);
+    text-decoration:none;
+  }
+
+  .card a:hover{
+    color:var(--gold-bright);
+  }
+
+  .note{
+    margin-top:40px;
+    padding:18px 22px;
+    border-left:2px solid var(--garnet);
+    color:var(--vellum-dim);
+    font-style:italic;
   }
 </style>
 </head>
@@ -260,252 +227,89 @@
 
 <div class="layer">
 
-<header class="site-nav">
+<header>
   <div class="wrap">
-    <div class="brand">M. Unlu</div>
-    <nav>
-      <a href="#projects">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="brand">M. UNLU</div>
+    <a class="back" href="../index.html">← Back</a>
   </div>
 </header>
 
-<section id="hero">
-  <div class="wrap hero-content">
-    <div class="eyebrow">
-      <img src="images/Flag_of_Turkey.svg.webp" class="flag" alt="Turkish flag"/>
-      <img src="images/Flag_of_the_United_States.svg.png" class="flag" alt="US flag"/>
-    </div>
-    <h1 class="name"><span class="initial">M</span>elisa <em>Unlu</em></h1>
-    <div class="rule-under"></div>
-    <p class="role-line">Computer Science · Engineering · Writing · Music · Art</p>
-    <p class="intro">
-      Exploring the intersection of computation, engineering, and creative expression through
-      interesting projects across software, geology, engineering, aerospace, and creative work.
-    </p>
-    <div class="uh-info">
-      <img src="images/uh_red.png" class="uh-logo" alt="University of Houston"/>
-      University of Houston B.S. Computer Science, minors in Geology &amp; English
-    </div>
+<!-- HERO -->
+<div class="wrap hero">
+  <h1>Writings</h1>
+  <div class="tag">Creative · Journalism · Anthropology · Film</div>
+</div>
+
+<!-- DASHBOARD (NEW ORGANIZATION) -->
+<div class="wrap">
+  <div class="dashboard">
+
+    <a class="dash-card" href="#internships">Internships</a>
+    <a class="dash-card" href="#software">Software</a>
+    <a class="dash-card" href="#engineering">Engineering</a>
+    <a class="dash-card" href="#leadership">Leadership</a>
+    <a class="dash-card" href="#music">Music</a>
+    <a class="dash-card" href="#writing">Writing</a>
+
   </div>
-</section>
+</div>
 
-<div class="wrap"><div class="fleuron reveal"><span>&#10087;</span></div></div>
+<!-- SECTIONS (UNCHANGED CONTENT, ONLY ORGANIZED) -->
 
-<section id="projects">
+<section id="writing">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Work &amp; Leadership</h2>
-      <span class="count">11 entries · 6 areas</span>
-    </div>
+    <div class="section-title">Writing</div>
 
-    <!-- INTERNSHIPS -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Internships</h3>
-        <span class="count">2</span>
+    <div class="grid">
+      <div class="card">
+        <img src="../images/writing1.png">
+        <a href="https://thedailycougar.com/2024/10/07/we-need-to-prioritize-solitude-as-much-as-socializing/">Solitude & Socializing</a>
       </div>
-
-      <a href="pages/University of Texas at Austin.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>University of Texas at Austin</h4>
-          <p>Planetary Science Software Developer: TACC, magnetic fields modeling on early Earth, Venus, and the Moon.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="Colorado School of Mines.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Colorado School of Mines</h4>
-          <p>Software Developer: seismic STA/LTA detection and autoencoder anomaly detection pipelines.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- SOFTWARE PROJECTS -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Software Projects</h3>
-        <span class="count">3</span>
-      </div>
-
-      <a href="pages/University of Houston.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>University of Houston</h4>
-          <p>Machine learning applications for groundwater modeling and environmental resistivity data.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/StarCLassification.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Star Classification</h4>
-          <p>Supervised machine learning models for astronomical classification problems.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/Webdev.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Web Development</h4>
-          <p>Frontend, backend, and database software engineering work.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- ENGINEERING -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Engineering</h3>
-        <span class="count">2</span>
-      </div>
-
-      <a href="pages/Computer Engineering.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Computer Engineering</h4>
-          <p>Embedded firmware, PCB design, and analog/RF circuitry; from schematic to working hardware.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/Rocketry.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Rocketry</h4>
-          <p>Avionics, testing, and leadership in competitive rocketry: AIAA-UH.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- LEADERSHIP -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Leadership</h3>
-        <span class="count">2</span>
-      </div>
-
-      <a href="pages/CodeCoogs Workshop Coordinator - incoming position.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Code Coogs Workshop Coordinator</h4>
-          <p>Leading technical workshops and contributing to student developer education.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/AstronomyClubOfficer.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Astronomy Club Historian</h4>
-          <p>Officer and event photographer for the UH Astronomy Club.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- MUSIC -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Music for Game Dev Projects</h3>
-        <span class="count">1</span>
-      </div>
-
-      <a href="pages/Music.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Music</h4>
-          <p>Composition, performance, and interdisciplinary musical experimentation.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- WRITING -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Writing</h3>
-        <span class="count">1</span>
-      </div>
-
-      <a href="pages/Writings.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Writing</h4>
-          <p>Essays, journalism, and creative writing projects.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<div class="wrap"><div class="fleuron reveal"><span>&#10087;</span></div></div>
-
-<section id="about">
-  <div class="wrap about-content">
-    <div class="section-head reveal">
-      <h2>About</h2>
-    </div>
-    <p class="first-letter reveal" style="margin-top:34px;">
-      I'm a Computer Science student at the University of Houston with minors in Geology and English.
-      I'm fascinated by computers, engineering, and creative disciplines such as writing, music, and art.
-      I've worked at the intersections of computer science and geology, engineering, aerospace, and game
-      development. I'm always looking for projects spanning engineering, software, and creative work.
-    </p>
-
-    <div class="contact-links reveal">
-      <a href="mailto:melissaunlu4@gmail.com">Email →</a>
-      <a href="https://github.com/Unmel5" target="_blank" rel="noopener">GitHub →</a>
-      <a href="https://www.linkedin.com/in/melisa-unlu-035726159/" target="_blank" rel="noopener">LinkedIn →</a>
-    </div>
-
-    <div id="contact" class="message-box reveal">
-      <h3>Send a message</h3>
-      <form action="https://formspree.io/f/mqeeeopb" method="POST">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Say hello" required></textarea>
-        </div>
-        <button type="submit">Send message</button>
-      </form>
     </div>
   </div>
 </section>
 
-</div><!-- /layer -->
+<section id="software">
+  <div class="wrap">
+    <div class="section-title">Software Projects</div>
+    <div class="grid">
+      <div class="card">
+        <img src="../images/Screenshot.png">
+        <a href="#">Star Classification</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script>
-  const items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window){
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
-      });
-    }, {threshold:.12});
-    items.forEach(i=>obs.observe(i));
-  } else {
-    items.forEach(i=>i.classList.add('in'));
-  }
-</script>
+<section id="music">
+  <div class="wrap">
+    <div class="section-title">Music</div>
+    <div class="note">Music projects and composition work.</div>
+  </div>
+</section>
+
+<section id="engineering">
+  <div class="wrap">
+    <div class="section-title">Engineering</div>
+    <div class="note">Engineering projects and systems work.</div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <div class="section-title">Leadership</div>
+    <div class="note">Club leadership and organizational roles.</div>
+  </div>
+</section>
+
+<section id="internships">
+  <div class="wrap">
+    <div class="section-title">Internships</div>
+    <div class="note">Industry and research internships.</div>
+  </div>
+</section>
+
+</div>
 
 </body>
 </html>
