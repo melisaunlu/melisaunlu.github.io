@@ -122,6 +122,25 @@
   .text-card p:last-child{margin-bottom:0;}
   .text-card strong{color:var(--teal); font-weight:500;}
 
+  /* ---------- gallery ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-bottom:24px;
+  }
+  .gallery img{
+    width:100%;
+    border-radius:8px;
+    border:1px solid var(--hairline);
+    transition:transform .3s ease, box-shadow .3s ease;
+    cursor:pointer;
+  }
+  .gallery img:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px rgba(35,43,39,.1);
+  }
+
   @media (max-width:700px){
     .text-card{padding:28px 26px;}
   }
@@ -148,12 +167,13 @@
   <section>
     <div class="text-card">
       <p>
-        As a workshop coordinator, I presented three workshops. A professional resume workshop with cougarettes, a two-day comrehensive WebDev workshop and a MATLAB workshop with cougarettes. I created the slides, help train the incoming workshop officer, collaborated with other officers and organizations and designed interactive materials for students.
+        As a workshop coordinator, I presented three workshops: a professional resume workshop with Cougarettes, a two-day comprehensive WebDev workshop, and a MATLAB workshop with Cougarettes. I created the slides, helped train the incoming workshop officer, collaborated with other officers and organizations, and designed interactive materials for students.
       </p>
-      <div class="gallery"> 
-        <img src=images/codecoogs1.png alt="Code Coogs 1"/> 
-        <img src=images/codecoogs2.png alt="Code Coogs 2"/> 
-        <img src=images/codecoogs3.png alt="Code Coogs 3"/> 
+      <div class="gallery">
+        <img src="../images/codecoogs1.png" alt="Code Coogs 1"/>
+        <img src="../images/codecoogs2.png" alt="Code Coogs 2"/>
+        <img src="../images/codecoogs3.png" alt="Code Coogs 3"/>
+      </div>
       <p>
         The goal was to help students strengthen their practical coding abilities while also
         preparing them for internships, research opportunities, and industry careers.
