@@ -15,7 +15,7 @@
     --paper-soft:#E8EBE3;
     --ink:#232B27;
     --ink-muted:#5C6660;
-    --teal:#1F8F5E;
+    --teal:#0FA85C;
     --sand:#AD8B61;
     --hairline:#D7DCD2;
     --max:980px;
@@ -155,7 +155,7 @@
     justify-content:space-between;
     border-bottom:1px solid var(--hairline);
     padding-bottom:22px;
-    margin-bottom:10px;
+    margin-bottom:50px;
   }
   .section-head h2{
     font-family:'Newsreader', serif;
@@ -170,33 +170,50 @@
     letter-spacing:.05em;
   }
 
+  /* ---------- categories ---------- */
+  .category{margin-bottom:54px;}
+  .category:last-child{margin-bottom:0;}
+  .category-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:6px;
+  }
+  .category-head h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--sand);
+  }
+  .category-head .count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    color:var(--ink-muted);
+    letter-spacing:.05em;
+  }
+
   /* ---------- projects list ---------- */
   .project-row{
     display:grid;
-    grid-template-columns:130px 1fr 32px;
+    grid-template-columns:1fr 32px;
     align-items:center;
     gap:24px;
-    padding:26px 0;
+    padding:24px 0;
     border-bottom:1px solid var(--hairline);
     text-decoration:none;
     color:inherit;
     transition:padding-left .3s ease, background .3s ease;
   }
+  .category .project-row:last-child{border-bottom:none;}
   .project-row:hover{
     padding-left:10px;
     background:var(--paper-soft);
   }
-  .project-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.68rem;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--sand);
-  }
-  .project-main h3{
+  .project-main h4{
     font-family:'Newsreader', serif;
     font-weight:500;
-    font-size:1.25rem;
+    font-size:1.18rem;
     margin-bottom:4px;
     color:var(--ink);
   }
@@ -205,8 +222,8 @@
     color:var(--ink-muted);
   }
   .project-icon{
-    width:26px;
-    height:26px;
+    width:24px;
+    height:24px;
     object-fit:contain;
     transition:transform .3s ease;
     justify-self:end;
@@ -277,9 +294,9 @@
     border-color:var(--teal);
   }
   .message-box button{
-    background:none;
+    background:var(--teal);
     border:1px solid var(--teal);
-    color:var(--teal);
+    color:var(--paper);
     padding:11px 28px;
     font-family:'IBM Plex Mono', monospace;
     font-size:.78rem;
@@ -289,7 +306,7 @@
     cursor:pointer;
     transition:background .25s ease, color .25s ease;
   }
-  .message-box button:hover{background:var(--teal); color:var(--paper);}
+  .message-box button:hover{background:transparent; color:var(--teal);}
 
   footer{
     padding:40px 0 60px;
@@ -309,10 +326,6 @@
   }
 
   @media (max-width:640px){
-    .project-row{grid-template-columns:1fr 24px; row-gap:6px;}
-    .project-tag{grid-row:1; grid-column:1;}
-    .project-main{grid-row:2; grid-column:1;}
-    .project-icon{grid-row:1/3; grid-column:2;}
     .site-nav nav{gap:18px;}
   }
 </style>
@@ -339,9 +352,10 @@
       <img src="images/Flag_of_the_United_States.svg.png" class="flag" alt="US flag"/>
     </div>
     <h1 class="name">Melisa <em>Unlu</em></h1>
-    <p class="role-line">Computer Science · Engineering · Writing· Music · Art</p>
+    <p class="role-line">Computer Science · Engineering · Writing · Music · Art</p>
     <p class="intro">
-      Exploring the intersection of computation, engineering, and creative expression through interesting projects across  software, geology, engineering, aerospace and creative expression. 
+      Exploring the intersection of computation, engineering, and creative expression through
+      interesting projects across software, geology, engineering, aerospace, and creative work.
     </p>
     <div class="uh-info">
       <img src="images/uh_red.png" class="uh-logo" alt="University of Houston"/>
@@ -354,98 +368,144 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Work &amp; Leadership</h2>
-      <span class="count">10 entries</span>
+      <span class="count">11 entries · 6 areas</span>
     </div>
 
-    <a href="pages/University of Texas at Austin.html" class="project-row reveal">
-      <span class="project-tag">Research</span>
-      <span class="project-main">
-        <h3>University of Texas at Austin</h3>
-        <p>Planetary Science Software Developer.</p>
-      </span>
-      <img src="images/University_of_Texas_at_Austin_seal.svg.png" class="project-icon" alt=""/>
-    </a>
+    <!-- INTERNSHIPS -->
+    <div class="category reveal">
+      <div class="category-head">
+        <h3>Internships</h3>
+        <span class="count">2</span>
+      </div>
 
-    <a href="Colorado School of Mines.html" class="project-row reveal">
-      <span class="project-tag">Research</span>
-      <span class="project-main">
-        <h3>Colorado School of Mines</h3>
-        <p>Software Developer.</p>
-      </span>
-      <img src="images/mines-logo.png" class="project-icon" alt=""/>
-    </a>
+      <a href="pages/University of Texas at Austin.html" class="project-row">
+        <span class="project-main">
+          <h4>University of Texas at Austin</h4>
+          <p>Planetary Science Software Developer — TACC, magnetic fields modeling on early Earth, Venus, and the Moon.</p>
+        </span>
+        <img src="images/University_of_Texas_at_Austin_seal.svg.png" class="project-icon" alt=""/>
+      </a>
 
-    <a href="pages/University of Houston.html" class="project-row reveal">
-      <span class="project-tag">Research</span>
-      <span class="project-main">
-        <h3>University of Houston</h3>
-        <p>Machine learning applications for groundwater modeling and environmental data.</p>
-      </span>
-      <img src="images/uh_red.png" class="project-icon keep-color" alt=""/>
-    </a>
+      <a href="Colorado School of Mines.html" class="project-row">
+        <span class="project-main">
+          <h4>Colorado School of Mines</h4>
+          <p>Software Developer — seismic STA/LTA detection and autoencoder anomaly detection pipelines.</p>
+        </span>
+        <img src="images/mines-logo.png" class="project-icon" alt=""/>
+      </a>
+    </div>
 
-    <a href="pages/Rocketry.html" class="project-row reveal">
-      <span class="project-tag">Leadership</span>
-      <span class="project-main">
-        <h3>Rocketry</h3>
-        <p>Avionics, testing, and leadership in competitive rocketry.</p>
-      </span>
-      <img src="images/rocketry.png" class="project-icon" alt=""/>
-    </a>
+    <!-- MACHINE LEARNING PROJECTS -->
+    <div class="category reveal">
+      <div class="category-head">
+        <h3>Machine Learning Projects</h3>
+        <span class="count">2</span>
+      </div>
 
-    <a href="pages/StarCLassification.html" class="project-row reveal">
-      <span class="project-tag">Research</span>
-      <span class="project-main">
-        <h3>Star Classification</h3>
-        <p>Supervised machine learning models for astronomical classification problems.</p>
-      </span>
-      <img src="images/astronomy.png" class="project-icon" alt=""/>
-    </a>
+      <a href="pages/University of Houston.html" class="project-row">
+        <span class="project-main">
+          <h4>University of Houston</h4>
+          <p>Machine learning applications for groundwater modeling and environmental resistivity data.</p>
+        </span>
+        <img src="images/uh_red.png" class="project-icon keep-color" alt=""/>
+      </a>
 
-    <a href="pages/Computer Engineering.html" class="project-row reveal">
-      <span class="project-tag">Engineering</span>
-      <span class="project-main">
+      <a href="pages/StarCLassification.html" class="project-row">
+        <span class="project-main">
+          <h4>Star Classification</h4>
+          <p>Supervised machine learning models for astronomical classification problems.</p>
+        </span>
+        <img src="images/astronomy.png" class="project-icon" alt=""/>
+      </a>
+    </div>
+
+    <!-- ENGINEERING and Software-->
+    <div class="category reveal">
+      <div class="category-head">
         <h3>Engineering</h3>
-        <p>Computer Engineering and electronics projects.</p>
-      </span>
-      <img src="images/electronics.png" class="project-icon" alt=""/>
-    </a>
+        <span class="count">2</span>
+      </div>
 
-    <a href="pages/Writings.html" class="project-row reveal">
-      <span class="project-tag">Creative</span>
-      <span class="project-main">
-        <h3>Writing</h3>
-        <p>Essays, journalism, and creative writing projects.</p>
-      </span>
-      <img src="images/writing1.png" class="project-icon" alt=""/>
-    </a>
+      <a href="pages/Computer Engineering.html" class="project-row">
+        <span class="project-main">
+          <h4>Computer Engineering</h4>
+          <p>Embedded firmware, PCB design, and analog/RF circuitry; from schematic to working hardware.</p>
+        </span>
+        <img src="images/electronics.png" class="project-icon" alt=""/>
+      </a>
 
-    <a href="pages/Music.html" class="project-row reveal">
-      <span class="project-tag">Creative</span>
-      <span class="project-main">
+      <a href="pages/Webdev.html" class="project-row">
+        <span class="project-main">
+          <h4>Web Development</h4>
+          <p>Frontend, backend, and database software engineering work.</p>
+        </span>
+        <img src="images/webdev.png" class="project-icon" alt=""/>
+      </a>
+    </div>
+
+    <!-- MUSIC -->
+    <div class="category reveal">
+      <div class="category-head">
         <h3>Music</h3>
-        <p>Composition, performance, and interdisciplinary musical experimentation.</p>
-      </span>
-      <img src="images/spacelogo.png" class="project-icon" alt=""/>
-    </a>
+        <span class="count">1</span>
+      </div>
 
-    <a href="pages/CodeCoogs Workshop Coordinator - incoming position.html" class="project-row reveal">
-      <span class="project-tag">Leadership</span>
-      <span class="project-main">
-        <h3>Code Coogs Workshop Officer</h3>
-        <p>Leading technical workshops and contributing to student developer education.</p>
-      </span>
-      <img src="images/images (1).jpeg" class="project-icon" alt=""/>
-    </a>
+      <a href="pages/Music.html" class="project-row">
+        <span class="project-main">
+          <h4>Music</h4>
+          <p>Composition, performance, and interdisciplinary musical experimentation.</p>
+        </span>
+        <img src="images/spacelogo.png" class="project-icon" alt=""/>
+      </a>
+    </div>
 
-    <a href="pages/Webdev.html" class="project-row reveal">
-      <span class="project-tag">Engineering</span>
-      <span class="project-main">
-        <h3>Web Development</h3>
-        <p>Frontend, backend, and database software engineering work.</p>
-      </span>
-      <img src="images/webdev.png" class="project-icon" alt=""/>
-    </a>
+    <!-- WRITING -->
+    <div class="category reveal">
+      <div class="category-head">
+        <h3>Writing</h3>
+        <span class="count">1</span>
+      </div>
+
+      <a href="pages/Writings.html" class="project-row">
+        <span class="project-main">
+          <h4>Writing</h4>
+          <p>Essays, journalism, and creative writing projects.</p>
+        </span>
+        <img src="images/writing1.png" class="project-icon" alt=""/>
+      </a>
+    </div>
+
+    <!-- LEADERSHIP -->
+    <div class="category reveal">
+      <div class="category-head">
+        <h3>Leadership</h3>
+        <span class="count">3</span>
+      </div>
+
+      <a href="pages/Rocketry.html" class="project-row">
+        <span class="project-main">
+          <h4>Rocketry</h4>
+          <p>Avionics, testing, and leadership in competitive rocketry — AIAA-UH.</p>
+        </span>
+        <img src="images/rocketry.png" class="project-icon" alt=""/>
+      </a>
+
+      <a href="pages/Workshop Coordinator.html" class="project-row">
+        <span class="project-main">
+          <h4>Code Coogs Workshop Coordinator</h4>
+          <p>Leading technical workshops and contributing to student developer education.</p>
+        </span>
+        <img src="images/images (1).jpeg" class="project-icon" alt=""/>
+      </a>
+
+      <a href="pages/Astronomy Club Historian.html" class="project-row">
+        <span class="project-main">
+          <h4>Astronomy Club Historian</h4>
+          <p>Officer and event photographer for the UH Astronomy Club.</p>
+        </span>
+        <img src="images/telescope.png" class="project-icon" alt=""/>
+      </a>
+    </div>
 
   </div>
 </section>
