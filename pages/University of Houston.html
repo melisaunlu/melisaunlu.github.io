@@ -1,58 +1,349 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>UH — ML Geophysics</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UH — Machine Learning & Geophysics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{--pitch:#0C0A0D;--vellum:#E8DDC7;--gold:#C9A24B;--hairline:rgba(201,162,75,.18);}
-body{margin:0;font-family:'Cormorant Garamond';background:var(--pitch);color:var(--vellum);}
-.candleglow,.vignette,.frame{position:fixed;inset:0;pointer-events:none;}
-.frame{inset:14px;border:1px solid var(--hairline);}
-.layer{position:relative;}
+:root{
+  --pitch:#0C0A0D;
+  --vellum:#E8DDC7;
+  --vellum-dim:#9C8F77;
+  --gold:#C9A24B;
+  --gold-soft:#EBCB78;
+  --hairline:rgba(201,162,75,.18);
+  --garnet:#8C2433;
+}
 
-.wrap{max-width:1000px;margin:auto;padding:0 40px;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-header{position:sticky;top:0;background:rgba(12,10,13,.85);border-bottom:1px solid var(--hairline);}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;}
-.brand{font-family:Cinzel;color:var(--gold);}
-.back{text-decoration:none;font-family:IBM Plex Mono;color:#9c8f77;font-size:.7rem;}
+body{
+  font-family:'Cormorant Garamond', serif;
+  background:var(--pitch);
+  color:var(--vellum);
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-.page{padding:90px 0;}
+/* ---------- atmosphere ---------- */
+.frame{
+  position:fixed;
+  inset:14px;
+  border:1px solid var(--hairline);
+  pointer-events:none;
+  z-index:0;
+}
 
-h1{font-family:Cinzel;color:var(--gold);}
-p{color:#9c8f77;line-height:1.7;margin-bottom:14px;}
+.vignette{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at center, transparent 40%, rgba(0,0,0,.75));
+  pointer-events:none;
+  z-index:0;
+}
 
-.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
-img{width:100%;border-radius:8px;border:1px solid var(--hairline);}
+/* ---------- layout ---------- */
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:0 40px;
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(12,10,13,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+  z-index:5;
+}
+
+header .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:64px;
+}
+
+.brand{
+  font-family:'Cinzel', serif;
+  letter-spacing:.2em;
+  color:var(--gold);
+}
+
+.back{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  color:var(--vellum-dim);
+  text-transform:uppercase;
+  text-decoration:none;
+}
+
+.back:hover{
+  color:var(--gold);
+}
+
+/* ---------- title ---------- */
+.page-head{
+  padding:100px 0 50px;
+}
+
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  color:var(--gold-soft);
+  border-left:3px solid var(--gold);
+  padding-left:14px;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+h1{
+  font-family:'Cinzel', serif;
+  font-size:3rem;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+/* ---------- content ---------- */
+section{
+  margin-bottom:80px;
+}
+
+.content{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+img{
+  width:100%;
+  border-radius:10px;
+  border:1px solid var(--hairline);
+  transition:.4s ease;
+}
+
+img:hover{
+  transform:translateY(-4px);
+}
+
+/* ---------- text ---------- */
+.text p{
+  margin-bottom:18px;
+  color:var(--vellum-dim);
+}
+
+.text strong{
+  color:var(--gold-soft);
+}
+
+/* ---------- buttons ---------- */
+.buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.btn{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:10px 18px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.btn:hover{
+  background:var(--gold);
+  color:var(--pitch);
+}
+
+.btn.secondary{
+  border-color:var(--vellum-dim);
+  color:var(--vellum-dim);
+}
+
+.btn.secondary:hover{
+  background:var(--vellum-dim);
+  color:var(--pitch);
+}
+
+/* ---------- gallery ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.gallery img{
+  border-radius:10px;
+}
+
+/* ---------- tech stack ---------- */
+.tech-stack{
+  margin-top:40px;
+  border-top:1px solid var(--hairline);
+  padding-top:40px;
+}
+
+.section-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  color:var(--vellum-dim);
+  margin-bottom:25px;
+  text-transform:uppercase;
+}
+
+.tech-icons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:30px;
+  justify-items:center;
+}
+
+.tech{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  transition:.3s ease;
+}
+
+.tech img{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  filter:brightness(.9);
+}
+
+.tech:hover{
+  transform:translateY(-4px);
+}
+
+.tech span{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.75rem;
+  color:var(--vellum-dim);
+}
+
+/* ---------- mobile ---------- */
+@media(max-width:700px){
+  .content{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 
 <body>
+
 <div class="frame"></div>
+<div class="vignette"></div>
 
 <header>
-<div class="wrap">
-<div class="brand">M. UNLU</div>
-<a class="back" href="../index.html">← Back</a>
-</div>
+  <div class="wrap">
+    <div class="brand">M. UNLU</div>
+    <a class="back" href="../index.html">← Back</a>
+  </div>
 </header>
 
-<div class="wrap page">
+<div class="wrap">
 
-<h1>Machine Learning & Geophysics</h1>
+  <div class="page-head">
+    <div class="eyebrow">Research — University of Houston</div>
+    <h1>Machine Learning & Geophysics</h1>
+  </div>
 
-<div class="grid">
-<img src="../images/UH1.png">
+  <section class="content">
 
-<div>
-<p>Applied ML to geophysical resistivity modeling with Dr. Jiajia Sun.</p>
-<p>Generated synthetic subsurface conductivity profiles using neural networks.</p>
-<p>Studied inversion techniques for groundwater systems in California.</p>
+    <img src="../images/UH1.png" alt="Geophysics model visualization">
+
+    <div class="text">
+      <p>
+        This six-month research project with <strong>Dr. Sun</strong> focused on machine learning applied to geophysical resistivity data, with emphasis on California groundwater systems.
+      </p>
+
+      <p>
+        The model generates synthetic resistivity profiles using a vertical grid and trains a neural network through supervised learning.
+      </p>
+
+      <p>
+        The work combines computational geophysics, numerical modeling, and inversion-based machine learning methods.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="https://github.com/Unmel5/1D-Conductivity-Models-.git" target="_blank">
+          GitHub →
+        </a>
+        <a class="btn secondary" href="https://sites.google.com/view/jiajiasun/home?authuser=0" target="_blank">
+          Advisor →
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="gallery">
+    <img src="../images/UH3.png" alt="Neural network output">
+    <img src="../images/UH4.png" alt="Model comparison results">
+  </section>
+
+  <section class="tech-stack">
+
+    <div class="section-label">Tech Stack</div>
+
+    <div class="tech-icons">
+      <div class="tech">
+        <img src="../images/python.png" />
+        <span>Python</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/Tensorflow_logo.svg.png" />
+        <span>TensorFlow</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/pytorchlogo.png" />
+        <span>PyTorch</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/Scikit_learn_logo_small.svg.png" />
+        <span>Scikit-learn</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/Created_with_Matplotlib-logo.svg.png" />
+        <span>Matplotlib</span>
+      </div>
+
+      <div class="tech">
+        <img src="../images/images (5).png" />
+        <span>Geophysics</span>
+      </div>
+    </div>
+
+  </section>
+
 </div>
-</div>
 
-</div>
 </body>
 </html>
