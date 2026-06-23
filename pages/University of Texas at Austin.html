@@ -1,323 +1,234 @@
-so now I want you add <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>UT Austin — Magnetic Fields Modeling</title>
-
-
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-
-
 <style>
-
 :root{
-
   --pitch:#0C0A0D;
-
   --pitch-2:#13100E;
-
   --vellum:#E8DDC7;
-
   --vellum-dim:#9C8F77;
-
   --gold:#C9A24B;
-
   --gold-bright:#EBCB78;
-
-  --garnet:#8C2433;
-
   --hairline:rgba(201,162,75,.18);
-
 }
-
-
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-
-
 body{
-
   font-family:'Cormorant Garamond',serif;
-
   background:var(--pitch);
-
   color:var(--vellum);
-
   overflow-x:hidden;
-
 }
 
-
-
-.candleglow,.vignette,.grain,.frame{position:fixed;inset:0;pointer-events:none;}
+/* atmospheric layers */
+.candleglow,.vignette,.frame{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
 
 .candleglow{
-
   background:
-
   radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
-
   radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
-
 }
 
 .vignette{
-
   background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
-
 }
 
 .frame{
-
   inset:14px;
-
   border:1px solid var(--hairline);
-
 }
-
-
 
 .layer{position:relative;z-index:2;}
 
-
-
-.wrap{max-width:1000px;margin:auto;padding:0 40px;}
-
-
-
-header{
-
-  position:sticky;top:0;
-
-  background:rgba(12,10,13,.85);
-
-  backdrop-filter:blur(8px);
-
-  border-bottom:1px solid var(--hairline);
-
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:0 40px;
 }
 
-
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(12,10,13,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+}
 
 header .wrap{
-
-  display:flex;justify-content:space-between;align-items:center;height:64px;
-
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:64px;
 }
-
-
 
 .brand{
-
   font-family:'Cinzel',serif;
-
   color:var(--gold);
-
   letter-spacing:.2em;
-
 }
-
-
 
 .back{
-
   font-family:'IBM Plex Mono';
-
   font-size:.7rem;
-
   color:var(--vellum-dim);
-
   text-transform:uppercase;
-
   text-decoration:none;
-
 }
-
-
 
 .back:hover{color:var(--gold);}
 
-
-
+/* PAGE */
 .page{
-
   padding:90px 0;
-
 }
-
-
 
 h1{
-
   font-family:'Cinzel',serif;
-
   font-size:3rem;
-
   color:var(--gold);
-
   margin-bottom:10px;
-
 }
-
-
 
 h2{
-
   font-family:'Cinzel',serif;
-
   color:var(--gold-bright);
-
   margin-bottom:20px;
-
 }
 
+p{
+  margin-bottom:16px;
+  color:var(--vellum-dim);
+  line-height:1.7;
+}
 
-
-p{margin-bottom:16px;color:var(--vellum-dim);line-height:1.7;}
-
-
-
+/* MAIN GRID */
 .grid{
-
   display:grid;
-
   grid-template-columns:1.2fr 1fr;
-
   gap:40px;
-
   align-items:center;
-
 }
-
-
 
 img{
-
   width:100%;
-
   border-radius:8px;
-
   border:1px solid var(--hairline);
-
 }
 
-
-
+/* TECH STACK */
 .tech{
-
   margin-top:40px;
-
   display:flex;
-
-  gap:18px;
-
   flex-wrap:wrap;
-
-  font-family:'IBM Plex Mono';
-
-  font-size:.75rem;
-
-  color:var(--vellum-dim);
-
+  gap:12px;
 }
 
+.tech-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:'IBM Plex Mono';
+  font-size:.75rem;
+  color:var(--vellum-dim);
+  border:1px solid var(--hairline);
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.02);
+  transition:0.2s ease;
+}
 
+.tech-item:hover{
+  border-color:var(--gold);
+  color:var(--gold-bright);
+}
 
+.icon{
+  font-size:1rem;
+}
+
+/* bottom images */
+.bottom-images{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.bottom-images img{
+  height:240px;
+  object-fit:cover;
+}
 </style>
-
 </head>
-
-
 
 <body>
 
-
-
 <div class="candleglow"></div>
-
 <div class="vignette"></div>
-
 <div class="frame"></div>
-
-
 
 <div class="layer">
 
-
-
 <header>
-
   <div class="wrap">
-
     <div class="brand">M. UNLU</div>
-
     <a class="back" href="../index.html">← Back</a>
-
   </div>
-
 </header>
-
-
 
 <div class="wrap page">
 
+  <h1>Magnetic Fields Modeling</h1>
+  <h2>University of Texas at Austin</h2>
 
+  <div class="grid">
 
-<h1>Magnetic Fields Modeling</h1>
+    <img src="../images/image.png" alt="UT Austin Research Image"/>
 
-<h2>University of Texas at Austin</h2>
+    <div>
+      <p>Worked with Dr. Krista Soderlund, Dr. Chi Yan, and Dr. Dunyu Liu on planetary magnetic field simulations using high-performance computing systems.</p>
+      <p>Modeled core–mantle conductivity structures and analyzed magnetic stability under varying rotational regimes.</p>
+      <p>Performed numerical studies of zonal flow dynamics and long-term planetary field evolution.</p>
+    </div>
 
+  </div>
 
+  <!-- TECH STACK -->
+  <div class="tech">
 
-<div class="grid">
+    <div class="tech-item"><span class="icon">ƒ</span>Fortran</div>
+    <div class="tech-item"><span class="icon">⚙</span>MPI</div>
+    <div class="tech-item"><span class="icon">🐍</span>Python</div>
+    <div class="tech-item"><span class="icon">🐧</span>Linux / HPC</div>
+    <div class="tech-item"><span class="icon">📊</span>NumPy</div>
+    <div class="tech-item"><span class="icon">🔥</span>PyTorch</div>
+    <div class="tech-item"><span class="icon">🌊</span>DASCore</div>
+    <div class="tech-item"><span class="icon">🐙</span>GitHub</div>
 
-  <img src="../images/image.png" />
+  </div>
 
-
-
-  <div>
-
-    <p>Worked with Dr. Krista Soderlund, Dr. Chi Yan, and Dr. Dunyu Liu on planetary magnetic field simulations using HPC systems.</p>
-
-    <p>Modeled core–mantle conductivity structures and analyzed magnetic stability under varying rotational regimes.</p>
-
-    <p>Performed numerical studies of zonal flow dynamics and planetary field evolution.</p>
-
+  <!-- TWO UT IMAGES -->
+  <div class="bottom-images">
+    <img src="../images/ut1.png" alt="UT Austin Image 1"/>
+    <img src="../images/ut2.png" alt="UT Austin Image 2"/>
   </div>
 
 </div>
 
-
-
-<div class="tech">
-
-  <span>Fortran</span>
-
-  <span>MPI</span>
-
-  <span>Python</span>
-
-  <span>HPC / TACC</span>
-
 </div>
-
-
-
-</div>
-
-</div>
-
-
 
 </body>
-
-</html> the two UT images down below, and a 
+</html>
