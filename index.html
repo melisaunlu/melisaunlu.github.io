@@ -17,6 +17,8 @@
     --ink-muted:#5C6660;
     --teal:#0FA85C;
     --sand:#AD8B61;
+    --orange:#D9722F;
+    --red:#C0392B;
     --hairline:#D7DCD2;
     --max:980px;
   }
@@ -168,6 +170,16 @@
     font-size:.78rem;
     color:var(--ink-muted);
     letter-spacing:.05em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-head .count::before{
+    content:'';
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--red);
   }
 
   /* ---------- categories ---------- */
@@ -184,7 +196,18 @@
     font-size:.78rem;
     letter-spacing:.14em;
     text-transform:uppercase;
-    color:var(--sand);
+    color:var(--accent, var(--sand));
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .category-head h3::before{
+    content:'';
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--accent, var(--sand));
+    flex-shrink:0;
   }
   .category-head .count{
     font-family:'IBM Plex Mono', monospace;
@@ -419,7 +442,7 @@
       </a>
     </div>
 
-    <!-- ENGINEERING and Software-->
+    <!-- ENGINEERING -->
     <div class="category reveal">
       <div class="category-head">
         <h3>Engineering</h3>
@@ -429,7 +452,7 @@
       <a href="pages/Computer Engineering.html" class="project-row">
         <span class="project-main">
           <h4>Computer Engineering</h4>
-          <p>Embedded firmware, PCB design, and analog/RF circuitry; from schematic to working hardware.</p>
+          <p>Embedded firmware, PCB design, and analog/RF circuitry — from schematic to working hardware.</p>
         </span>
         <img src="images/electronics.png" class="project-icon" alt=""/>
       </a>
