@@ -7,14 +7,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --paper:#F1F3EE;
+  --paper-soft:#E8EBE3;
   --ink:#232B27;
   --ink-muted:#5C6660;
   --teal:#0FA85C;
+  --sand:#AD8B61;
   --hairline:#D7DCD2;
   --max:980px;
 }
@@ -27,7 +29,10 @@ body{
   color:var(--ink);
   line-height:1.65;
   font-weight:300;
+  -webkit-font-smoothing:antialiased;
 }
+
+a{color:inherit;}
 
 .wrap{
   max-width:var(--max);
@@ -35,9 +40,7 @@ body{
   padding:0 28px;
 }
 
-a{color:inherit;text-decoration:none;}
-
-/* ---------- NAV ---------- */
+/* ---------- NAV (MATCH ALL PAGES) ---------- */
 header.site-nav{
   position:sticky;
   top:0;
@@ -57,7 +60,7 @@ header.site-nav{
 .brand{
   font-family:'Newsreader', serif;
   font-weight:500;
-  font-size:1.15rem;
+  font-size:1.1rem;
 }
 
 .back{
@@ -66,26 +69,14 @@ header.site-nav{
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--ink-muted);
-  position:relative;
-  padding-bottom:4px;
-}
-
-.back::after{
-  content:'';
-  position:absolute;
-  left:0;right:0;bottom:0;
-  height:1px;
-  background:var(--teal);
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:transform .3s ease;
 }
 
 .back:hover{color:var(--ink);}
-.back:hover::after{transform:scaleX(1);}
 
 /* ---------- HEADER ---------- */
-.page-head{padding:90px 0 50px;}
+.page-head{
+  padding:90px 0 50px;
+}
 
 .eyebrow{
   font-family:'IBM Plex Mono', monospace;
@@ -101,25 +92,16 @@ header.site-nav{
 h1{
   font-family:'Newsreader', serif;
   font-weight:400;
-  font-size:clamp(2.2rem,5vw,3.2rem);
+  font-size:clamp(2.4rem,5vw,3.4rem);
   line-height:1.1;
 }
 
-/* ---------- SECTION ---------- */
+/* ---------- SECTIONS ---------- */
 section{
-  padding:0 0 90px;
+  padding-bottom:90px;
 }
 
-.section-label{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.7rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--ink-muted);
-  margin-bottom:30px;
-}
-
-/* ---------- CONTENT ---------- */
+/* ---------- CONTENT GRID ---------- */
 .content{
   display:grid;
   grid-template-columns:1fr 1.1fr;
@@ -136,17 +118,12 @@ section{
 
 .content img:hover{
   transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(35,43,39,.1);
+  box-shadow:0 14px 28px rgba(35,43,39,.12);
 }
 
+/* ---------- TEXT ---------- */
 .text p{
   margin-bottom:20px;
-  max-width:700px;
-}
-
-.text strong{
-  color:var(--teal);
-  font-weight:500;
 }
 
 /* ---------- BUTTON ---------- */
@@ -168,7 +145,7 @@ section{
   color:var(--paper);
 }
 
-/* ---------- TECH STACK ---------- */
+/* ---------- TECH ---------- */
 .tech-stack{
   border-top:1px solid var(--hairline);
   padding-top:50px;
@@ -178,7 +155,6 @@ section{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
   gap:36px;
-  align-items:start;
   justify-items:center;
 }
 
@@ -192,7 +168,6 @@ section{
 .tech img{
   width:48px;
   height:48px;
-  object-fit:contain;
   transition:.3s ease;
 }
 
@@ -222,7 +197,7 @@ section{
 
 .gallery img:hover{
   transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(35,43,39,.1);
+  box-shadow:0 14px 28px rgba(35,43,39,.12);
 }
 
 @media(max-width:700px){
@@ -249,71 +224,38 @@ section{
 
 <div class="wrap">
 
-  <section>
-    <div class="content">
-      <img src="../images/image.png" alt="Magnetic field simulation" />
+<section>
+  <div class="content">
+    <img src="../images/image.png" alt="Magnetic field simulation">
 
-      <div class="text">
-        <p>
-          Worked with <strong>Dr. Krista Soderlund</strong>,
-          <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong>
-          on numerical modeling of planetary magnetic fields.
-        </p>
+    <div class="text">
+      <p>Worked with <strong>Dr. Krista Soderlund</strong>, <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on planetary magnetic field modeling.</p>
 
-        <p>
-          Simulated magnetic and kinetic energy fields and analyzed
-          zonal flows using high-performance computing systems.
-        </p>
+      <p>Simulated magnetic and kinetic fields using HPC systems and validated core–mantle conductivity structures.</p>
 
-        <p>
-          Implemented radial electrical conductivity profiles with sharp
-          core–mantle boundary gradients and validated multiple test cases.
-        </p>
+      <p>Performed numerical analysis of zonal flows, tilt behavior, and magnetic surface stability.</p>
 
-        <a href="https://github.com/dunyuliu/magic.bmo.git"
-           class="github"
-           target="_blank">
-          View GitHub Code →
-        </a>
-      </div>
+      <a class="github" href="https://github.com/dunyuliu/magic.bmo.git" target="_blank">
+        View GitHub Code →
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="tech-stack">
-    <div class="section-label">Tech Stack</div>
+<section class="tech-stack">
+  <div class="tech-icons">
+    <div class="tech"><img src="../images/Fortran_logo.svg.png"><span>Fortran</span></div>
+    <div class="tech"><img src="../images/images.png"><span>MPI</span></div>
+    <div class="tech"><img src="../images/images (5).jpg"><span>Python</span></div>
+    <div class="tech"><img src="../images/images (1).png"><span>Linux / HPC</span></div>
+    <div class="tech"><img src="../images/images (2).png"><span>TACC</span></div>
+  </div>
+</section>
 
-    <div class="tech-icons">
-      <div class="tech">
-        <img src="../images/Fortran_logo.svg.png" alt="Fortran">
-        <span>Fortran</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images.png" alt="MPI">
-        <span>MPI</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images (5).jpg" alt="Python">
-        <span>Python</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images (1).png" alt="Linux">
-        <span>Linux / HPC</span>
-      </div>
-
-      <div class="tech">
-        <img src="../images/images (2).png" alt="TACC">
-        <span>TACC</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery">
-    <img src="../images/Img2.png" alt="Simulation result 1">
-    <img src="../images/IMG3.png" alt="Simulation result 2">
-  </section>
+<section class="gallery">
+  <img src="../images/Img2.png">
+  <img src="../images/IMG3.png">
+</section>
 
 </div>
 
