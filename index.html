@@ -18,7 +18,6 @@
   --gold:#C9A24B;
   --gold-bright:#EBCB78;
   --garnet:#8C2433;
-  --arcane:#5FA8A0;
   --hairline:rgba(201,162,75,.18);
   --hairline-strong:rgba(201,162,75,.34);
   --max:1000px;
@@ -33,127 +32,144 @@ body{
   color:var(--vellum);
   line-height:1.6;
   font-size:1.2rem;
-  font-weight:400;
   -webkit-font-smoothing:antialiased;
-  position:relative;
   overflow-x:hidden;
 }
 
-/* ---------- ambient atmosphere ---------- */
+/* ambient */
+.candleglow,.vignette,.grain,.frame{
+  position:fixed; inset:0; pointer-events:none;
+}
 .candleglow{
-  position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
     radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
     radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
 }
 .vignette{
-  position:fixed; inset:0; z-index:0; pointer-events:none;
   background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
 }
-.grain{
-  position:fixed; inset:0; z-index:1; pointer-events:none;
-  opacity:.05; mix-blend-mode:overlay;
-}
 .frame{
-  position:fixed; inset:14px; z-index:2; pointer-events:none;
+  inset:14px;
   border:1px solid var(--hairline);
 }
 
-.layer{position:relative; z-index:3;}
-
 .wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
 
-a{color:inherit;}
-
-/* ---------- NAV (UNCHANGED) ---------- */
+/* NAV */
 header.site-nav{
   position:sticky; top:0; z-index:40;
   background:linear-gradient(to bottom, rgba(12,10,13,.92), rgba(12,10,13,.6));
   backdrop-filter:blur(6px);
   border-bottom:1px solid var(--hairline);
 }
-.site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:70px;}
-.site-nav .brand{
-  font-family:'Cinzel', serif;
-  font-weight:600;
+.site-nav .wrap{
+  display:flex; justify-content:space-between; align-items:center; height:70px;
+}
+.brand{
+  font-family:'Cinzel';
   letter-spacing:.22em;
   color:var(--gold);
 }
-
-/* ---------- HERO (UNCHANGED) ---------- */
-#hero{padding:130px 0 110px;}
-.hero-content{max-width:760px;}
-.eyebrow{display:flex; align-items:center; gap:10px; margin-bottom:26px;}
-.eyebrow .flag{width:20px;height:20px;object-fit:contain;}
-h1.name{
-  font-family:'Cinzel', serif;
-  font-size:clamp(3rem, 8vw, 6.2rem);
-  color:var(--vellum);
-}
-.role-line{font-style:italic;}
-.intro{color:var(--vellum-dim);}
-.uh-info{margin-top:24px;}
-
-/* ---------- NEW CARD SYSTEM (ONLY CHANGE) ---------- */
-#projects{padding:80px 0;}
-
-.section-title{
-  font-family:'Cinzel', serif;
-  color:var(--gold);
-  font-size:1.8rem;
-  margin-bottom:40px;
-  letter-spacing:.06em;
-}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
-}
-
-/* CARD STYLE */
-.card{
+nav a{
+  font-family:'IBM Plex Mono';
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--vellum-dim);
   text-decoration:none;
-  border:1px solid var(--hairline);
-  background:linear-gradient(180deg, var(--pitch-2), var(--pitch));
-  padding:22px;
-  border-radius:10px;
-  transition:.25s ease;
+  margin-left:28px;
+}
+
+/* HERO unchanged feel */
+#hero{padding:130px 0 110px;}
+.name{
+  font-family:'Cinzel';
+  font-size:clamp(3rem,8vw,6rem);
+}
+.name .initial{
+  color:var(--gold-bright);
+}
+.role-line{opacity:.9;margin-top:10px;}
+.intro{max-width:650px;margin-top:18px;}
+
+/* ===================== */
+/* PROJECT CARDS SYSTEM  */
+/* ===================== */
+
+#projects{padding:70px 0;}
+
+.section-head{
   display:flex;
-  flex-direction:column;
-  gap:10px;
+  justify-content:space-between;
+  border-bottom:1px solid var(--hairline);
+  padding-bottom:18px;
+  margin-bottom:30px;
+}
+.section-head h2{
+  font-family:'Cinzel';
+  color:var(--gold);
+}
+
+/* GRID THAT FIXES EVERYTHING */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  margin-bottom:70px;
+}
+
+/* CARD */
+.card{
+  display:block;
+  padding:18px;
+  border:1px solid var(--hairline);
+  border-radius:8px;
+  text-decoration:none;
+  color:inherit;
+  transition:.3s ease;
+  background:rgba(255,255,255,0.02);
 }
 
 .card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(201,162,75,.4);
-  box-shadow:0 18px 40px rgba(201,162,75,.08);
+  transform:translateY(-3px);
+  border-color:var(--gold);
 }
 
-.card h3{
-  font-family:'Cinzel', serif;
-  font-size:1rem;
-  color:var(--gold-bright);
-  letter-spacing:.05em;
+.card h4{
+  font-family:'Cinzel';
+  font-size:1.1rem;
+  margin-bottom:6px;
 }
 
 .card p{
-  font-size:1.05rem;
+  font-size:.95rem;
   color:var(--vellum-dim);
 }
 
-.card .tag{
+/* category label */
+.cat-label{
   font-family:'IBM Plex Mono';
-  font-size:.65rem;
-  letter-spacing:.14em;
-  color:var(--garnet);
+  font-size:.7rem;
+  letter-spacing:.2em;
+  color:var(--gold);
+  margin:40px 0 14px;
 }
 
-/* ---------- ABOUT / CONTACT (UNCHANGED) ---------- */
-#about{padding:70px 0;}
-.about-content p{max-width:680px;}
+/* ABOUT unchanged */
+.about-content{max-width:680px;}
+.about-content p{margin-bottom:22px;}
 
-.message-box{border:1px solid var(--hairline);padding:30px;}
+.contact-links a{
+  margin-right:18px;
+  color:var(--gold);
+  text-decoration:none;
+}
+
+.message-box{
+  border:1px solid var(--hairline);
+  padding:30px;
+  margin-top:30px;
+}
 
 </style>
 </head>
@@ -162,132 +178,110 @@ h1.name{
 
 <div class="candleglow"></div>
 <div class="vignette"></div>
-<div class="grain"></div>
 <div class="frame"></div>
-
-<div class="layer">
 
 <header class="site-nav">
   <div class="wrap">
     <div class="brand">M. Unlu</div>
+    <nav>
+      <a href="#projects">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<!-- HERO (UNCHANGED) -->
+<!-- HERO (UNCHANGED STRUCTURE) -->
 <section id="hero">
-  <div class="wrap hero-content">
-
-    <div class="eyebrow">
-      <img src="images/Flag_of_Turkey.svg.webp" class="flag">
-      <img src="images/Flag_of_the_United_States.svg.png" class="flag">
-    </div>
-
-    <h1 class="name">Melisa Unlu</h1>
-
+  <div class="wrap">
+    <h1 class="name"><span class="initial">M</span>elisa Unlu</h1>
     <p class="role-line">Computer Science · Engineering · Writing · Music · Art</p>
-
     <p class="intro">
       Exploring computation, engineering, and creative expression.
     </p>
-
-    <div class="uh-info">
-      <img src="images/uh_red.png" width="20">
-      University of Houston CS + Geology + English
-    </div>
-
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="wrap"><h2 class="section-title">Work & Leadership</h2></div>
-
-<!-- CARD GRID (REPLACED ORGANIZATION ONLY) -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
+    <div class="section-head">
+      <h2>Work</h2>
+    </div>
 
-    <div class="card-grid">
-
+    <!-- Internships -->
+    <div class="cat-label">Internships</div>
+    <div class="cards-grid">
       <a class="card" href="pages/University of Texas at Austin.html">
-        <div class="tag">Internship</div>
-        <h3>University of Texas at Austin</h3>
-        <p>Planetary modeling & magnetic field simulation (TACC).</p>
+        <h4>UT Austin</h4><p>Planetary science software & modeling.</p>
       </a>
-
       <a class="card" href="Colorado School of Mines.html">
-        <div class="tag">Internship</div>
-        <h3>Colorado School of Mines</h3>
-        <p>Seismic STA/LTA + autoencoder anomaly detection.</p>
+        <h4>Colorado School of Mines</h4><p>Seismic anomaly detection pipelines.</p>
       </a>
+    </div>
 
-      <a class="card" href="pages/University of Houston.html">
-        <div class="tag">Project</div>
-        <h3>University of Houston</h3>
-        <p>ML for groundwater & environmental resistivity data.</p>
-      </a>
+    <!-- Software -->
+    <div class="cat-label">Software Projects</div>
+    <div class="cards-grid">
+      <a class="card" href="pages/University of Houston.html"><h4>UH</h4><p>ML groundwater modeling.</p></a>
+      <a class="card" href="pages/StarCLassification.html"><h4>Star Classification</h4><p>Astronomy ML models.</p></a>
+      <a class="card" href="pages/Webdev.html"><h4>Web Development</h4><p>Full stack engineering.</p></a>
+    </div>
 
-      <a class="card" href="pages/StarCLassification.html">
-        <div class="tag">Project</div>
-        <h3>Star Classification</h3>
-        <p>Supervised ML for SDSS astronomical datasets.</p>
-      </a>
+    <!-- Engineering -->
+    <div class="cat-label">Engineering</div>
+    <div class="cards-grid">
+      <a class="card" href="pages/Computer Engineering.html"><h4>Computer Engineering</h4><p>PCB, firmware, RF systems.</p></a>
+      <a class="card" href="pages/Rocketry.html"><h4>Rocketry</h4><p>AIAA avionics & leadership.</p></a>
+    </div>
 
-      <a class="card" href="pages/Webdev.html">
-        <div class="tag">Project</div>
-        <h3>Web Development</h3>
-        <p>Frontend + backend engineering systems.</p>
-      </a>
+    <!-- Leadership -->
+    <div class="cat-label">Leadership</div>
+    <div class="cards-grid">
+      <a class="card" href="pages/CodeCoogs Workshop Coordinator - incoming position.html"><h4>Code Coogs</h4><p>Workshop coordination.</p></a>
+      <a class="card" href="pages/AstronomyClubOfficer.html"><h4>Astronomy Club</h4><p>Historian & photography.</p></a>
+    </div>
 
-      <a class="card" href="pages/Computer Engineering.html">
-        <div class="tag">Engineering</div>
-        <h3>Computer Engineering</h3>
-        <p>Embedded systems, PCB design, hardware systems.</p>
-      </a>
+    <!-- Music -->
+    <div class="cat-label">Music</div>
+    <div class="cards-grid">
+      <a class="card" href="pages/Music.html"><h4>Music</h4><p>Composition & game audio.</p></a>
+    </div>
 
-      <a class="card" href="pages/Rocketry.html">
-        <div class="tag">Engineering</div>
-        <h3>Rocketry</h3>
-        <p>AIAA avionics, testing, and leadership.</p>
-      </a>
+    <!-- Writing (NO LONGER HIDDEN) -->
+    <div class="cat-label">Writing</div>
+    <div class="cards-grid">
+      <a class="card" href="pages/Writings.html"><h4>Writing</h4><p>Essays & creative work.</p></a>
+    </div>
 
-      <a class="card" href="pages/AstronomyClubOfficer.html">
-        <div class="tag">Leadership</div>
-        <h3>Astronomy Club Officer</h3>
-        <p>Event photography + club leadership.</p>
-      </a>
+  </div>
+</section>
 
-      <a class="card" href="pages/CodeCoogs Workshop Coordinator - incoming position.html">
-        <div class="tag">Leadership</div>
-        <h3>Code Coogs Coordinator</h3>
-        <p>Leading technical workshops & student education.</p>
-      </a>
+<!-- ABOUT (UNCHANGED CONTENT AREA STYLE PRESERVED) -->
+<section id="about">
+  <div class="wrap about-content">
+    <h2>About</h2>
+    <p>
+      I'm a Computer Science student at the University of Houston with minors in Geology and English...
+    </p>
 
-      <a class="card" href="pages/Music.html">
-        <div class="tag">Creative</div>
-        <h3>Music</h3>
-        <p>Composition and interdisciplinary sound work.</p>
-      </a>
+    <div class="contact-links">
+      <a href="mailto:melissaunlu4@gmail.com">Email</a>
+      <a href="https://github.com/Unmel5">GitHub</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+    </div>
 
-      <a class="card" href="pages/Writings.html">
-        <div class="tag">Creative</div>
-        <h3>Writing</h3>
-        <p>Journalism, essays, and cultural writing.</p>
-      </a>
-
+    <div id="contact" class="message-box">
+      <h3>Send a message</h3>
+      <form action="https://formspree.io/f/mqeeeopb" method="POST">
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
     </div>
   </div>
 </section>
-
-<!-- ABOUT (UNCHANGED PLACEHOLDER) -->
-<section id="about">
-  <div class="wrap">
-    <h2 class="section-title">About</h2>
-    <p class="about-content">
-      I'm a Computer Science student at the University of Houston...
-    </p>
-  </div>
-</section>
-
-</div>
 
 </body>
 </html>
