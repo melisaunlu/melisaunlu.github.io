@@ -10,204 +10,224 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --paper:#F1F3EE;
-    --paper-soft:#E8EBE3;
-    --ink:#232B27;
-    --ink-muted:#5C6660;
-    --teal:#0FA85C;
-    --sand:#AD8B61;
-    --hairline:#D7DCD2;
-    --max:900px;
-  }
+:root{
+  --paper:#F1F3EE;
+  --ink:#232B27;
+  --ink-muted:#5C6660;
+  --teal:#0FA85C;
+  --hairline:#D7DCD2;
+  --max:980px;
+}
 
-  *{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
 
-  body{
-    font-family:'IBM Plex Sans', sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.65;
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
-  }
+body{
+  font-family:'IBM Plex Sans', sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-weight:300;
+}
 
-  a{color:inherit;}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 28px;
+}
 
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 28px;
-  }
+a{color:inherit;text-decoration:none;}
 
-  /* ---------- nav ---------- */
-  header.site-nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(241,243,238,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--hairline);
-  }
-  .site-nav .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .site-nav .brand{
-    font-family:'Newsreader', serif;
-    font-weight:500;
-    font-size:1.15rem;
-  }
-  .site-nav a.back{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    text-decoration:none;
-    color:var(--ink-muted);
-    position:relative;
-    padding-bottom:4px;
-  }
-  .site-nav a.back::after{
-    content:'';
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:1px;
-    background:var(--teal);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:transform .35s ease;
-  }
-  .site-nav a.back:hover{color:var(--ink);}
-  .site-nav a.back:hover::after{transform:scaleX(1);}
+/* ---------- NAV ---------- */
+header.site-nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(241,243,238,0.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+}
 
-  /* ---------- page head ---------- */
-  .page-head{padding:90px 0 50px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.74rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin-bottom:18px;
-    padding-left:14px;
-    border-left:3px solid var(--teal);
-  }
-  h1{
-    font-family:'Newsreader', serif;
-    font-weight:400;
-    font-size:clamp(2.2rem, 5vw, 3.2rem);
-    line-height:1.12;
-    color:var(--ink);
-  }
+.site-nav .wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:64px;
+}
 
-  section{padding:0 0 80px;}
+.brand{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:1.15rem;
+}
 
-  /* ---------- content ---------- */
-  .content{
-    display:grid;
-    grid-template-columns:1fr 1.1fr;
-    gap:48px;
-    align-items:center;
-  }
-  .content img{
-    width:100%;
-    border-radius:10px;
-    border:1px solid var(--hairline);
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .content img:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(35,43,39,.1);
-  }
-  .text p{
-    font-size:1.02rem;
-    color:var(--ink);
-    margin-bottom:22px;
-  }
-  .text strong{color:var(--teal); font-weight:500;}
+.back{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  position:relative;
+  padding-bottom:4px;
+}
 
-  .github{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 26px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.78rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    border:1px solid var(--teal);
-    background:var(--teal);
-    color:var(--paper);
-    text-decoration:none;
-    border-radius:3px;
-    transition:background .25s ease, color .25s ease, box-shadow .25s ease;
-  }
-  .github:hover{background:transparent; color:var(--teal); box-shadow:0 0 0 1px var(--teal) inset;}
+.back::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:1px;
+  background:var(--teal);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
 
-  /* ---------- tech stack ---------- */
-  .tech-stack{
-    border-top:1px solid var(--hairline);
-    padding-top:50px;
-  }
-  .section-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.7rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--ink-muted);
-    margin-bottom:32px;
-  }
-  .tech-icons{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-    gap:36px;
-    align-items:start;
-    justify-items:center;
-  }
-  .tech{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-  }
-  .tech img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    transition:transform .3s ease;
-  }
-  .tech:hover img{transform:translateY(-4px);}
-  .tech span{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.78rem;
-    color:var(--ink-muted);
-  }
+.back:hover{color:var(--ink);}
+.back:hover::after{transform:scaleX(1);}
 
-  /* ---------- gallery ---------- */
-  .gallery{
-    border-top:1px solid var(--hairline);
-    padding-top:50px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-  }
-  .gallery img{
-    width:100%;
-    border-radius:10px;
-    border:1px solid var(--hairline);
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .gallery img:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(35,43,39,.1);
-  }
+/* ---------- HEADER ---------- */
+.page-head{padding:90px 0 50px;}
 
-  @media (max-width:680px){
-    .content{grid-template-columns:1fr;}
-  }
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.74rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--teal);
+  border-left:3px solid var(--teal);
+  padding-left:14px;
+  margin-bottom:18px;
+}
+
+h1{
+  font-family:'Newsreader', serif;
+  font-weight:400;
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  line-height:1.1;
+}
+
+/* ---------- SECTION ---------- */
+section{
+  padding:0 0 90px;
+}
+
+.section-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  margin-bottom:30px;
+}
+
+/* ---------- CONTENT ---------- */
+.content{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:center;
+}
+
+.content img{
+  width:100%;
+  border-radius:10px;
+  border:1px solid var(--hairline);
+  transition:.3s ease;
+}
+
+.content img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(35,43,39,.1);
+}
+
+.text p{
+  margin-bottom:20px;
+  max-width:700px;
+}
+
+.text strong{
+  color:var(--teal);
+  font-weight:500;
+}
+
+/* ---------- BUTTON ---------- */
+.github{
+  display:inline-block;
+  margin-top:10px;
+  padding:11px 22px;
+  border:1px solid var(--teal);
+  color:var(--teal);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.75rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+
+.github:hover{
+  background:var(--teal);
+  color:var(--paper);
+}
+
+/* ---------- TECH STACK ---------- */
+.tech-stack{
+  border-top:1px solid var(--hairline);
+  padding-top:50px;
+}
+
+.tech-icons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+  gap:36px;
+  align-items:start;
+  justify-items:center;
+}
+
+.tech{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.tech img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  transition:.3s ease;
+}
+
+.tech:hover img{transform:translateY(-4px);}
+
+.tech span{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.78rem;
+  color:var(--ink-muted);
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  border-top:1px solid var(--hairline);
+  padding-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:10px;
+  border:1px solid var(--hairline);
+  transition:.3s ease;
+}
+
+.gallery img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(35,43,39,.1);
+}
+
+@media(max-width:700px){
+  .content{grid-template-columns:1fr;}
+}
 </style>
 </head>
 
@@ -232,29 +252,27 @@
   <section>
     <div class="content">
       <img src="../images/image.png" alt="Magnetic field simulation" />
+
       <div class="text">
         <p>
-          Spent a summer working with <strong>Dr. Krista Soderlund</strong>,
-          <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on
-          numerically modeling magnetic fields around early Earth, Venus, and
-          the Moon.
+          Worked with <strong>Dr. Krista Soderlund</strong>,
+          <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong>
+          on numerical modeling of planetary magnetic fields.
         </p>
+
         <p>
-          Generated magnetic and kinetic energy fields, zonal flows, and entropy
-          levels of early Earth using supercomputers and parallel computing.
+          Simulated magnetic and kinetic energy fields and analyzed
+          zonal flows using high-performance computing systems.
         </p>
+
         <p>
-          Successfully implemented and validated a radial electrical conductivity
-          profile with a sharp gradient at the core–mantle boundary.
+          Implemented radial electrical conductivity profiles with sharp
+          core–mantle boundary gradients and validated multiple test cases.
         </p>
-        <p>
-          Conducted extensive test cases analyzing magnetic surfaces, tilt,
-          zonal flows, and kinetic/magnetic field behavior.
-        </p>
+
         <a href="https://github.com/dunyuliu/magic.bmo.git"
            class="github"
-           target="_blank"
-           rel="noopener noreferrer">
+           target="_blank">
           View GitHub Code →
         </a>
       </div>
@@ -263,33 +281,38 @@
 
   <section class="tech-stack">
     <div class="section-label">Tech Stack</div>
+
     <div class="tech-icons">
       <div class="tech">
         <img src="../images/Fortran_logo.svg.png" alt="Fortran">
         <span>Fortran</span>
       </div>
+
       <div class="tech">
         <img src="../images/images.png" alt="MPI">
         <span>MPI</span>
       </div>
+
       <div class="tech">
         <img src="../images/images (5).jpg" alt="Python">
         <span>Python</span>
       </div>
+
       <div class="tech">
         <img src="../images/images (1).png" alt="Linux">
         <span>Linux / HPC</span>
       </div>
+
       <div class="tech">
-        <img src="../images/images (2).png" alt="Supercomputing">
+        <img src="../images/images (2).png" alt="TACC">
         <span>TACC</span>
       </div>
     </div>
   </section>
 
   <section class="gallery">
-    <img src="../images/Img2.png" alt="Simulation result 1" />
-    <img src="../images/IMG3.png" alt="Simulation result 2" />
+    <img src="../images/Img2.png" alt="Simulation result 1">
+    <img src="../images/IMG3.png" alt="Simulation result 2">
   </section>
 
 </div>
