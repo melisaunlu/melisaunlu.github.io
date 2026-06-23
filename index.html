@@ -15,7 +15,7 @@
     --paper-soft:#E8EBE3;
     --ink:#232B27;
     --ink-muted:#5C6660;
-    --teal:#4F7268;
+    --teal:#1F8F5E;
     --sand:#AD8B61;
     --hairline:#D7DCD2;
     --max:980px;
@@ -88,19 +88,9 @@
 
   /* ---------- hero ---------- */
   #hero{
-    position:relative;
-    overflow:hidden;
     padding:120px 0 100px;
   }
-  #hero .contours{
-    position:absolute;
-    inset:0;
-    z-index:0;
-    opacity:.5;
-  }
   .hero-content{
-    position:relative;
-    z-index:1;
     max-width:680px;
   }
   .eyebrow{
@@ -155,7 +145,7 @@
     border-top:1px solid var(--hairline);
     padding-top:18px;
   }
-  .uh-logo{width:20px; height:20px; object-fit:contain; filter:grayscale(1) opacity(.8);}
+  .uh-logo{width:20px; height:20px; object-fit:contain;}
 
   /* ---------- section shell ---------- */
   section{padding:90px 0;}
@@ -218,12 +208,11 @@
     width:26px;
     height:26px;
     object-fit:contain;
-    filter:grayscale(1) opacity(.55);
-    transition:filter .3s ease, transform .3s ease;
+    transition:transform .3s ease;
     justify-self:end;
   }
+  .project-icon.keep-color{filter:none;}
   .project-row:hover .project-icon{
-    filter:none;
     transform:translateX(2px);
   }
 
@@ -343,13 +332,6 @@
 </header>
 
 <section id="hero">
-  <svg class="contours" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-50,520 C150,470 350,560 550,500 C750,440 950,520 1250,470" stroke="#AD8B61" stroke-width="1" fill="none"/>
-    <path d="M-50,460 C170,400 380,500 560,440 C760,380 960,460 1250,410" stroke="#4F7268" stroke-width="1" fill="none"/>
-    <path d="M-50,400 C190,340 390,440 580,380 C770,320 970,400 1250,350" stroke="#4F7268" stroke-width="1" fill="none"/>
-    <path d="M-50,340 C200,280 400,380 600,320 C780,260 980,340 1250,290" stroke="#AD8B61" stroke-width="1" fill="none"/>
-    <path d="M-50,280 C210,220 410,320 620,260 C790,200 990,280 1250,230" stroke="#4F7268" stroke-width=".8" fill="none"/>
-  </svg>
   <div class="wrap hero-content">
     <div class="eyebrow">
       <img src="images/Flag_of_Turkey.svg.webp" class="flag" alt="Turkish flag"/>
@@ -357,13 +339,13 @@
       <img src="images/Flag_of_the_United_States.svg.png" class="flag" alt="US flag"/>
     </div>
     <h1 class="name">Melisa <em>Unlu</em></h1>
-    <p class="role-line">Computer Science · Writing · Music</p>
+    <p class="role-line">Computer Science · Engineering · Writing· Music · Art</p>
     <p class="intro">
-      Exploring the intersection of computation, science, and creative expression — across geology, aerospace, and the page.
+      Exploring the intersection of computation, engineering, and creative expression through interesting projects across  software, geology, engineering, aerospace and creative expression. 
     </p>
     <div class="uh-info">
       <img src="images/uh_red.png" class="uh-logo" alt="University of Houston"/>
-      University of Houston — B.S. Computer Science, minors in Geology &amp; English
+      University of Houston B.S. Computer Science, minors in Geology &amp; English
     </div>
   </div>
 </section>
@@ -399,7 +381,7 @@
         <h3>University of Houston</h3>
         <p>Machine learning applications for groundwater modeling and environmental data.</p>
       </span>
-      <img src="images/uh_red.png" class="project-icon" alt=""/>
+      <img src="images/uh_red.png" class="project-icon keep-color" alt=""/>
     </a>
 
     <a href="pages/Rocketry.html" class="project-row reveal">
@@ -506,8 +488,6 @@
     </div>
   </div>
 </section>
-
-<footer>melisa unlu — built with care</footer>
 
 <script>
   const items = document.querySelectorAll('.reveal');
