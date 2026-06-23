@@ -13,8 +13,8 @@
   :root{
     --pitch:#0C0A0D;
     --pitch-2:#13100E;
-    --vellum:#E8DDC7;
-    --vellum-dim:#9C8F77;
+    --vellum:#F2EAD9;          /* brightened from #E8DDC7 */
+    --vellum-dim:#C0B398;      /* brightened from #9C8F77 for readable body text */
     --gold:#C9A24B;
     --gold-bright:#EBCB78;
     --garnet:#8C2433;
@@ -151,8 +151,54 @@
     letter-spacing:.14em; text-transform:uppercase;
   }
 
-  /* ---------- categories ---------- */
-  .category{margin-bottom:52px;}
+  /* ---------- category jump boxes (same-shade gold) ---------- */
+  .category-nav{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    margin-bottom:64px;
+  }
+  .cat-box{
+    display:flex; flex-direction:column; gap:9px;
+    padding:24px 22px; text-decoration:none; border-radius:8px;
+    background:linear-gradient(165deg, rgba(201,162,75,.14), rgba(201,162,75,.05));
+    border:1px solid var(--hairline-strong);
+    transition:transform .3s ease, box-shadow .3s ease, background .3s ease, border-color .3s ease;
+  }
+  .cat-box .cat-num{
+    font-family:'Cinzel', serif; font-size:.7rem; letter-spacing:.26em; color:var(--gold);
+  }
+  .cat-box .cat-label{
+    font-family:'Cinzel', serif; font-weight:600; font-size:1.06rem; letter-spacing:.05em;
+    color:var(--gold-bright); line-height:1.15;
+  }
+  .cat-box .cat-meta{
+    font-family:'IBM Plex Mono', monospace; font-size:.62rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--vellum-dim);
+  }
+  .cat-box:hover,.cat-box:focus-visible{
+    transform:translateY(-3px); border-color:var(--gold); outline:none;
+    background:linear-gradient(165deg, rgba(201,162,75,.24), rgba(201,162,75,.10));
+    box-shadow:0 12px 32px rgba(201,162,75,.14);
+  }
+
+  /* ---------- category sections ---------- */
+  .cat-section{scroll-margin-top:96px; margin-bottom:64px;}
+  .cat-section:last-child{margin-bottom:0;}
+  .cat-section-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    padding:12px 0 16px 18px; margin-bottom:34px;
+    border-bottom:1px solid var(--hairline-strong); border-left:2px solid var(--gold);
+  }
+  .cat-section-head h2{
+    font-family:'Cinzel', serif; font-weight:600; font-size:1.5rem;
+    letter-spacing:.08em; color:var(--gold-bright);
+  }
+  .cat-section-head .count{
+    font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--vellum-dim);
+  }
+
+  /* ---------- sub-categories ---------- */
+  .category{margin-bottom:46px;}
   .category:last-child{margin-bottom:0;}
   .category-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:8px;}
   .category-head h3{
@@ -219,7 +265,7 @@
     color:var(--vellum); padding:9px 2px; font-family:'Cormorant Garamond', serif; font-size:1.15rem;
     resize:vertical; transition:border-color .3s ease;
   }
-  .message-box input::placeholder,.message-box textarea::placeholder{color:#5f5648;}
+  .message-box input::placeholder,.message-box textarea::placeholder{color:#6f6451;}
   .message-box input:focus,.message-box textarea:focus{outline:none; border-color:var(--gold);}
   .message-box button{
     background:transparent; border:1px solid var(--gold); color:var(--gold);
@@ -241,12 +287,18 @@
     html{scroll-behavior:auto;}
   }
 
+  @media (max-width:720px){
+    .category-nav{grid-template-columns:repeat(2,1fr);}
+  }
   @media (max-width:640px){
     .wrap{padding:0 24px;}
     .frame{inset:8px;}
     .site-nav nav{gap:18px;}
     .entry{grid-template-columns:14px 1fr;}
     .entry .mark{display:none;}
+  }
+  @media (max-width:430px){
+    .category-nav{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -297,154 +349,189 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Work &amp; Leadership</h2>
-      <span class="count">11 entries · 6 areas</span>
+      <span class="count">11 entries · 4 categories</span>
     </div>
 
-    <!-- INTERNSHIPS -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Internships</h3>
-        <span class="count">2</span>
+    <!-- CATEGORY JUMP BOXES -->
+    <nav class="category-nav reveal" aria-label="Project categories">
+      <a href="#cat-cs" class="cat-box">
+        <span class="cat-num">I</span>
+        <span class="cat-label">Computer Science</span>
+        <span class="cat-meta">7 works</span>
+      </a>
+      <a href="#cat-engineering" class="cat-box">
+        <span class="cat-num">II</span>
+        <span class="cat-label">Engineering</span>
+        <span class="cat-meta">2 works</span>
+      </a>
+      <a href="#cat-writing" class="cat-box">
+        <span class="cat-num">III</span>
+        <span class="cat-label">Writing</span>
+        <span class="cat-meta">1 work</span>
+      </a>
+      <a href="#cat-music" class="cat-box">
+        <span class="cat-num">IV</span>
+        <span class="cat-label">Music</span>
+        <span class="cat-meta">1 work</span>
+      </a>
+    </nav>
+
+    <!-- ===== COMPUTER SCIENCE ===== -->
+    <div id="cat-cs" class="cat-section reveal">
+      <div class="cat-section-head">
+        <h2>Computer Science</h2>
+        <span class="count">7 works</span>
       </div>
 
-      <a href="pages/University of Texas at Austin.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>University of Texas at Austin</h4>
-          <p>Planetary Science Software Developer: TACC, magnetic fields modeling on early Earth, Venus, and the Moon.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
+      <div class="category">
+        <div class="category-head">
+          <h3>Internships</h3>
+          <span class="count">2</span>
+        </div>
 
-      <a href="Colorado School of Mines.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Colorado School of Mines</h4>
-          <p>Software Developer: seismic STA/LTA detection and autoencoder anomaly detection pipelines.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
+        <a href="pages/University of Texas at Austin.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>University of Texas at Austin</h4>
+            <p>Planetary Science Software Developer: TACC, magnetic fields modeling on early Earth, Venus, and the Moon.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+
+        <a href="Colorado School of Mines.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Colorado School of Mines</h4>
+            <p>Software Developer: seismic STA/LTA detection and autoencoder anomaly detection pipelines.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="category">
+        <div class="category-head">
+          <h3>Software &amp; Machine Learning</h3>
+          <span class="count">3</span>
+        </div>
+
+        <a href="pages/University of Houston.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>University of Houston</h4>
+            <p>Machine learning applications for groundwater modeling and environmental resistivity data.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+
+        <a href="pages/StarCLassification.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Star Classification</h4>
+            <p>Supervised machine learning models for astronomical classification problems.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+
+        <a href="pages/Webdev.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Web Development</h4>
+            <p>Frontend, backend, and database software engineering work.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="category">
+        <div class="category-head">
+          <h3>Leadership &amp; Community</h3>
+          <span class="count">2</span>
+        </div>
+
+        <a href="pages/CodeCoogs Workshop Coordinator - incoming position.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Code Coogs Workshop Coordinator</h4>
+            <p>Leading technical workshops and contributing to student developer education.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+
+        <a href="pages/AstronomyClubOfficer.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Astronomy Club Historian</h4>
+            <p>Officer and event photographer for the UH Astronomy Club.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+      </div>
     </div>
 
-    <!-- SOFTWARE PROJECTS -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Software Projects</h3>
-        <span class="count">3</span>
+    <!-- ===== ENGINEERING ===== -->
+    <div id="cat-engineering" class="cat-section reveal">
+      <div class="cat-section-head">
+        <h2>Engineering</h2>
+        <span class="count">2 works</span>
       </div>
 
-      <a href="pages/University of Houston.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>University of Houston</h4>
-          <p>Machine learning applications for groundwater modeling and environmental resistivity data.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
+      <div class="category">
+        <a href="pages/Computer Engineering.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Computer Engineering</h4>
+            <p>Embedded firmware, PCB design, and analog/RF circuitry; from schematic to working hardware.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
 
-      <a href="pages/StarCLassification.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Star Classification</h4>
-          <p>Supervised machine learning models for astronomical classification problems.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/Webdev.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Web Development</h4>
-          <p>Frontend, backend, and database software engineering work.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
+        <a href="pages/Rocketry.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Rocketry</h4>
+            <p>Avionics, testing, and leadership in competitive rocketry: AIAA-UH.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+      </div>
     </div>
 
-    <!-- ENGINEERING -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Engineering</h3>
-        <span class="count">2</span>
+    <!-- ===== WRITING ===== -->
+    <div id="cat-writing" class="cat-section reveal">
+      <div class="cat-section-head">
+        <h2>Writing</h2>
+        <span class="count">1 work</span>
       </div>
 
-      <a href="pages/Computer Engineering.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Computer Engineering</h4>
-          <p>Embedded firmware, PCB design, and analog/RF circuitry; from schematic to working hardware.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/Rocketry.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Rocketry</h4>
-          <p>Avionics, testing, and leadership in competitive rocketry: AIAA-UH.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
+      <div class="category">
+        <a href="pages/Writings.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Writing</h4>
+            <p>Essays, journalism, and creative writing projects.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
+      </div>
     </div>
 
-    <!-- LEADERSHIP -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Leadership</h3>
-        <span class="count">2</span>
+    <!-- ===== MUSIC ===== -->
+    <div id="cat-music" class="cat-section reveal">
+      <div class="cat-section-head">
+        <h2>Music</h2>
+        <span class="count">1 work</span>
       </div>
 
-      <a href="pages/CodeCoogs Workshop Coordinator - incoming position.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Code Coogs Workshop Coordinator</h4>
-          <p>Leading technical workshops and contributing to student developer education.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-
-      <a href="pages/AstronomyClubOfficer.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Astronomy Club Historian</h4>
-          <p>Officer and event photographer for the UH Astronomy Club.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- MUSIC -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Music for Game Dev Projects</h3>
-        <span class="count">1</span>
+      <div class="category">
+        <a href="pages/Music.html" class="entry">
+          <span class="seal"></span>
+          <span class="entry-main">
+            <h4>Music</h4>
+            <p>Composition, performance, and interdisciplinary musical experimentation — for game dev projects.</p>
+          </span>
+          <span class="mark">&rarr;</span>
+        </a>
       </div>
-
-      <a href="pages/Music.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Music</h4>
-          <p>Composition, performance, and interdisciplinary musical experimentation.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- WRITING -->
-    <div class="category reveal">
-      <div class="category-head">
-        <h3>Writing</h3>
-        <span class="count">1</span>
-      </div>
-
-      <a href="pages/Writings.html" class="entry">
-        <span class="seal"></span>
-        <span class="entry-main">
-          <h4>Writing</h4>
-          <p>Essays, journalism, and creative writing projects.</p>
-        </span>
-        <span class="mark">&rarr;</span>
-      </a>
     </div>
 
   </div>
