@@ -5,143 +5,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Melisa Unlu — Writings</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --paper:#F1F3EE;
-  --paper-soft:#E8EBE3;
-  --ink:#232B27;
-  --ink-muted:#5C6660;
-  --teal:#0FA85C;
-  --sand:#AD8B61;
-  --hairline:#D7DCD2;
-  --max:980px;
+  --pitch:#0C0A0D;
+  --pitch-2:#13100E;
+  --vellum:#E8DDC7;
+  --vellum-dim:#9C8F77;
+  --gold:#C9A24B;
+  --gold-bright:#EBCB78;
+  --garnet:#8C2433;
+  --hairline:rgba(201,162,75,.18);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:'IBM Plex Sans', sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.65;
-  font-weight:300;
+  font-family:'Cormorant Garamond',serif;
+  background:var(--pitch);
+  color:var(--vellum);
+  line-height:1.6;
+  overflow-x:hidden;
 }
 
-a{color:inherit;}
+/* ---------- atmosphere ---------- */
+.candleglow{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
+    radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
+  pointer-events:none;
+}
+.vignette{
+  position:fixed; inset:0;
+  background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
+  pointer-events:none;
+}
+.grain{
+  position:fixed; inset:0;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.frame{
+  position:fixed; inset:14px;
+  border:1px solid var(--hairline);
+}
+
+.layer{position:relative;z-index:2;}
 
 .wrap{
-  max-width:var(--max);
+  max-width:1000px;
   margin:0 auto;
-  padding:0 28px;
+  padding:0 40px;
 }
 
-/* ---------- NAV (UNIFIED) ---------- */
-header.site-nav{
+/* ---------- NAV ---------- */
+header{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(241,243,238,0.85);
+  background:linear-gradient(to bottom, rgba(12,10,13,.92), rgba(12,10,13,.6));
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--hairline);
 }
 
-.site-nav .wrap{
+header .wrap{
   display:flex;
   justify-content:space-between;
   align-items:center;
   height:64px;
 }
 
-.site-nav .brand{
-  font-family:'Newsreader', serif;
-  font-weight:500;
-  font-size:1.1rem;
+.brand{
+  font-family:'Cinzel',serif;
+  letter-spacing:.2em;
+  color:var(--gold);
 }
 
-.site-nav a.back{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.72rem;
-  letter-spacing:.12em;
+.back{
+  font-family:'IBM Plex Mono';
+  font-size:.7rem;
   text-transform:uppercase;
+  color:var(--vellum-dim);
   text-decoration:none;
-  color:var(--ink-muted);
 }
-
-.site-nav a.back:hover{
-  color:var(--ink);
-}
+.back:hover{color:var(--gold);}
 
 /* ---------- HEADER ---------- */
-.page-head{
-  padding:90px 0 50px;
+.hero{
+  padding:90px 0 40px;
 }
 
-.eyebrow{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.74rem;
-  letter-spacing:.18em;
+.hero h1{
+  font-family:'Cinzel',serif;
+  font-size:3rem;
+  color:var(--gold);
+}
+
+.hero .tag{
+  font-family:'IBM Plex Mono';
+  font-size:.75rem;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  color:var(--teal);
-  border-left:3px solid var(--teal);
-  padding-left:14px;
-  margin-bottom:18px;
-}
-
-h1{
-  font-family:'Newsreader', serif;
-  font-weight:400;
-  font-size:clamp(2.4rem, 5vw, 3.4rem);
-  line-height:1.1;
+  color:var(--vellum-dim);
+  margin-top:10px;
 }
 
 /* ---------- SECTIONS ---------- */
 section{
-  padding-bottom:90px;
+  padding:60px 0;
 }
 
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
+.section-title{
+  font-family:'Cinzel',serif;
+  color:var(--gold-bright);
+  font-size:1.4rem;
+  margin-bottom:22px;
   border-bottom:1px solid var(--hairline);
-  padding-bottom:18px;
-  margin-bottom:28px;
+  padding-bottom:10px;
 }
 
-.section-head h2{
-  font-family:'Newsreader', serif;
-  font-weight:400;
-  font-size:1.6rem;
-}
-
-.count{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.75rem;
-  color:var(--ink-muted);
-}
-
-/* ---------- CARDS (UNIFIED STYLE) ---------- */
+/* ---------- GRID ---------- */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  gap:20px;
 }
 
+/* ---------- CARDS ---------- */
 .card{
-  background:var(--paper-soft);
+  background:linear-gradient(180deg, rgba(19,16,14,.9), rgba(12,10,13,.9));
   border:1px solid var(--hairline);
   border-radius:10px;
   overflow:hidden;
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:.25s ease;
 }
 
 .card:hover{
   transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(35,43,39,.12);
+  box-shadow:0 18px 40px rgba(201,162,75,.08);
+  border-color:rgba(201,162,75,.35);
 }
 
 .card img{
@@ -149,66 +153,61 @@ section{
   height:160px;
   object-fit:cover;
   border-bottom:1px solid var(--hairline);
+  filter:saturate(.9) contrast(1.05);
 }
 
 .card a{
   display:block;
   padding:16px 18px;
-  font-family:'Newsreader', serif;
-  font-size:1.05rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  color:var(--vellum);
   text-decoration:none;
 }
 
 .card a:hover{
-  color:var(--teal);
+  color:var(--gold-bright);
 }
 
-/* fallback card */
-.card.no-image a{
-  min-height:160px;
-  display:flex;
-  align-items:center;
-}
-
-/* ---------- FOOT NOTE ---------- */
-.more{
-  border-left:3px solid var(--sand);
+/* ---------- FOOT ---------- */
+.note{
+  margin-top:40px;
   padding:18px 22px;
-  background:var(--paper-soft);
-  color:var(--ink-muted);
+  border-left:2px solid var(--garnet);
+  color:var(--vellum-dim);
   font-style:italic;
-  border-radius:6px;
-  max-width:700px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="site-nav">
+<div class="candleglow"></div>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div class="frame"></div>
+
+<div class="layer">
+
+<header>
   <div class="wrap">
-    <div class="brand">M. Unlu</div>
-    <a class="back" href="../index.html">← Back to Home</a>
+    <div class="brand">M. UNLU</div>
+    <a class="back" href="../index.html">← Back</a>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="page-head">
-    <div class="eyebrow">Creative</div>
-    <h1>Writings</h1>
-  </div>
+<div class="wrap hero">
+  <h1>Writings</h1>
+  <div class="tag">Creative · Journalism · Anthropology · Film</div>
 </div>
 
-<div class="wrap">
-
-  <!-- Tech & Anthropology -->
-  <section>
-    <div class="section-head">
-      <h2>Technology & Anthropology</h2>
-      <span class="count">3 articles</span>
-    </div>
+<!-- TECHNOLOGY -->
+<section>
+  <div class="wrap">
+    <div class="section-title">Technology & Anthropology</div>
 
     <div class="grid">
+
       <div class="card">
         <img src="../images/writing1.png">
         <a href="https://thedailycougar.com/2024/10/07/we-need-to-prioritize-solitude-as-much-as-socializing/" target="_blank">
@@ -229,17 +228,18 @@ section{
           AI Is Not the Threat We Think It Is
         </a>
       </div>
-    </div>
-  </section>
 
-  <!-- Art -->
-  <section>
-    <div class="section-head">
-      <h2>Art, Film & History</h2>
-      <span class="count">6 articles</span>
     </div>
+  </div>
+</section>
+
+<!-- ART -->
+<section>
+  <div class="wrap">
+    <div class="section-title">Art, Film & History</div>
 
     <div class="grid">
+
       <div class="card">
         <img src="../images/writing2.png">
         <a href="https://cooglife.com/2024/12/understanding-the-classicism-art-movement/" target="_blank">
@@ -281,17 +281,18 @@ section{
           Where Do Vampires Come From?
         </a>
       </div>
-    </div>
-  </section>
 
-  <!-- Interviews -->
-  <section>
-    <div class="section-head">
-      <h2>Interviews</h2>
-      <span class="count">5 articles</span>
     </div>
+  </div>
+</section>
+
+<!-- INTERVIEWS -->
+<section>
+  <div class="wrap">
+    <div class="section-title">Interviews</div>
 
     <div class="grid">
+
       <div class="card">
         <img src="../images/findinghertune.png">
         <a href="https://cooglife.com/2024/09/finding-her-tune-the-perfect-melody-between-music-and-a-doctoral-degree/" target="_blank">
@@ -325,14 +326,15 @@ section{
           UH Alumna Gains National Recognition
         </a>
       </div>
-    </div>
-  </section>
 
-  <div class="wrap">
-    <div class="more">
-      Plus many more articles online and in print.
     </div>
+
+    <div class="note">
+      Plus many more published articles across university media.
+    </div>
+
   </div>
+</section>
 
 </div>
 
