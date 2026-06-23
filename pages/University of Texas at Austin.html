@@ -3,260 +3,159 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Melisa Unlu — Magnetic Fields Modeling</title>
+<title>UT Austin — Magnetic Fields Modeling</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --paper:#F1F3EE;
-  --paper-soft:#E8EBE3;
-  --ink:#232B27;
-  --ink-muted:#5C6660;
-  --teal:#0FA85C;
-  --sand:#AD8B61;
-  --hairline:#D7DCD2;
-  --max:980px;
+  --pitch:#0C0A0D;
+  --pitch-2:#13100E;
+  --vellum:#E8DDC7;
+  --vellum-dim:#9C8F77;
+  --gold:#C9A24B;
+  --gold-bright:#EBCB78;
+  --garnet:#8C2433;
+  --hairline:rgba(201,162,75,.18);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:'IBM Plex Sans', sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.65;
-  font-weight:300;
-  -webkit-font-smoothing:antialiased;
+  font-family:'Cormorant Garamond',serif;
+  background:var(--pitch);
+  color:var(--vellum);
+  overflow-x:hidden;
 }
 
-a{color:inherit;}
-
-.wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:0 28px;
+.candleglow,.vignette,.grain,.frame{position:fixed;inset:0;pointer-events:none;}
+.candleglow{
+  background:
+  radial-gradient(620px 520px at 50% -6%, rgba(201,162,75,.16), transparent 70%),
+  radial-gradient(900px 700px at 80% 20%, rgba(140,36,51,.10), transparent 72%);
+}
+.vignette{
+  background:radial-gradient(120% 100% at 50% 35%, transparent 52%, rgba(0,0,0,.66) 100%);
+}
+.frame{
+  inset:14px;
+  border:1px solid var(--hairline);
 }
 
-/* ---------- NAV (MATCH ALL PAGES) ---------- */
-header.site-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(241,243,238,0.85);
+.layer{position:relative;z-index:2;}
+
+.wrap{max-width:1000px;margin:auto;padding:0 40px;}
+
+header{
+  position:sticky;top:0;
+  background:rgba(12,10,13,.85);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--hairline);
 }
 
-.site-nav .wrap{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:64px;
+header .wrap{
+  display:flex;justify-content:space-between;align-items:center;height:64px;
 }
 
 .brand{
-  font-family:'Newsreader', serif;
-  font-weight:500;
-  font-size:1.1rem;
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  letter-spacing:.2em;
 }
 
 .back{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.72rem;
-  letter-spacing:.12em;
+  font-family:'IBM Plex Mono';
+  font-size:.7rem;
+  color:var(--vellum-dim);
   text-transform:uppercase;
-  color:var(--ink-muted);
+  text-decoration:none;
 }
 
-.back:hover{color:var(--ink);}
+.back:hover{color:var(--gold);}
 
-/* ---------- HEADER ---------- */
-.page-head{
-  padding:90px 0 50px;
-}
-
-.eyebrow{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.74rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--teal);
-  border-left:3px solid var(--teal);
-  padding-left:14px;
-  margin-bottom:18px;
+.page{
+  padding:90px 0;
 }
 
 h1{
-  font-family:'Newsreader', serif;
-  font-weight:400;
-  font-size:clamp(2.4rem,5vw,3.4rem);
-  line-height:1.1;
+  font-family:'Cinzel',serif;
+  font-size:3rem;
+  color:var(--gold);
+  margin-bottom:10px;
 }
 
-/* ---------- SECTIONS ---------- */
-section{
-  padding-bottom:90px;
-}
-
-/* ---------- CONTENT GRID ---------- */
-.content{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:48px;
-  align-items:center;
-}
-
-.content img{
-  width:100%;
-  border-radius:10px;
-  border:1px solid var(--hairline);
-  transition:.3s ease;
-}
-
-.content img:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(35,43,39,.12);
-}
-
-/* ---------- TEXT ---------- */
-.text p{
+h2{
+  font-family:'Cinzel',serif;
+  color:var(--gold-bright);
   margin-bottom:20px;
 }
 
-/* ---------- BUTTON ---------- */
-.github{
-  display:inline-block;
-  margin-top:10px;
-  padding:11px 22px;
-  border:1px solid var(--teal);
-  color:var(--teal);
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.75rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:.25s ease;
-}
+p{margin-bottom:16px;color:var(--vellum-dim);line-height:1.7;}
 
-.github:hover{
-  background:var(--teal);
-  color:var(--paper);
-}
-
-/* ---------- TECH ---------- */
-.tech-stack{
-  border-top:1px solid var(--hairline);
-  padding-top:50px;
-}
-
-.tech-icons{
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-  gap:36px;
-  justify-items:center;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+img{
+  width:100%;
+  border-radius:8px;
+  border:1px solid var(--hairline);
 }
 
 .tech{
+  margin-top:40px;
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
+  gap:18px;
+  flex-wrap:wrap;
+  font-family:'IBM Plex Mono';
+  font-size:.75rem;
+  color:var(--vellum-dim);
 }
 
-.tech img{
-  width:48px;
-  height:48px;
-  transition:.3s ease;
-}
-
-.tech:hover img{transform:translateY(-4px);}
-
-.tech span{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:.78rem;
-  color:var(--ink-muted);
-}
-
-/* ---------- GALLERY ---------- */
-.gallery{
-  border-top:1px solid var(--hairline);
-  padding-top:50px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.gallery img{
-  width:100%;
-  border-radius:10px;
-  border:1px solid var(--hairline);
-  transition:.3s ease;
-}
-
-.gallery img:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(35,43,39,.12);
-}
-
-@media(max-width:700px){
-  .content{grid-template-columns:1fr;}
-}
 </style>
 </head>
 
 <body>
 
-<header class="site-nav">
+<div class="candleglow"></div>
+<div class="vignette"></div>
+<div class="frame"></div>
+
+<div class="layer">
+
+<header>
   <div class="wrap">
-    <div class="brand">M. Unlu</div>
-    <a class="back" href="../index.html">← Back to Home</a>
+    <div class="brand">M. UNLU</div>
+    <a class="back" href="../index.html">← Back</a>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="page-head">
-    <div class="eyebrow">Research — University of Texas at Austin</div>
-    <h1>Magnetic Fields Modeling</h1>
+<div class="wrap page">
+
+<h1>Magnetic Fields Modeling</h1>
+<h2>University of Texas at Austin</h2>
+
+<div class="grid">
+  <img src="../images/image.png" />
+
+  <div>
+    <p>Worked with Dr. Krista Soderlund, Dr. Chi Yan, and Dr. Dunyu Liu on planetary magnetic field simulations using HPC systems.</p>
+    <p>Modeled core–mantle conductivity structures and analyzed magnetic stability under varying rotational regimes.</p>
+    <p>Performed numerical studies of zonal flow dynamics and planetary field evolution.</p>
   </div>
 </div>
 
-<div class="wrap">
+<div class="tech">
+  <span>Fortran</span>
+  <span>MPI</span>
+  <span>Python</span>
+  <span>HPC / TACC</span>
+</div>
 
-<section>
-  <div class="content">
-    <img src="../images/image.png" alt="Magnetic field simulation">
-
-    <div class="text">
-      <p>Worked with <strong>Dr. Krista Soderlund</strong>, <strong>Dr. Chi Yan</strong>, and <strong>Dr. Dunyu Liu</strong> on planetary magnetic field modeling.</p>
-
-      <p>Simulated magnetic and kinetic fields using HPC systems and validated core–mantle conductivity structures.</p>
-
-      <p>Performed numerical analysis of zonal flows, tilt behavior, and magnetic surface stability.</p>
-
-      <a class="github" href="https://github.com/dunyuliu/magic.bmo.git" target="_blank">
-        View GitHub Code →
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="tech-stack">
-  <div class="tech-icons">
-    <div class="tech"><img src="../images/Fortran_logo.svg.png"><span>Fortran</span></div>
-    <div class="tech"><img src="../images/images.png"><span>MPI</span></div>
-    <div class="tech"><img src="../images/images (5).jpg"><span>Python</span></div>
-    <div class="tech"><img src="../images/images (1).png"><span>Linux / HPC</span></div>
-    <div class="tech"><img src="../images/images (2).png"><span>TACC</span></div>
-  </div>
-</section>
-
-<section class="gallery">
-  <img src="../images/Img2.png">
-  <img src="../images/IMG3.png">
-</section>
-
+</div>
 </div>
 
 </body>
